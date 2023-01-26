@@ -38,4 +38,6 @@ const materials = [
   // with arrow functions you can omit the parentheses if you are only passing one parameter to the function
   
 const myName = name => { return name };
-console.log(myName('Bryan'))
+console.log( myName( 'Bryan' ) );
+const myNameImplicit = name =>  name ;
+console.log( myNameImplicit( 'Bryan' ) );
