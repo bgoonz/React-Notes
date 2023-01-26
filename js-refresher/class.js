@@ -1,4 +1,8 @@
 class Person {
-    name = "Bryan"
-    call = name => name;
+    constructor () {
+      this.name = "Bryan"
+    }
+    printMyName() {
+        console.log(this.name)
+    }
 }
