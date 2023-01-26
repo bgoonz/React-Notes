@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import Backdrop from './Backdrop';
-import Modal from './Modal';
+import Backdrop from "./Backdrop";
+import Modal from "./Modal";
 
 function Todo(props) {
   const [showModal, setShowModal] = useState();
@@ -15,15 +15,15 @@ function Todo(props) {
   }
 
   return (
-    <div className='card'>
+    <div className="card">
       <h2>{props.text}</h2>
-      <div className='actions'>
-        <button className='btn' onClick={showModalHandler}>
+      <div className="actions">
+        <button className="btn" onClick={showModalHandler}>
           Delete
         </button>
       </div>
       {showModal && <Backdrop onClick={closeModalHandler} />}
-      {showModal && <Modal text='Are you sure?' onClose={closeModalHandler} />}
+      {showModal && <Modal text="Are you sure?" onClose={closeModalHandler} />}
     </div>
   );
 }

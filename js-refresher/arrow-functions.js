@@ -1,14 +1,12 @@
-function multiplyByFive( multiplier ) {
-    return multiplier * 5;
+function multiplyByFive(multiplier) {
+  return multiplier * 5;
 }
-console.log( multiplyByFive( 5 ) );//25
-
+console.log(multiplyByFive(5)); //25
 
 const multiplyByFiveArrow = (multiplier) => {
-    return multiplier * 5;
-}
-console.log( multiplyByFiveArrow( 5 ) );//25
-
+  return multiplier * 5;
+};
+console.log(multiplyByFiveArrow(5)); //25
 
 /*
 Arrow function expressions
@@ -23,21 +21,16 @@ Arrow functions cannot be used as constructors. Calling them with new throws a T
 Arrow functions cannot use yield within their body and cannot be created as generator functions.
 
 */
-const materials = [
-    'Hydrogen',
-    'Helium',
-    'Lithium',
-    'Beryllium'
-  ];
-  
-  console.log(materials.map(material => material.length));
-  // Expected output: Array [8, 6, 7, 9]
+const materials = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
 
-  
-  
-  // with arrow functions you can omit the parentheses if you are only passing one parameter to the function
-  
-const myName = name => { return name };
-console.log( myName( 'Bryan' ) );
-const myNameImplicit = name =>  name ;
-console.log( myNameImplicit( 'Bryan' ) );
+console.log(materials.map((material) => material.length));
+// Expected output: Array [8, 6, 7, 9]
+
+// with arrow functions you can omit the parentheses if you are only passing one parameter to the function
+
+const myName = (name) => {
+  return name;
+};
+console.log(myName("Bryan"));
+const myNameImplicit = (name) => name;
+console.log(myNameImplicit("Bryan"));

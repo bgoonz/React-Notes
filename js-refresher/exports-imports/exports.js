@@ -1,5 +1,5 @@
 const person = {
-    name:'Bryan'
-}
+  name: "Bryan",
+};
 
-export default person
+export default person;
