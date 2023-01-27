@@ -10,7 +10,5 @@ console.log( num1, num3 );
 
 
 
-//Object Destructuring
-
 
 
