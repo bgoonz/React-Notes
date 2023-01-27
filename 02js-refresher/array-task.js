@@ -9,11 +9,10 @@ function transformToObjects(numberArray) {
 }
 */
 function transformToObjects(numberArray) {
-    const arrOfObjects = numberArray.map( ( el ) => {
-    return {val:el}
-    } )
-    return arrOfObjects;
+  const arrOfObjects = numberArray.map((el) => {
+    return { val: el };
+  });
+  return arrOfObjects;
 }
 
-
-console.log(transformToObjects([1,2,3]))
+console.log(transformToObjects([1, 2, 3]));
