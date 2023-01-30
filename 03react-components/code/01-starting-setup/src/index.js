@@ -8,4 +8,4 @@ import App from "./App";
 // the line below 'createRoot' is the main hook and tells the webpage where you want to put the entry point of the react application
 //corresponds to the div with id='root' in the index.html where we want to inject our React UI ... document.getElementById("root"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);// render method tells react what should be rendered on the root element
+root.render(<App />); // render method tells react what should be rendered on the root element
