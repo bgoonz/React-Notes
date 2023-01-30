@@ -1,5 +1,6 @@
 // a component in react is just a javascript function
 import React from 'react'
+import './ExpenseItem.css'
 function ExpenseItem() {
     return (
       <div>
