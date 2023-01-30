@@ -1,6 +1,15 @@
 // a component in react is just a javascript function
-import React from "react";
 function ExpenseItem() {
-  return <h2>Expense Item!</h2>;
-}
-export default ExpenseItem;
+    return (
+      <div>
+        <div>March 28th 2021</div>
+        <div>
+          <h2>Car Insurance</h2>
+          <div>$294.67</div>
+        </div>
+      </div>
+    );
+  }
+  
+  export default ExpenseItem;
+  
