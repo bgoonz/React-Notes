@@ -1,17 +1,18 @@
 // a component in react is just a javascript function
 import React from 'react'
-import './ExpenseItem.css'
+import "./ExpenseItem.css";
+
 function ExpenseItem() {
-    return (
-      <div>
-        <div>March 28th 2021</div>
-        <div>
-          <h2>Car Insurance</h2>
-          <div>$294.67</div>
-        </div>
+  return (
+    <div className="expense-item">
+      <div>March 28th 2021</div>
+      <div className="expense-item__description">
+        <h2>Car Insurance</h2>
+        <div className="expense-item__price">$294.67</div>
       </div>
-    );
-  }
-  
-  export default ExpenseItem;
+    </div>
+  );
+}
+
+export default ExpenseItem;
   
