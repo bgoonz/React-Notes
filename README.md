@@ -30,3 +30,10 @@ export default Card;
 - props.children works because children is a reserved keyword in react and the value of the children prop will always be the content between the opening closing tags of your custom component.
 
 > props.children is important for composition using a custom wrapper component often used to apply styles that are shared among components
+
+
+#### A closer look at JSX
+
+> in package.json we use react and reactDOM 
+
+

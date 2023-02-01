@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import Expenses from "./components/Expenses";
 // JSX is short for javascript xml (html is a kind of xml?)

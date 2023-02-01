@@ -29,7 +29,7 @@ The **second product item** is expected to display the following information:
 ## App.js
 
 ```js
-import React from "react";
+
 
 import Product from "./Product";
 import "./styles.css";
@@ -71,7 +71,7 @@ export default function App() {
 ## Product.js
 
 ```js
-import React from "react";
+
 
 export default function Product(props) {
   return (

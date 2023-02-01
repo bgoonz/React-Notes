@@ -1,5 +1,5 @@
 // a component in react is just a javascript function
-import React from "react";
+
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "./Card";
