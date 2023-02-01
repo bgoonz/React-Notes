@@ -14,3 +14,21 @@ udemy-course
 #### Composition
 
 > in react building components using a series of smaller components is called composition
+
+#### Container Copmonents
+
+```js
+import React from 'react';
+import './Card.css'
+function Card(props) {
+    return (
+        <div className="card">{props.children }</div>
+    )
+}
+
+export default Card;
+
+
+```
+
+- props.children works because children is a reserved keyword in react and the value of the children prop will always be the content between the opening closing tags of your custom component.
