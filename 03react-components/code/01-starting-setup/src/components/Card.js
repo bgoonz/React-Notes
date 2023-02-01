@@ -1,3 +1,5 @@
+//This is a reusable wrapper component
+
 import React from 'react';
 import './Card.css'
 function Card( props ) {
