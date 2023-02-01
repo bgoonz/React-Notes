@@ -2,7 +2,7 @@
 git:
 
 	git add .
-	git commit -m "m update"
+	git commit -m "update"
 	git push -u origin $(shell git rev-parse --abbrev-ref HEAD)
 	
 
