@@ -1,4 +1,4 @@
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
 // JSX is short for javascript xml (html is a kind of xml?)
 function App() {
