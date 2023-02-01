@@ -36,4 +36,18 @@ export default Card;
 
 > in package.json we use react and reactDOM 
 
+```js
+import React from 'react';
+      // when you use jsx it is this(React.createElement ... requires importing React from react) method that gets called behind the scenes.
+    /* the second argument is an object tha configures atributes of element... in here none so empty object*/
+    // the third and subsequent arguments are the children of each sucessivly nested element or component.
+  return React.createElement(
+    "div",
+    {},
+      React.createElement( "h2", {}, `Let's get started!` ),
+    React.createElement(Expenses,{items:expenses})
+  );
+
+```
+
 

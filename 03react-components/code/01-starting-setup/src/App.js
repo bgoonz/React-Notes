@@ -1,6 +1,5 @@
-
-
 import Expenses from "./components/Expenses";
+
 // JSX is short for javascript xml (html is a kind of xml?)
 function App() {
   // we return html code inside of a javascript file... this is not valid js code ... it is JSX which is a special syntax invented by the react team
@@ -32,12 +31,14 @@ function App() {
     },
   ];
 
-  return (
-    <div>
-      <h2>Let's get started!</h2>
-      <Expenses items={expenses} />
-    </div>
-  );
+
+
+    return (
+      <div>
+        <h2>Let's get started!</h2>
+        <Expenses items={expenses} />
+      </div>
+    );
 }
 
 export default App;
