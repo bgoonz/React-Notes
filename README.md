@@ -76,3 +76,13 @@ i.e.
 ```
 
 > all the on-event handler props want a function passed as a value which will be executed when the event occurs.
+
+
+- It is convention that you name your eventHandler functions as the event name + Handler i.e. clickHandler, submitHandler, etc.
+
+```js
+  const clickHandler = () => {
+    setTitle("Updated!");
+    console.log(title);
+  };
+```
