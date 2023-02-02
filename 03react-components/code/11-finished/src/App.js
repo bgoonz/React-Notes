@@ -1,5 +1,3 @@
-
-
 import Expenses from "./components/Expenses/Expenses";
 
 const App = () => {

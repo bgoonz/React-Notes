@@ -1,6 +1,6 @@
 Exercise: Passing Data via "props"
 
-You're working on the UI prototype for an online shop and your task is to output **two product items** (via the `<Product />` component you find in the `Product.js` file) below the main page title (`"My Demo Shop"`) in the `App` component.
+You're working on the UI prototype for an online shop and your task is to output **two product items** (via the `<Product />` component you find in the `Product.js` file) below the main page title (`"My Demo Shop"`) in the `App` component.
 
 The **final UI** should look like this:
 
@@ -29,8 +29,6 @@ The **second product item** is expected to display the following information:
 ## App.js
 
 ```js
-
-
 import Product from "./Product";
 import "./styles.css";
 
@@ -71,8 +69,6 @@ export default function App() {
 ## Product.js
 
 ```js
-
-
 export default function Product(props) {
   return (
     <article className="product">
