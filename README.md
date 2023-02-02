@@ -83,3 +83,25 @@ const clickHandler = () => {
   console.log(title);
 };
 ```
+
+### UseState
+
+> useState is a react hook that allows you to manage state in functional components.
+
+```js
+// let title = props.title;
+const [title, setTitle] = useState(props.title);
+```
+
+- We can't use let title = props.title because react will only run the function once and not re-run it when the state changes. so we use useState to manage state in functional components.
+
+```js
+import React, { useState } from "react";
+```
+
+> here {UseState} is a `named import` from react
+
+- useState is a React hook that returns an array with 2 elements, the first element is the current state and the second element is a function that allows us to update the state.
+
+- useState is declared inside of our component function.
+-
