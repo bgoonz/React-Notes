@@ -7,28 +7,26 @@ To start with your work, your task is to *"connect"* a **click event** liste
 ## Starter Cide
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 // don't change the Component name "App"
 export default function App() {
-    return <button>Bookmark</button>;
+  return <button>Bookmark</button>;
 }
-
-
 ```
 
 ## Solution
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 // don't change the Component name "App"
 export default function App() {
-    const clickHandler = ()=>{
-        console.log('Stored!')
-    }
-    return <button onClick={clickHandler}>Bookmark</button>;
+  const clickHandler = () => {
+    console.log("Stored!");
+  };
+  return <button onClick={clickHandler}>Bookmark</button>;
 }
 ```

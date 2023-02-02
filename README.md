@@ -1,7 +1,5 @@
 # React-Complete-Guide-Course
 
-
-
 #### What is React?
 
 > A javascript library for building User Interfaces based on reusable components.
@@ -47,42 +45,41 @@ return React.createElement(
   React.createElement(Expenses, { items: expenses })
 );
 ```
+
 ---
+
 ---
 
 ## Events
 
 - On all bult in html elements in react we have access to native dom events... we can use them in react by adding a prop to the element and setting it to a function that will be executed when the event occurs.
 
-
 - Imperative approach:
 
 ```js
-document.getElementById('root').addEventListener('click', () => {
-  console.log('clicked')
-})
+document.getElementById("root").addEventListener("click", () => {
+  console.log("clicked");
+});
 ```
 
 > In react we add a special prop to the element we want to listen to and set it to a function that will be executed when the event occurs.
 
-
 > React exposes events as props that start with prefix on... so onClick, onChange, onSubmit, etc.
 
 i.e.
-    
+
 ```jsx
-        <button onClick={clickHandler}>Change Title</button>
-        //here we are just pointing to the function and not calling it
+<button onClick={clickHandler}>Change Title</button>
+//here we are just pointing to the function and not calling it
 ```
 
 > all the on-event handler props want a function passed as a value which will be executed when the event occurs.
 
-
 - It is convention that you name your eventHandler functions as the event name + Handler i.e. clickHandler, submitHandler, etc.
 
 ```js
-  const clickHandler = () => {
-    setTitle("Updated!");
-    console.log(title);
-  };
+const clickHandler = () => {
+  setTitle("Updated!");
+  console.log(title);
+};
 ```
