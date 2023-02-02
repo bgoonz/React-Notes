@@ -193,3 +193,24 @@ document.getElementById("root").addEventListener("click", (event) => {
   console.log("clicked");
 });
 ```
+
+
+
+- The following syntax:
+
+```js
+  const titleChangeHandler = (event) => {
+
+    setUserInput({ ...userInput, enteredTitle: event.target.value });
+  };
+  const amountChangeHandler = (event) => {
+
+    setUserInput({ ...userInput, enteredAmount: event.target.value });
+  };
+  const dateChangeHandler = (event) => {
+
+    setUserInput({ ...userInput, enteredDate: event.target.value });
+  };
+
+```
+takes all of the properties of the userInput object and adds them to a new object. It then overwrites the enteredTitle property with the new value. This is called merging objects. It is a common pattern in react to merge objects when you want to update a state property that is an object.
