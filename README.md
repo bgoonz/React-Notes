@@ -306,6 +306,8 @@ export default ExpenseForm;
 
 ```js
 <input type="text" value="" onChange={titleChangeHandler} />
+// onChange is a prop that wants a function as a value
+
 ```
 
 This will set the internal value property which every input element has and we can set it to a new value.
@@ -336,3 +338,12 @@ const submitHandler = (event) => {
     ```
 
 ````
+
+
+##### How to pass data from child to parent component:
+> we pass data from parent to child via props and from child to parent via function props.
+
+> We can pass data from child to parent via function props.We can create our own event props that expect functions as values which allows us to pass a function from a parent component to a child component and then call that function inside of the child component. When we call said function we can pass data to that function as a parameter and that data will then be passed back to the parent component.
+
+
+> props can only be passed from parent component to child and we can't skip intermediate components.
