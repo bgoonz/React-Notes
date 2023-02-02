@@ -289,3 +289,24 @@ const ExpenseForm = () => {
 
 export default ExpenseForm;
 ```
+
+
+##### Submitting and Working with Form Data:
+
+
+```js
+
+    const submitHandler = ( event ) => {
+        event.preventDefault();
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date( enteredDate ),
+        };
+  return (
+      <form onSubmit={ submitHandler}>
+
+```
+
+- onSubmit is a special event that is triggered when the form is submitted. It submits a request to the server, in this case the development server and that's not what we want here.
+- Here we want to prevent the default behavior of the form and instead handle the data ourselves. We do this by calling event.preventDefault() in the submitHandler function.
