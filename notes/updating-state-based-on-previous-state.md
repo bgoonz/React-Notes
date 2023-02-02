@@ -16,12 +16,42 @@ Whilst this task allows you to **apply your general knowledge** about event ha
 ## Starter Code
 
 ```jsx
+import React from 'react';
+
+import './styles.css';
+
+// don't change the Component name "App"
+export default function App() {
+    return (
+      <div>
+        <p id="counter"></p>
+        <button>Increment</button>
+      </div>
+    );
+}
 
 ```
 
 ## Solution
 
 ```jsx
+import React from 'react';
 
+import './styles.css';
+
+// don't change the Component name "App"
+export default function App() {
+    const [counter,setCounter]=React.useState(0);
+    const incrementCounterHandler = ()=>{
+       setCounter(prevCounter => prevCounter + 1);
+    }
+    
+    return (
+       <div>
+        <p id="counter">{counter}</p>
+        <button onClick={incrementCounterHandler}>Increment</button>
+      </div>
+    );
+}
 ```
 
