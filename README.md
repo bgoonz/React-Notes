@@ -214,3 +214,78 @@ document.getElementById("root").addEventListener("click", (event) => {
 
 ```
 takes all of the properties of the userInput object and adds them to a new object. It then overwrites the enteredTitle property with the new value. This is called merging objects. It is a common pattern in react to merge objects when you want to update a state property that is an object.
+
+
+
+###### Single State version of Expense Form:
+    
+```js
+import React, { useState } from "react";
+import "./ExpenseForm.css";
+const ExpenseForm = () => {
+    //   const [enteredTitle, setEnteredTitle] = useState("");
+    //   const [enteredAmount, setEnteredAmount] = useState("");
+    //   const [enteredDate, setEnteredDate] = useState("");
+    const [ userInput, setUserInput ] = useState( {
+        enteredTitle: "",
+        enteredAmount: "",
+        enteredDate: "",
+    } );
+
+    const titleChangeHandler = ( event ) => {
+        console.log( "title change event: value:", event.target.value );
+        // setEnteredTitle(event.target.value);
+        setUserInput( ( previousState ) => {
+            return { ...userInput, enteredTitle: event.target.value };
+        } );
+    };
+    const amountChangeHandler = ( event ) => {
+        console.log( "amount change event: value:", event.target.value ); //event.target.value is a string even if the input type is number
+        // setEnteredAmount(event.target.value);
+        setUserInput( ( previousState ) => {
+            return{ ...userInput, enteredAmount: event.target.value }
+} );
+  };
+  const dateChangeHandler = (event) => {
+    console.log("date change event: value:", event.target.value);
+    // setEnteredDate(event.target.value);
+      setUserInput( ( previousState ) => {
+          return { ...userInput, enteredDate: event.target.value }
+      } );
+  };
+
+  return (
+    <form>
+      <div className="new-expense__controls">
+        <div className="new-expense__control">
+          <label>Title</label>
+          <input type="text" onChange={titleChangeHandler} />
+        </div>
+        <div className="new-expense__control">
+          <label>Amount</label>
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            onChange={amountChangeHandler}
+          />
+        </div>
+        <div className="new-expense__control">
+          <label>Date</label>
+          <input
+            type="date"
+            min="2019-01-01"
+            max="2023-12-31"
+            onChange={dateChangeHandler}
+          />
+        </div>
+      </div>
+      <div className="new-expense__actions">
+        <button type="submit">Add Expense</button>
+      </div>
+    </form>
+  );
+};
+
+export default ExpenseForm;
+```
