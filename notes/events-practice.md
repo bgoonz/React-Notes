@@ -4,7 +4,7 @@ Imagine you're working on a brand-new React app that should allow users to bookm
 
 To start with your work, your task is to *"connect"* a **click event** listener to an already existing button and **output** "`Stored!`" via `console.log()`. And, of course, you should do that *"the React way"*.
 
-## Starter Cide
+## Starter Code
 
 ```jsx
 import React from "react";

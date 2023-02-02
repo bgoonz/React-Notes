@@ -173,4 +173,14 @@ const ExpenseItem = (props) => {
 export default ExpenseItem;
 ```
 
-- In the above code calling setTitle("Updated!") will not update the title variable but will update the state variable which will cause react to re-evaluate the component and update the dom.
+- In the above code calling setTitle("Updated!") will not update the title variable but will update the state variable which will cause react to re-evaluate the component function and update the dom. Changes to the state will cause react to re-render the component on which the state is used and only that component. 
+
+
+- Notice that below
+
+```js
+  const [title, setTitle] = useState(props.title);
+  ```
+  - we are using const here even though we do eventually assign a new value to title. This is because we are not reassigning the variable title but rather the state variable which is managed by react.
+
+- The line above is exicuted whenever the component is re-evaulated by react. So if the state changes react will re-evaluate the component and re-execute the useState hook.
