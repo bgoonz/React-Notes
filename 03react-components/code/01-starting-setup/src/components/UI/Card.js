@@ -2,7 +2,7 @@
 
 import "./Card.css";
 
-const Card = props => {
+const Card = (props) => {
   const classes = "card " + props.className; // need white space after 'card '
   return <div className={classes}>{props.children}</div>;
 };
