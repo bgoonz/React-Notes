@@ -114,5 +114,63 @@ import React, { useState } from "react";
   const [title, setTitle] = useState(props.title);
   ```
   
+ - the initial value of title is the value of props.title which is passed in as a prop from the parent component.
+
+- We can use the update state function (setTitle) to update the state.
+
+The useState hook always returns an array with these two elements.
+
+Now instead of using the title variable we use the state variable.
+
+- So
+
+```js
+  const clickHandler = () => {
+    title = "Updated!";
+    console.log(title);
+  };
+  ```
   
-  
+    - becomes
+
+```js
+  const clickHandler = () => {
+    setTitle("Updated!");
+    console.log(title);
+  };
+  ```
+
+###### Expense Item Code:
+
+```js
+import React, { useState } from "react";
+import ExpenseDate from "./ExpenseDate";
+import Card from "../UI/Card";
+import "./ExpenseItem.css";
+
+const ExpenseItem = (props) => {
+  // let title = props.title;
+  const [title, setTitle] = useState(props.title);
+  console.log("ExpenseItem evaluated by React");
+
+  const clickHandler = () => {
+    setTitle("Updated!");
+    console.log(title);
+  };
+
+  return (
+    <Card className="expense-item">
+      <ExpenseDate date={props.date} />
+      <div className="expense-item__description">
+        <h2>{title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
+      </div>
+      <button onClick={clickHandler}>Change Title</button>
+    </Card>
+  );
+};
+
+export default ExpenseItem;
+```
+
+- In the above code calling setTitle("Updated!") will not update the title variable but will update the state variable which will cause react to re-evaluate the component and update the dom.
