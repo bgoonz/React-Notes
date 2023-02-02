@@ -52,7 +52,7 @@ return React.createElement(
 
 ## Events
 
-- On all bultin html elements in react we have access to native dom events... we can use them in react by adding a prop to the element and setting it to a function that will be executed when the event occurs.
+- On all bult in html elements in react we have access to native dom events... we can use them in react by adding a prop to the element and setting it to a function that will be executed when the event occurs.
 
 
 - Imperative approach:
@@ -72,6 +72,7 @@ i.e.
     
 ```jsx
         <button onClick={clickHandler}>Change Title</button>
+        //here we are just pointing to the function and not calling it
 ```
 
 > all the on-event handler props want a function passed as a value which will be executed when the event occurs.
