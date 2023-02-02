@@ -105,16 +105,15 @@ import React, { useState } from "react";
 
 - useState is declared inside of our component function. It should be called at the top level of the function... do not nest UseState inside of if statements or loops or other functions.
 
-- UseState wants a default value as an argument. This is the  initial value that will be used when the component is first rendered.
-
+- UseState wants a default value as an argument. This is the initial value that will be used when the component is first rendered.
 
 ###### We use array destructuring to store the current state and update state function in variables.
 
 ```js
-  const [title, setTitle] = useState(props.title);
-  ```
-  
- - the initial value of title is the value of props.title which is passed in as a prop from the parent component.
+const [title, setTitle] = useState(props.title);
+```
+
+- the initial value of title is the value of props.title which is passed in as a prop from the parent component.
 
 - We can use the update state function (setTitle) to update the state.
 
@@ -125,20 +124,20 @@ Now instead of using the title variable we use the state variable.
 - So
 
 ```js
-  const clickHandler = () => {
-    title = "Updated!";
-    console.log(title);
-  };
-  ```
-  
+const clickHandler = () => {
+  title = "Updated!";
+  console.log(title);
+};
+```
+
     - becomes
 
 ```js
-  const clickHandler = () => {
-    setTitle("Updated!");
-    console.log(title);
-  };
-  ```
+const clickHandler = () => {
+  setTitle("Updated!");
+  console.log(title);
+};
+```
 
 ###### Expense Item Code:
 
@@ -173,14 +172,24 @@ const ExpenseItem = (props) => {
 export default ExpenseItem;
 ```
 
-- In the above code calling setTitle("Updated!") will not update the title variable but will update the state variable which will cause react to re-evaluate the component function and update the dom. Changes to the state will cause react to re-render the component on which the state is used and only that component. 
-
+- In the above code calling setTitle("Updated!") will not update the title variable but will update the state variable which will cause react to re-evaluate the component function and update the dom. Changes to the state will cause react to re-render the component on which the state is used and only that component.
 
 - Notice that below
 
 ```js
-  const [title, setTitle] = useState(props.title);
-  ```
-  - we are using const here even though we do eventually assign a new value to title. This is because we are not reassigning the variable title but rather the state variable which is managed by react.
+const [title, setTitle] = useState(props.title);
+```
+
+- we are using const here even though we do eventually assign a new value to title. This is because we are not reassigning the variable title but rather the state variable which is managed by react.
 
 - The line above is exicuted whenever the component is re-evaulated by react. So if the state changes react will re-evaluate the component and re-execute the useState hook.
+
+
+
+###### Events in vanilla javascript:
+
+```js
+document.getElementById("root").addEventListener("click", (event) => {
+  console.log("clicked");
+});
+```

@@ -10,50 +10,46 @@ Upon a button click, the **price should change** from `$100` to `$75`.
 
 ---
 
-*Important: When using React Hooks like *`*useState()*`*, make sure to use them via *`*React.useState()*`* instead of just importing and using *`*useState()*`* standalone. This Udemy code editor / environment might fail to display the UI when not using *`*React.useState()*`*!*
-
-
+_Important: When using React Hooks like _`*useState()*`_, make sure to use them via _`*React.useState()*`_ instead of just importing and using _`*useState()*`_ standalone. This Udemy code editor / environment might fail to display the UI when not using _`*React.useState()*`_!_
 
 ## Starter Code
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
 // don't change the Component name "App"
 // important: In this code editor, use React.useState() instead of just useState()
 export default function App() {
-    return (
-        <div>
-            <p>$100</p>
-            <button>Apply Discount</button>
-        </div>
-    );
+  return (
+    <div>
+      <p>$100</p>
+      <button>Apply Discount</button>
+    </div>
+  );
 }
-
 ```
 
 ## Solution
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
 // don't change the Component name "App"
 // important: In this code editor, use React.useState() instead of just useState()
 export default function App() {
-    const [price,setPrice]=React.useState(100)
-    const clickHandler = ()=>{
-        setPrice(75);
-    }
-    return (
-        <div>
-            <p>${price}</p>
-            <button onClick={clickHandler}>Apply Discount</button>
-        </div>
-    );
+  const [price, setPrice] = React.useState(100);
+  const clickHandler = () => {
+    setPrice(75);
+  };
+  return (
+    <div>
+      <p>${price}</p>
+      <button onClick={clickHandler}>Apply Discount</button>
+    </div>
+  );
 }
-
 ```

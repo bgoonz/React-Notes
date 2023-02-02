@@ -1,8 +1,4 @@
-
-
-
 # SyntheticEvent
-
 
 Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
 
@@ -34,35 +30,33 @@ string type
 >
 > As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
 
-[](https://reactjs.org/docs/events.html#supported-events)Supported Events
--------------------------------------------------------------------------
+## [](https://reactjs.org/docs/events.html#supported-events)Supported Events
 
 React normalizes events so that they have consistent properties across different browsers.
 
 The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
 
--   [Clipboard Events](https://reactjs.org/docs/events.html#clipboard-events)
--   [Composition Events](https://reactjs.org/docs/events.html#composition-events)
--   [Keyboard Events](https://reactjs.org/docs/events.html#keyboard-events)
--   [Focus Events](https://reactjs.org/docs/events.html#focus-events)
--   [Form Events](https://reactjs.org/docs/events.html#form-events)
--   [Generic Events](https://reactjs.org/docs/events.html#generic-events)
--   [Mouse Events](https://reactjs.org/docs/events.html#mouse-events)
--   [Pointer Events](https://reactjs.org/docs/events.html#pointer-events)
--   [Selection Events](https://reactjs.org/docs/events.html#selection-events)
--   [Touch Events](https://reactjs.org/docs/events.html#touch-events)
--   [UI Events](https://reactjs.org/docs/events.html#ui-events)
--   [Wheel Events](https://reactjs.org/docs/events.html#wheel-events)
--   [Media Events](https://reactjs.org/docs/events.html#media-events)
--   [Image Events](https://reactjs.org/docs/events.html#image-events)
--   [Animation Events](https://reactjs.org/docs/events.html#animation-events)
--   [Transition Events](https://reactjs.org/docs/events.html#transition-events)
--   [Other Events](https://reactjs.org/docs/events.html#other-events)
+- [Clipboard Events](https://reactjs.org/docs/events.html#clipboard-events)
+- [Composition Events](https://reactjs.org/docs/events.html#composition-events)
+- [Keyboard Events](https://reactjs.org/docs/events.html#keyboard-events)
+- [Focus Events](https://reactjs.org/docs/events.html#focus-events)
+- [Form Events](https://reactjs.org/docs/events.html#form-events)
+- [Generic Events](https://reactjs.org/docs/events.html#generic-events)
+- [Mouse Events](https://reactjs.org/docs/events.html#mouse-events)
+- [Pointer Events](https://reactjs.org/docs/events.html#pointer-events)
+- [Selection Events](https://reactjs.org/docs/events.html#selection-events)
+- [Touch Events](https://reactjs.org/docs/events.html#touch-events)
+- [UI Events](https://reactjs.org/docs/events.html#ui-events)
+- [Wheel Events](https://reactjs.org/docs/events.html#wheel-events)
+- [Media Events](https://reactjs.org/docs/events.html#media-events)
+- [Image Events](https://reactjs.org/docs/events.html#image-events)
+- [Animation Events](https://reactjs.org/docs/events.html#animation-events)
+- [Transition Events](https://reactjs.org/docs/events.html#transition-events)
+- [Other Events](https://reactjs.org/docs/events.html#other-events)
 
-* * * * *
+---
 
-[](https://reactjs.org/docs/events.html#reference)Reference
------------------------------------------------------------
+## [](https://reactjs.org/docs/events.html#reference)Reference
 
 ### [](https://reactjs.org/docs/events.html#clipboard-events)Clipboard Events
 
@@ -78,7 +72,7 @@ Properties:
 DOMDataTransfer clipboardData
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#composition-events)Composition Events
 
@@ -94,7 +88,7 @@ Properties:
 string data
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#keyboard-events)Keyboard Events
 
@@ -123,7 +117,7 @@ number which
 
 The `key` property can take any of the values documented in the [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#focus-events)Focus Events
 
@@ -150,11 +144,11 @@ function Example() {
   return (
     <input
       onFocus={(e) => {
-        console.log('Focused on input');
+        console.log("Focused on input");
       }}
       placeholder="onFocus is triggered when you click this input."
     />
-  )
+  );
 }
 ```
 
@@ -167,11 +161,11 @@ function Example() {
   return (
     <input
       onBlur={(e) => {
-        console.log('Triggered because this input lost focus');
+        console.log("Triggered because this input lost focus");
       }}
       placeholder="onBlur is triggered when you click this input and then you click outside of it."
     />
-  )
+  );
 }
 ```
 
@@ -186,24 +180,24 @@ function Example() {
       tabIndex={1}
       onFocus={(e) => {
         if (e.currentTarget === e.target) {
-          console.log('focused self');
+          console.log("focused self");
         } else {
-          console.log('focused child', e.target);
+          console.log("focused child", e.target);
         }
         if (!e.currentTarget.contains(e.relatedTarget)) {
           // Not triggered when swapping focus between children
-          console.log('focus entered self');
+          console.log("focus entered self");
         }
       }}
       onBlur={(e) => {
         if (e.currentTarget === e.target) {
-          console.log('unfocused self');
+          console.log("unfocused self");
         } else {
-          console.log('unfocused child', e.target);
+          console.log("unfocused child", e.target);
         }
         if (!e.currentTarget.contains(e.relatedTarget)) {
           // Not triggered when swapping focus between children
-          console.log('focus left self');
+          console.log("focus left self");
         }
       }}
     >
@@ -214,7 +208,7 @@ function Example() {
 }
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#form-events)Form Events
 
@@ -226,7 +220,7 @@ onChange onInput onInvalid onReset onSubmit
 
 For more information about the onChange event, see [Forms](https://reactjs.org/docs/forms.html).
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#generic-events)Generic Events
 
@@ -236,7 +230,7 @@ Event names:
 onError onLoad
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#mouse-events)Mouse Events
 
@@ -269,7 +263,7 @@ number screenY
 boolean shiftKey
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#pointer-events)Pointer Events
 
@@ -305,17 +299,17 @@ Pointer events are not yet supported in every browser (at the time of writing th
 
 If your application requires pointer events, we recommend adding a third party pointer event polyfill.
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#selection-events)Selection Events
 
 Event names:
 
 ```js
-onSelect
+onSelect;
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#touch-events)Touch Events
 
@@ -338,14 +332,14 @@ DOMTouchList targetTouches
 DOMTouchList touches
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#ui-events)UI Events
 
 Event names:
 
 ```js
-onScroll
+onScroll;
 ```
 
 > Note
@@ -359,14 +353,14 @@ number detail
 DOMAbstractView view
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#wheel-events)Wheel Events
 
 Event names:
 
 ```js
-onWheel
+onWheel;
 ```
 
 Properties:
@@ -378,7 +372,7 @@ number deltaY
 number deltaZ
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#media-events)Media Events
 
@@ -391,7 +385,7 @@ onPlaying onProgress onRateChange onSeeked onSeeking onStalled onSuspend
 onTimeUpdate onVolumeChange onWaiting
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#image-events)Image Events
 
@@ -401,7 +395,7 @@ Event names:
 onLoad onError
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#animation-events)Animation Events
 
@@ -419,14 +413,14 @@ string pseudoElement
 float elapsedTime
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#transition-events)Transition Events
 
 Event names:
 
 ```js
-onTransitionEnd
+onTransitionEnd;
 ```
 
 Properties:
@@ -437,12 +431,12 @@ string pseudoElement
 float elapsedTime
 ```
 
-* * * * *
+---
 
 ### [](https://reactjs.org/docs/events.html#other-events)Other Events
 
 Event names:
 
 ```js
-onToggle
+onToggle;
 ```
