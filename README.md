@@ -184,8 +184,6 @@ const [title, setTitle] = useState(props.title);
 
 - The line above is exicuted whenever the component is re-evaulated by react. So if the state changes react will re-evaluate the component and re-execute the useState hook.
 
-
-
 ###### Events in vanilla javascript:
 
 ```js
@@ -194,64 +192,57 @@ document.getElementById("root").addEventListener("click", (event) => {
 });
 ```
 
-
-
 - The following syntax:
 
 ```js
-  const titleChangeHandler = (event) => {
-
-    setUserInput({ ...userInput, enteredTitle: event.target.value });
-  };
-  const amountChangeHandler = (event) => {
-
-    setUserInput({ ...userInput, enteredAmount: event.target.value });
-  };
-  const dateChangeHandler = (event) => {
-
-    setUserInput({ ...userInput, enteredDate: event.target.value });
-  };
-
+const titleChangeHandler = (event) => {
+  setUserInput({ ...userInput, enteredTitle: event.target.value });
+};
+const amountChangeHandler = (event) => {
+  setUserInput({ ...userInput, enteredAmount: event.target.value });
+};
+const dateChangeHandler = (event) => {
+  setUserInput({ ...userInput, enteredDate: event.target.value });
+};
 ```
+
 takes all of the properties of the userInput object and adds them to a new object. It then overwrites the enteredTitle property with the new value. This is called merging objects. It is a common pattern in react to merge objects when you want to update a state property that is an object.
 
-
-
 ###### Single State version of Expense Form:
-    
+
 ```js
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 const ExpenseForm = () => {
-    //   const [enteredTitle, setEnteredTitle] = useState("");
-    //   const [enteredAmount, setEnteredAmount] = useState("");
-    //   const [enteredDate, setEnteredDate] = useState("");
-    const [ userInput, setUserInput ] = useState( {
-        enteredTitle: "",
-        enteredAmount: "",
-        enteredDate: "",
-    } );
+  //   const [enteredTitle, setEnteredTitle] = useState("");
+  //   const [enteredAmount, setEnteredAmount] = useState("");
+  //   const [enteredDate, setEnteredDate] = useState("");
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
 
-    const titleChangeHandler = ( event ) => {
-        console.log( "title change event: value:", event.target.value );
-        // setEnteredTitle(event.target.value);
-        setUserInput( ( previousState ) => {
-            return { ...userInput, enteredTitle: event.target.value };
-        } );
-    };
-    const amountChangeHandler = ( event ) => {
-        console.log( "amount change event: value:", event.target.value ); //event.target.value is a string even if the input type is number
-        // setEnteredAmount(event.target.value);
-        setUserInput( ( previousState ) => {
-            return{ ...userInput, enteredAmount: event.target.value }
-} );
+  const titleChangeHandler = (event) => {
+    console.log("title change event: value:", event.target.value);
+    // setEnteredTitle(event.target.value);
+    setUserInput((previousState) => {
+      return { ...userInput, enteredTitle: event.target.value };
+    });
+  };
+  const amountChangeHandler = (event) => {
+    console.log("amount change event: value:", event.target.value); //event.target.value is a string even if the input type is number
+    // setEnteredAmount(event.target.value);
+    setUserInput((previousState) => {
+      return { ...userInput, enteredAmount: event.target.value };
+    });
   };
   const dateChangeHandler = (event) => {
     console.log("date change event: value:", event.target.value);
     // setEnteredDate(event.target.value);
-      setUserInput( ( previousState ) => {
-          return { ...userInput, enteredDate: event.target.value }
-      } );
+    setUserInput((previousState) => {
+      return { ...userInput, enteredDate: event.target.value };
+    });
   };
 
   return (
@@ -290,9 +281,7 @@ const ExpenseForm = () => {
 export default ExpenseForm;
 ```
 
-
 ##### Submitting and Working with Form Data:
-
 
 ```js
 
@@ -310,3 +299,40 @@ export default ExpenseForm;
 
 - onSubmit is a special event that is triggered when the form is submitted. It submits a request to the server, in this case the development server and that's not what we want here.
 - Here we want to prevent the default behavior of the form and instead handle the data ourselves. We do this by calling event.preventDefault() in the submitHandler function.
+
+##### Two way binding:
+
+- For inputs we don't just listen for changes but we can aslo pass a new value back into the input so that we can reset the input programatically. This is called two way binding.
+
+```js
+<input type="text" value="" onChange={titleChangeHandler} />
+```
+
+This will set the internal value property which every input element has and we can set it to a new value.
+
+---
+
+```js
+const submitHandler = (event) => {
+  event.preventDefault();
+  const expenseData = {
+    title: enteredTitle,
+    amount: enteredAmount,
+    date: new Date(enteredDate),
+  };
+  console.log(expenseData);
+  setEnteredTitle("");
+  setEnteredAmount("");
+  setEnteredDate("");
+};
+```
+
+> We can clear the data after hittin submit using the following code:
+
+````js
+   setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
+    ```
+
+````

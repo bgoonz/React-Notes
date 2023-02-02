@@ -6,52 +6,45 @@ Whilst this task allows you to **apply your general knowledge** about event ha
 
 **Important**: Unfortunately, there's no way of automatically testing whether you used the best practice approach or not. Hence you should take a look at the "Solution explanation" to make sure you solved this task in the best possible way.
 
-*Also make sure to use React.useState() instead of just useState() as the latter might fail in Udemy's code environment!*
-
-
-
-
-
+_Also make sure to use React.useState() instead of just useState() as the latter might fail in Udemy's code environment!_
 
 ## Starter Code
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
 // don't change the Component name "App"
 export default function App() {
-    return (
-      <div>
-        <p id="counter"></p>
-        <button>Increment</button>
-      </div>
-    );
+  return (
+    <div>
+      <p id="counter"></p>
+      <button>Increment</button>
+    </div>
+  );
 }
-
 ```
 
 ## Solution
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
 // don't change the Component name "App"
 export default function App() {
-    const [counter,setCounter]=React.useState(0);
-    const incrementCounterHandler = ()=>{
-       setCounter(prevCounter => prevCounter + 1);
-    }
-    
-    return (
-       <div>
-        <p id="counter">{counter}</p>
-        <button onClick={incrementCounterHandler}>Increment</button>
-      </div>
-    );
+  const [counter, setCounter] = React.useState(0);
+  const incrementCounterHandler = () => {
+    setCounter((prevCounter) => prevCounter + 1);
+  };
+
+  return (
+    <div>
+      <p id="counter">{counter}</p>
+      <button onClick={incrementCounterHandler}>Increment</button>
+    </div>
+  );
 }
 ```
-

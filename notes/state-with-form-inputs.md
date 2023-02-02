@@ -16,35 +16,32 @@ To achieve this result, you should store the current** message** **validity**�
 
 To derive the proper state value (i.e., whether it should be `"Invalid"` or `"Valid"`), you could use this `if`-condition:
 
-1.  if  (value.trim().length <  3)  {
+1.  if (value.trim().length < 3) {
 2.  // Todo: Update state to say "Invalid"
-3.  }  else  {
+3.  } else {
 4.  // Todo: Update state to say "Valid"
 5.  }
 
 Of course, you must also output the state value as part of the App component's JSX code so that either `"Invalid message"` or `"Valid message"` is displayed.
 
-*Important: When working in this Udemy code editor, you must use *`*React.useState()*`* instead of just *`*useState()*`*!*
-
-
-
+_Important: When working in this Udemy code editor, you must use _`*React.useState()*`_ instead of just _`*useState()*`_!_
 
 ## Starter Code
 
 ```jsx
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import "./styles.css";
 
 // don't change the Component name "App"
 export default function App() {
-    return (
-        <form>
-            <label>Your message</label>
-            <input type="text" />
-            <p>Invalid message</p>
-        </form>
-    );
+  return (
+    <form>
+      <label>Your message</label>
+      <input type="text" />
+      <p>Invalid message</p>
+    </form>
+  );
 }
 ```
 
@@ -73,5 +70,4 @@ export default function App() {
     </form>
   );
 }
-
 ```

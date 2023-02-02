@@ -1,10 +1,6 @@
-
 ### ExpenseForm State
 
-
-
 ```jsx
-
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 const ExpenseForm = () => {
@@ -16,7 +12,7 @@ const ExpenseForm = () => {
     setEnteredTitle(event.target.value);
   };
   const amountChangeHandler = (event) => {
-    console.log("amount change event: value:", event.target.value);//event.target.value is a string even if the input type is number
+    console.log("amount change event: value:", event.target.value); //event.target.value is a string even if the input type is number
     setEnteredAmount(event.target.value);
   };
   const dateChangeHandler = (event) => {
@@ -58,5 +54,4 @@ const ExpenseForm = () => {
 };
 
 export default ExpenseForm;
-
 ```
