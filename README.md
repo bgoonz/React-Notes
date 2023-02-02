@@ -103,5 +103,16 @@ import React, { useState } from "react";
 
 - useState is a React hook that returns an array with 2 elements, the first element is the current state and the second element is a function that allows us to update the state.
 
-- useState is declared inside of our component function.
--
+- useState is declared inside of our component function. It should be called at the top level of the function... do not nest UseState inside of if statements or loops or other functions.
+
+- UseState wants a default value as an argument. This is the  initial value that will be used when the component is first rendered.
+
+
+###### We use array destructuring to store the current state and update state function in variables.
+
+```js
+  const [title, setTitle] = useState(props.title);
+  ```
+  
+  
+  
