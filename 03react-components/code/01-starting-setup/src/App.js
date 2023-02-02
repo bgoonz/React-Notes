@@ -1,7 +1,7 @@
 import Expenses from "./components/Expenses/Expenses";
 
 // JSX is short for javascript xml (html is a kind of xml?)
-function App() {
+const App = () => {
   // we return html code inside of a javascript file... this is not valid js code ... it is JSX which is a special syntax invented by the react team
   // In regular javascript you would use an imperative approach
   //document.getElementById('root')
@@ -37,6 +37,6 @@ function App() {
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
