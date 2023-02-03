@@ -347,3 +347,6 @@ const submitHandler = (event) => {
 
 
 > props can only be passed from parent component to child and we can't skip intermediate components.
+
+
+
