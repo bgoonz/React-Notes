@@ -8,7 +8,6 @@ To start with your work, your task is to *"connect"* a **click event** liste
 
 ```jsx
 import React from "react";
-
 import "./styles.css";
 // don't change the Component name "App"
 export default function App() {
@@ -20,7 +19,6 @@ export default function App() {
 
 ```jsx
 import React from "react";
-
 import "./styles.css";
 // don't change the Component name "App"
 export default function App() {

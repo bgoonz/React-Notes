@@ -12,7 +12,6 @@ _Also make sure to use React.useState() instead of just useState() as the latter
 
 ```jsx
 import React from "react";
-
 import "./styles.css";
 
 // don't change the Component name "App"
@@ -30,7 +29,6 @@ export default function App() {
 
 ```jsx
 import React from "react";
-
 import "./styles.css";
 
 // don't change the Component name "App"

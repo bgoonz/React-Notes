@@ -9,7 +9,7 @@ const NewExpense = (props) => {
       id: Math.random().toString(),
     };
     console.log("expense data enriched with id property", expenseData);
-      props.onAddExpense( expenseData );
+    props.onAddExpense(expenseData);
     //this is the prop that is passed from <NewExpense onAddExpense={addExpenseHandler} /> in App.js
   };
 

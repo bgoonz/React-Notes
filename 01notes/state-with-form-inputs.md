@@ -30,7 +30,6 @@ _Important: When working in this Udemy code editor, you must use _`*React.useS
 
 ```jsx
 import React from "react";
-
 import "./styles.css";
 
 // don't change the Component name "App"
@@ -49,7 +48,6 @@ export default function App() {
 
 ```jsx
 import React from "react";
-
 import "./styles.css";
 
 // don't change the Component name "App"
