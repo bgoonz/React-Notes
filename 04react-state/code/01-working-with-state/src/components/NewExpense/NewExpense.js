@@ -1,17 +1,18 @@
 import React from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
+
 const NewExpense = (props) => {
-  //the value for onSaveExpenseData should be a function that is triggered when the user clicks the submit button.
   const onSaveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    console.log(expenseData);
-    props.onAddExpense(expenseData);
+    console.log("expense data enriched with id property", expenseData);
+      props.onAddExpense( expenseData );
+    //this is the prop that is passed from <NewExpense onAddExpense={addExpenseHandler} /> in App.js
   };
-    //the value for onSaveExpenseData should be a function that is triggered when the user clicks the submit button... we can pass data as an argument to onSaveExpenseDataHandler to pass that data from the child component to the parent component.
+
   return (
     <div className="new-expense">
       <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} />
