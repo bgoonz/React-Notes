@@ -1,6 +1,6 @@
 import './ExpensesList.css'
 
-const ExpensesList = () => {
+const ExpensesList = (props) => {
     
     
     
