@@ -1,6 +1,6 @@
 import React from "react";
 import "./ExpensesFilter.css";
-
+//This is a controled component meaning that the value of the select element is set by the state of the parent component.
 const ExpensesFilter = (props) => {
   const filterChangeHandler = (event) => {
     props.onFilter(event.target.value);
