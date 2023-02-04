@@ -383,3 +383,123 @@ const NewExpense = (props) => {
 };
 export default NewExpense;
 ```
+
+---
+
+#### Keys in Lists:
+
+> Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
+
+A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. In other words, we can say that keys are used to give an identity to the elements in the lists. The next thing that comes to mind is that what should be good to be chosen as key for the items in lists. It is recommended to use a string as a key that uniquely identifies the items in the list. Below example shows a list with string keys:  
+
+```js
+const numbers = [ 1, 2, 3, 4, 5 ];
+
+const updatedNums = numbers.map((number)=>{
+return <li key={index}>{number} </li>;
+});
+```
+
+
+You can also assign the array indexes as keys to the list items. The below example assigns array indexes as key to the elements. 
+
+```js
+const numbers = [ 1, 2, 3, 4, 5 ];
+
+const updatedNums = numbers.map((number, index)=>
+<li key = {index}>
+{number}
+</li>
+);
+
+
+```
+
+
+Assigning indexes as keys are highly discouraged because if the elements of the arrays get reordered in the future then it will get confusing for the developer as the keys for the elements will also change.
+ 
+
+#### Using Keys with Components
+
+Consider a situation where you have created a separate component for list items and you are extracting list items from that component. In that case, you will have to assign keys to the component you are returning from the iterator and not to the list items. That is you should assign keys to <Component /> and not to <li> A good practice to avoid mistakes is to keep in mind that anything you are returning from inside of the map() function is needed to be assigned key. 
+
+Below code shows incorrect usage of keys: 
+
+```js
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+// Component to be extracted
+function MenuItems(props)
+{
+const item = props.item;
+return(
+<li key = {item.toString()}>
+{item}
+</li>
+);
+}
+			
+// Component that will return an
+// unordered list
+function Navmenu(props)
+{
+const list = props.menuitems;
+const updatedList = list.map((listItems)=>{
+return (
+<MenuItems item = { listItems } />
+);
+});
+			
+return(
+<ul>{updatedList}</ul>);
+}
+const menuItems = [1, 2, 3, 4, 5];
+ReactDOM.render(
+<Navmenu menuitems = {
+menuItems} />,
+document.getElementById('root')
+);
+		
+
+```
+
+**Output: **
+
+![incorrect use of keys](https://media.geeksforgeeks.org/wp-content/uploads/incorrect.png)
+
+You can see in the above output that the list is rendered successfully but a warning is thrown to the console that the elements inside the iterator are not assigned *keys*. This is because we had not assigned *key* to the elements we are returning to the map() iterator.
+
+Below example shows correct usage of keys: 
+
+```js
+
+import React from "react";
+import ReactDOM from "react-dom";
+// Component to be extracted
+function MenuItems(props) {
+	const item = props.item;
+	return <li>{item}</li>;
+}
+
+// Component that will return an
+// unordered list
+function Navmenu(props) {
+	const list = props.menuitems;
+	const updatedList = list.map((listItems) => {
+		return <MenuItems key={listItems.toString()} item={listItems} />;
+	});
+
+	return <ul>{updatedList}</ul>;
+}
+
+const menuItems = [1, 2, 3, 4, 5];
+
+ReactDOM.render(
+	<Navmenu menuitems={menuItems} />,
+	document.getElementById("root")
+);
+
+```
+
