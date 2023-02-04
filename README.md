@@ -306,7 +306,7 @@ In React, data flows one way: from owner to child. We think that this makes your
 
 However, there are lots of applications that require you to read some data and flow it back into your program. For example, when developing forms, you'll often want to update some React `state` when you receive user input. Or perhaps you want to perform layout in JavaScript and react to changes in some DOM element size.
 
-In React, you would implement this by listening to a "change" event, read from your data source (usually the DOM) and call `setState()` on one of your components. "Closing the data flow loop" explicitly leads to more understandable and easier-to-maintain programs. 
+In React, you would implement this by listening to a "change" event, read from your data source (usually the DOM) and call `setState()` on one of your components. "Closing the data flow loop" explicitly leads to more understandable and easier-to-maintain programs.
 
 Two-way binding --- implicitly enforcing that some value in the DOM is always consistent with some React `state` --- is concise and supports a wide variety of applications. We've provided `LinkedStateMixin`: syntactic sugar for setting up the common data flow loop pattern described above, or "linking" some data source to React `state`.
 
@@ -315,7 +315,6 @@ Two-way binding --- implicitly enforcing that some value in the DOM is always co
 ```js
 <input type="text" value="" onChange={titleChangeHandler} />
 // onChange is a prop that wants a function as a value
-
 ```
 
 This will set the internal value property which every input element has and we can set it to a new value.
@@ -347,27 +346,22 @@ const submitHandler = (event) => {
 
 ````
 
-
 ##### How to pass data from child to parent component:
+
 > we pass data from parent to child via props and from child to parent via function props.
 
 > We can pass data from child to parent via function props.We can create our own event props that expect functions as values which allows us to pass a function from a parent component to a child component and then call that function inside of the child component. When we call said function we can pass data to that function as a parameter and that data will then be passed back to the parent component.
-
 
 > props can only be passed from parent component to child and we can't skip intermediate components.
 
 Let's say we want to pass expense data which we gather in the expense form component to the new expense component. We can do this by passing a function from the new expense component to the expense form component and then call that function inside of the expense form component and pass the data as a parameter to that function.
 
-
 ###### NEW EXPENSE COMPONENT:
 
 ```js
-
 import React from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
-
-
 
 const NewExpense = (props) => {
   //the value for onSaveExpenseData should be a function that is triggered when the user clicks the submit button.
@@ -376,11 +370,11 @@ const NewExpense = (props) => {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    console.log('expense data enriched with id property',expenseData);
+    console.log("expense data enriched with id property", expenseData);
     props.onAddExpense(expenseData);
   };
-    //the value for onSaveExpenseData should be a function that is triggered when the user clicks the submit button... we can pass data as an argument to onSaveExpenseDataHandler to pass that data from the child component to the parent component.
-    //onSaveExpenseDataHandler is a function that is passed as a value to onSaveExpenseData ... it does not get executed here, hence the absence of (). It will be exicuted in the expense form component when the user clicks the submit button.
+  //the value for onSaveExpenseData should be a function that is triggered when the user clicks the submit button... we can pass data as an argument to onSaveExpenseDataHandler to pass that data from the child component to the parent component.
+  //onSaveExpenseDataHandler is a function that is passed as a value to onSaveExpenseData ... it does not get executed here, hence the absence of (). It will be exicuted in the expense form component when the user clicks the submit button.
   return (
     <div className="new-expense">
       <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} />
@@ -388,7 +382,4 @@ const NewExpense = (props) => {
   );
 };
 export default NewExpense;
-
-
 ```
-
