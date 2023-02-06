@@ -479,3 +479,20 @@ ReactDOM.render(
   document.getElementById("root")
 );
 ```
+
+
+---
+---
+
+
+#### Dynamic Styling in React:
+
+> The style prop on a React element accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property.
+
+```jsx
+ <div className="chart-bar__fill" style={{}}></div>
+
+```
+
+
+> We use the css property names as key names.
