@@ -534,3 +534,7 @@ for (let pet of pets) {
   console.log(pet); // "Cat", "Dog", "Hamster"
 }
 ```
+
+
+### Styling React Components:
+
