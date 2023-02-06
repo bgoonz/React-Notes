@@ -1,6 +1,7 @@
 import React from "react";
-import Chart from "./Chart/Chart";
+import Chart from "../Chart/Chart";
 const ExpensesChart = (props) => {
+  //expect filtered expenses as a prop
   const chartDataPoints = [
     { label: "Jan", value: 0 },
     { label: "Feb", value: 0 },
@@ -15,6 +16,10 @@ const ExpensesChart = (props) => {
     { label: "Nov", value: 0 },
     { label: "Dec", value: 0 },
   ];
-  return <Chart />;
+  for (const expense of props.expenses) {
+    const expenseMonth = expense.date.getMonth(); //getMonth is a built in method on the JS Date object which returns a number between 0 and 11
+    chartDataPoints[expenseMonth].value += expense.amount;
+  }
+  return <Chart dataPoints={chartDataPoints} />;
 };
 export default ExpensesChart;

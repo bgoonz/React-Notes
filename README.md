@@ -480,19 +480,57 @@ ReactDOM.render(
 );
 ```
 
-
----
 ---
 
+---
 
 #### Dynamic Styling in React:
 
 > The style prop on a React element accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM style JavaScript property.
 
 ```jsx
- <div className="chart-bar__fill" style={{}}></div>
-
+<div className="chart-bar__fill" style={{}}></div>
 ```
 
-
 > We use the css property names as key names.
+
+```jsx
+<div className="chart-bar__fill" style={{ height: "15%" }}></div>
+```
+
+- += operator in js:
+
+The addition assignment ( += ) operator **adds the value of the right operand to a variable and assigns the result to the variable**. The types of the two operands determine the behavior of the addition assignment operator. Addition or concatenation is possible.
+
+- For in vs for of loops in js:
+
+Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a list of keys on the object being iterated, whereas `for..of` returns a list of values of the numeric properties of the object being iterated.
+
+Here is an example that demonstrates this distinction:
+
+```js
+let list = [4, 5, 6];
+
+for (let i in list) {
+  console.log(i); // "0", "1", "2",
+}
+
+for (let i of list) {
+  console.log(i); // "4", "5", "6"
+}
+```
+
+Another distinction is that `for..in` operates on any object; it serves as a way to inspect properties on this object. `for..of` on the other hand, is mainly interested in values of iterable objects. Built-in objects like `Map` and `Set` implement `Symbol.iterator` property allowing access to stored values.
+
+```js
+let pets = new Set(["Cat", "Dog", "Hamster"]);
+pets["species"] = "mammals";
+
+for (let pet in pets) {
+  console.log(pet); // "species"
+}
+
+for (let pet of pets) {
+  console.log(pet); // "Cat", "Dog", "Hamster"
+}
+```
