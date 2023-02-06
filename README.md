@@ -535,6 +535,4 @@ for (let pet of pets) {
 }
 ```
 
-
 ### Styling React Components:
-

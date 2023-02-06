@@ -18,73 +18,61 @@ And here's how it should look like when the button was clicked again:
 
 ![again](https://img-c.udemycdn.com/redactor/raw/coding_exercise_instructions/2023-01-25_20-18-41-0a0b6c139e2be5bbb63d032e210309d1.png)
 
-*Important: Use *`*React.useState()*`* instead of just *`*useState()*`* as the latter can cause problems in this Udemy code environment.*
-
-
-
+_Important: Use _`*React.useState()*`_ instead of just _`*useState()*`_ as the latter can cause problems in this Udemy code environment._
 
 #### Starter Code:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 // don't change the Component name "App"
 export default function App() {
-    return (
-        <div>
-            <p>Style me!</p>
-            <button>Toggle style</button>
-        </div>
-    );
+  return (
+    <div>
+      <p>Style me!</p>
+      <button>Toggle style</button>
+    </div>
+  );
 }
-
-
 ```
 
 ###### Style.css:
+
 ```css
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 3rem;
-    background-color: #2d2c2c;
-    color: #959090;
-    text-align: center;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 3rem;
+  background-color: #2d2c2c;
+  color: #959090;
+  text-align: center;
 }
 
 .active {
-    background-color: orange;
-    padding: 0.5rem;
-    border-radius: 4px;
-    color: black;
+  background-color: orange;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: black;
 }
-
 ```
-
-
-
 
 #### Solution Code:
 
 ```jsx
-
-import React from 'react';
+import React from "react";
 
 // don't change the Component name "App"
 export default function App() {
-    
-const [toggle,setToggle]=React.useState(false)    
-const toggleHandler = () =>  {
-    setToggle(!toggle)
-} 
+  const [toggle, setToggle] = React.useState(false);
+  const toggleHandler = () => {
+    setToggle(!toggle);
+  };
 
-    return (
-        <div>
-            <p className={`${toggle?'active':''}`}>Style me!</p>
-            <button onClick={toggleHandler}>Toggle style</button>
-        </div>
-    );
+  return (
+    <div>
+      <p className={`${toggle ? "active" : ""}`}>Style me!</p>
+      <button onClick={toggleHandler}>Toggle style</button>
+    </div>
+  );
 }
-
-
-````
+```

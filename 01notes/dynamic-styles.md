@@ -1,10 +1,10 @@
 # Exercise: Dynamic Styles
 
-Your task is to **dynamically** apply a style (`color: red`) to the `<p>Style me</p>` element in the provided React app.
+Your task is to **dynamically** apply a style (`color: red`) to the `<p>Style me</p>` element in the provided React app.
 
-The style should be applied as an **inline style** (i.e., via the `style` attribute / prop) when the `<button>` is clicked for the first time. Once the button is clicked again, the styling should switch back to `color: white`, which should also be the initial style.
+The style should be applied as an **inline style** (i.e., via the `style` attribute / prop) when the `<button>` is clicked for the first time. Once the button is clicked again, the styling should switch back to `color: white`, which should also be the initial style.
 
-Make sure that the button toggles between these two styles (`color: white` <=> `color: red`).
+Make sure that the button toggles between these two styles (`color: white` <=> `color: red`).
 
 Here's how the finished app should look like BEFORE the button was clicked:
 
@@ -23,41 +23,37 @@ _Important: Use _`*React.useState()*`_ instead of just _`*useState()*`_ as 
 #### Starter Code:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 // don't change the Component name "App"
 export default function App() {
-    return (
-        <div>
-            <p>Style me!</p>
-            <button>Toggle style</button>
-        </div>
-    );
+  return (
+    <div>
+      <p>Style me!</p>
+      <button>Toggle style</button>
+    </div>
+  );
 }
-
 ```
 
 #### Solution Code:
 
 ```jsx
-
-import React from 'react';
+import React from "react";
 
 // don't change the Component name "App"
 export default function App() {
-const [toggle,setToggle]=React.useState(false)    
-    
-const toggleHandler = () =>  {
-    setToggle(!toggle)
-}    
-    
-    return (
-        <div>
-            <p style={{color:toggle?'red':'white'}}>Style me!</p>
-            <button onClick={toggleHandler}>Toggle style</button>
-        </div>
-    );
+  const [toggle, setToggle] = React.useState(false);
+
+  const toggleHandler = () => {
+    setToggle(!toggle);
+  };
+
+  return (
+    <div>
+      <p style={{ color: toggle ? "red" : "white" }}>Style me!</p>
+      <button onClick={toggleHandler}>Toggle style</button>
+    </div>
+  );
 }
-
-
-````
+```

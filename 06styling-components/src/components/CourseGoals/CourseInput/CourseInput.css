@@ -24,13 +24,11 @@
 }
 
 /* the following applies to input elements that have class name form-control and invalid*/
-.form-control.invalid input{
-border-color:red;
-background:#fad0ec;
+.form-control.invalid input {
+  border-color: red;
+  background: #fad0ec;
 }
 
-
-.form-control.invalid label{
-color:red;
-
+.form-control.invalid label {
+  color: red;
 }
