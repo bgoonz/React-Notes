@@ -1,5 +1,4 @@
-A bit of history about React and what hooks are for
-===================================================
+# A bit of history about React and what hooks are for
 
 As you may know, React is a open-source library used to build user interfaces in a simpler and more efficient way than tools that came before (vanilla JS and jQuery mainly). It was developed by Meta (aka Facebook) and released to the public in 2013.
 
@@ -76,13 +75,11 @@ export default function Counter() {
 }
 ```
 
-Frequently Used React Hooks
-===========================
+# Frequently Used React Hooks
 
 Now you have an idea of what hooks are for and why are they better than what was before. So let's take a look at the most used ones, on what occasions are they useful, and how to implement them.
 
-UseState hook
--------------
+## UseState hook
 
 In modern React, we build our applications with functional components. Components are themselves JavaScript functions, independent and reusable bits of code.
 
@@ -128,12 +125,12 @@ export default App
 
 ```
 
--   First we import the hook from React: `import { useState } from 'react'`
--   Then we initialize the state: `const [count, setCount] = useState(0)`
+- First we import the hook from React: `import { useState } from 'react'`
+- Then we initialize the state: `const [count, setCount] = useState(0)`
 
 Here we provide a variable name for the state (`count`) and a function name we'll use every time we need to update that state (`setCount`). Then we set the initial value of the state (`0`), which will be the value loaded by default every time the app starts.
 
--   Lastly, as mentioned above, every time we want to update the state, we have to use the function we declared: `setCount`. To use it, we just need to call it passing it the new state we want as a parameter. That is, if we want to add 1 to the previous estate, we call `setCount(count+1)`.
+- Lastly, as mentioned above, every time we want to update the state, we have to use the function we declared: `setCount`. To use it, we just need to call it passing it the new state we want as a parameter. That is, if we want to add 1 to the previous estate, we call `setCount(count+1)`.
 
 As mentioned as well, this will cause an update of the state and the re-render of the component. Which in our app means we'll see on the screen that the counter is going up.
 
@@ -174,8 +171,7 @@ This makes sure that the value to update is the most recent one and keeps us awa
 
 If you'd like to take a more in-depth look at ways to manage state in React, you can take a look at [this article](https://www.freecodecamp.org/news/how-to-manage-state-in-a-react-app/) I wrote a while ago.
 
-UseEffect hook
---------------
+## UseEffect hook
 
 Together with useState, useEffect will probably be the hook you use the most when developing a React app. It's like the bread and butter for the React dev.
 
@@ -238,8 +234,7 @@ Cleanup functions in useEffect are normally used to cancel subscriptions to avoi
 
 For more info about useEffect's cleanup function, you can refer to [this](https://blog.logrocket.com/understanding-react-useeffect-cleanup-function/) article.
 
-UseContext hook
----------------
+## UseContext hook
 
 React context API was released in 2016 with React's 16.3 version. What context does in React is to provide a solution for [prop drilling](https://www.freecodecamp.org/news/avoid-prop-drilling-with-react-context-api/).
 
@@ -456,8 +451,7 @@ Another interesting thing to mention is that we can have many different contexts
 
 So if we have a lot of information that needs to be shared around our app, having many different contexts would be a more modular and tidy way to approach this.
 
-UseReducer hook
----------------
+## UseReducer hook
 
 UseReducer is a hook that allows us to natively implement reducers in our app to manage complex states. If you're familiar with [Redux](https://redux.js.org/) or similar state management libraries, the word "reducer" probably rings a bell.
 
@@ -515,8 +509,8 @@ export default App
 
 ```
 
--   We start by importing the hook from React: `import { useReducer } from 'react'`
--   Then we'll declare a reducer function, which as parameters will take the current state and an action to perform on it. Within it, it will have a switch statement that will read the action type, execute the corresponding action on the state, and return the updated state.
+- We start by importing the hook from React: `import { useReducer } from 'react'`
+- Then we'll declare a reducer function, which as parameters will take the current state and an action to perform on it. Within it, it will have a switch statement that will read the action type, execute the corresponding action on the state, and return the updated state.
 
 It's common practice to use switch statements on reducers and capital letters to declare the actions.
 
@@ -534,14 +528,14 @@ function reducer(state, action) {
 
 ```
 
--   Afterwards, it's time to declare our useReducer hook, which looks fairly similar to the useState hook. We declare a value for our state ('state' in our case), a function we'll use to modify it ('dispatch'), and then useReducer will take the reducer function as first parameter and the default state as second parameter.
+- Afterwards, it's time to declare our useReducer hook, which looks fairly similar to the useState hook. We declare a value for our state ('state' in our case), a function we'll use to modify it ('dispatch'), and then useReducer will take the reducer function as first parameter and the default state as second parameter.
 
 ```
 const [state, dispatch] = useReducer(reducer, { count: 0 })
 
 ```
 
--   Lastly, to update our state we won't call the reducer directly, but instead we'll call the function we just created ('dispatch'), passing it the corresponding action type we want to execute. Behind the scenes, the dispatch function will connect with the reducer and actually modify the state.
+- Lastly, to update our state we won't call the reducer directly, but instead we'll call the function we just created ('dispatch'), passing it the corresponding action type we want to execute. Behind the scenes, the dispatch function will connect with the reducer and actually modify the state.
 
 ```
 <button onClick={() => dispatch({type: 'ADD'})}>Add 1</button>
@@ -552,8 +546,8 @@ It's quite a bit more boilerplate than using useState, but useReducer isn't that
 
 To sum it up, we just need:
 
--   A reducer, that is the function that will consolidate all possible state changes
--   A dispatch function, that will send the modifying actions to the reducer.
+- A reducer, that is the function that will consolidate all possible state changes
+- A dispatch function, that will send the modifying actions to the reducer.
 
 The thing here is that the UI elements won't be able to update the state directly like they did before when calling setState with a value. Now they will have to call an action type and go through the reducer, which makes state management more modular and predictable.
 
@@ -561,8 +555,7 @@ Also, again if you're familiar with Redux and other state management libraries, 
 
 The story was different before, though, and that's probably why so many state management libraries got popular and many devs are still into them nowadays.
 
-UseRef hook
------------
+## UseRef hook
 
 The useRef hook is a function that returns a mutable ref object whose `.current` property is initialized with the passed argument (`initialValue`). The returned object will persist for the full lifetime of the component.
 
@@ -601,15 +594,13 @@ By updating and logging the ref, we avoid the component re-render and achieve ou
 1.  Updating a reference doesn't trigger re-rendering, while updating the state makes the component re-render.
 2.  And also... The reference update is synchronous (the updated reference value is available right away), while the state update is asynchronous (the state variable is updated after re-rendering).
 
-Some Less Common but Still Useful Hooks
-=======================================
+# Some Less Common but Still Useful Hooks
 
 Here I'll present two hooks that are used for memoization in React. If you're not familiar with memoization, you can refer to [this article ](https://www.freecodecamp.org/news/memoization-in-javascript-and-react/)I wrote a while ago about it.
 
 Basically memoization means making components "remember" props and state, so they re-render only if props/state have changed and avoided unnecessary re-renders. This improves the app's performance.
 
-UseCallback hook
-----------------
+## UseCallback hook
 
 useCallback memoizes callback functions received as props, so they're not recreated on every re-render. Using useCallback correctly can improve the performance of our app.
 
@@ -640,8 +631,7 @@ const testingTheTest = useCallback(() => {
   }, [a, b, c]);
 ```
 
-UseMemo hook
-------------
+## UseMemo hook
 
 useMemo is a hook very similar to useCallback. But instead of caching a function, useMemo will cache the return value of a function.
 
@@ -661,8 +651,7 @@ const answer = useMemo(() => num + 1, [num])
 
 ```
 
-Custom React Hooks
-==================
+# Custom React Hooks
 
 If you think about it, hooks are just functions that allow us to implement commonly used logic in our components.
 
