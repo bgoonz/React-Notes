@@ -1,8 +1,10 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 // import "./Button.css";
 // this is called a tagged template literal
 //button is a method on the styled object which we imported from styled-components
 // styled-components has methods for all the html elements i.e. styled.div, styled.button, styled.h1, etc.
+import React from 'react';
+import styles from "./Button.module.css";
 const Button = styled.button`
     width: 100%; 
   font: inherit;
