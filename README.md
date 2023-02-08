@@ -583,3 +583,12 @@ const FormControl = styled.div`
 `;
 
 ```
+
+
+### Debugging React Apps:
+
+##### Common Errors:
+- **Adjacent JSX elements must be wrapped in an enclosing tag.** - This error occurs when you try to return multiple elements from a component. You can fix this by wrapping the elements in a div or a React Fragment.
+- **FunctionName is not defined** - This error occurs when you try to use a function before it is defined. You can fix this by moving the function above the line where it is used.
+- 
+
