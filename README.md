@@ -598,3 +598,20 @@ const FormControl = styled.div`
 - for wrapper components like Card and Button don't forget to put {props.children} in the return statement.
 - For a function that handles a submit event don't forget to pass the event object as an argument to the function and call event.preventDefault() to prevent the default behavior of the event.
 - for input elements add the value prop to reflect the current state... use the current state from useState for the value.
+
+
+---
+---
+
+
+### Fragments Portals & Refs:
+
+- **Fragments** - A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+- **Portals** - Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+- **Refs** - Refs provide a way to access DOM nodes or React elements created in the render method.
+
+
+
+
+
+
