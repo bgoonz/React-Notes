@@ -41,13 +41,16 @@ const AddUser = (props) => {
   const ageChangeHandler = (event) => {
     setEnteredAge(event.target.value);
   };
-
+  const errorHandler = () => {
+    setError(null);
+  };
   return (
     <div>
       {error && (
         <ErrorModal
-          title="An error occurred!"
-          message="Something went wrong!"
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
         />
       )}
       <Card className={styles.input}>

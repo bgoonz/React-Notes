@@ -1,5 +1,4 @@
-What is the CSS position property?
-----------------------------------
+## What is the CSS position property?
 
 The CSS position property defines the position of an element in a document. This property works with the left, right, top, bottom and z-index properties to determine the final position of an element on a page.
 
