@@ -17,7 +17,7 @@ const AddUser = (props) => {
       //+ is a shortcut to convert string to number that works similarly to .parseInt()
       return;
     }
-      console.log( enteredUsername, enteredAge );
+    console.log(enteredUsername, enteredAge);
     props.onAddUser(enteredUsername, enteredAge);
     //Resut the form after submit
     setEnteredUsername("");
