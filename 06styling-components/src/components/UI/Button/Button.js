@@ -12,14 +12,14 @@
 //   background: #8b005d;
 //   box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
 //   cursor: pointer;
-// 
+//
 //   @media (min-width: 768px) {
 //     width: auto;
 //   }
 //   &:focus {
 //     outline: none;
 //   }
-// 
+//
 //   &:hover,
 //   &:active {
 //     background: #ac0e77;
@@ -27,9 +27,8 @@
 //     box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
 //   }
 // `;
-import React from 'react';
+import React from "react";
 import styles from "./Button.module.css";
-
 
 const Button = (props) => {
   return (

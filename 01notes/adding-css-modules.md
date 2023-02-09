@@ -1,5 +1,4 @@
-Adding a CSS Modules Stylesheet
-===============================
+# Adding a CSS Modules Stylesheet
 
 > Note: this feature is available with `react-scripts@2.0.0` and higher.
 
@@ -9,8 +8,7 @@ This project supports [CSS Modules](https://github.com/css-modules/css-modules)
 
 CSS Modules let you use the same CSS class name in different files without worrying about naming clashes. Learn more about CSS Modules [here](https://css-tricks.com/css-modules-part-1-need/).
 
-`Button.module.css`[​](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet#buttonmodulecss "Direct link to heading")
-----------------------------------------------------------------------------------------------------------------------------------
+## `Button.module.css`[​](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet#buttonmodulecss "Direct link to heading")
 
 ```
 .error {  background-color: red;}
@@ -18,8 +16,7 @@ CSS Modules let you use the same CSS class name in different files without worry
 
 Copy
 
-`another-stylesheet.css`[​](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet#another-stylesheetcss "Direct link to heading")
----------------------------------------------------------------------------------------------------------------------------------------------
+## `another-stylesheet.css`[​](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet#another-stylesheetcss "Direct link to heading")
 
 ```
 .error {  color: red;}
@@ -27,8 +24,7 @@ Copy
 
 Copy
 
-`Button.js`[​](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet#buttonjs "Direct link to heading")
--------------------------------------------------------------------------------------------------------------------
+## `Button.js`[​](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet#buttonjs "Direct link to heading")
 
 ```
 import React, { Component } from 'react';import styles from './Button.module.css'; // Import css modules stylesheet as stylesimport './another-stylesheet.css'; // Import regular stylesheetclass Button extends Component {  render() {    // reference as a js object    return <button className={styles.error}>Error Button</button>;  }}
@@ -36,8 +32,7 @@ import React, { Component } from 'react';import styles from './Button.module.css
 
 Copy
 
-Result[​](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet#result "Direct link to heading")
-------------------------------------------------------------------------------------------------------------
+## Result[​](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet#result "Direct link to heading")
 
 No clashes from other `.error` class names
 
