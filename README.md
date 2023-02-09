@@ -610,7 +610,26 @@ const FormControl = styled.div`
 - **Portals** - Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 - **Refs** - Refs provide a way to access DOM nodes or React elements created in the render method.
 
+- You need a wrapping element for the root element of any component because React.createComponent can only return one thing.
+- you can solve this problem by wrapping adjeacent elements in a div (or any enclosing tag) or a React Fragment.
+- When using wrapping divs you can end up with `div soup` which is when you end up with tons of unnecessary divs in your code that add no semantic meaning or structure to the page but are just there to wrap other elements because React requires a single root element.
 
+> i.e.
+
+```html
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <h2>'Div Soup'</h2>
+                    </div>                     
+                </div>
+            </div>
+        </div>
+    </div>
+
+```
 
 
 
