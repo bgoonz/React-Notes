@@ -590,9 +590,11 @@ const FormControl = styled.div`
 - **FunctionName is not defined** - This error occurs when you try to use a function before it is defined. You can fix this by moving the function above the line where it is used.
 
 ---
+
 ---
 
 ### React Practice Project Tips:
+
 - for wrapper components like Card and Button don't forget to put {props.children} in the return statement.
 - For a function that handles a submit event don't forget to pass the event object as an argument to the function and call event.preventDefault() to prevent the default behavior of the event.
 - for input elements add the value prop to reflect the current state... use the current state from useState for the value.
