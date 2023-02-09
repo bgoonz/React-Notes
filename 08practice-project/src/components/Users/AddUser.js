@@ -9,17 +9,26 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
+    //Form validation below:
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+      return;
+    }
+    if (+enteredAge < 1) {
+      //+ is a shortcut to convert string to number that works similarly to .parseInt()
+      return;
+    }
     console.log(enteredUsername, enteredAge);
+    //Resut the form after submit
+    setEnteredUsername("");
+    setEnteredAge("");
   };
 
   const usernameChangeHandler = (event) => {
     setEnteredUsername(event.target.value);
-    console.log(enteredUsername, event.target.value);
   };
 
   const ageChangeHandler = (event) => {
     setEnteredAge(event.target.value);
-    console.log(enteredAge, event.target.value);
   };
 
   return (
@@ -30,9 +39,15 @@ const AddUser = (props) => {
           id="username"
           type="text"
           onChange={usernameChangeHandler}
+          value={enteredUsername}
         ></input>
         <label htmlFor="age">Age (years)</label>
-        <input id="age" type="number" onChange={ageChangeHandler}></input>
+        <input
+          id="age"
+          type="number"
+          onChange={ageChangeHandler}
+          value={enteredAge}
+        ></input>
         <Button type="submit">Add User</Button>
       </form>
     </Card>
