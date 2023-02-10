@@ -774,11 +774,10 @@ export default AddUser;
 
 ### Effects Reducers & Context:
 
-
 **Effects (also known as Side Effects)** - Effects are used to perform side effects in functional components. Side effects are things that happen outside of the component. For example, making an HTTP request, accessing the browser local storage, etc. Effects are triggered by changes to the component's state or props. They are also triggered by changes to the component's dependencies. Dependencies are values that the effect depends on. For example, if the effect depends on the value of a prop, then the effect will be triggered when the prop changes.
-
 
 **Reducers** - Reducers are functions that take the current state and an action as arguments and return a new state result. Reducers are pure functions. They should not perform any side effects. They should not mutate the state. They should not access the DOM. They should not access global variables. They should not access the arguments object. They should not access the this keyword. They should not access the event object. They should not access the event target. They should not access the event target value. They should not access the event target checked. They should not access the event target files. They should not access the event target name. They should not access the event target type. They should not
 
-
 **Context** - Context provides a way to pass data through the component tree without having to pass props down manually at every level. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
+
+UseEffect() - useEffect() is a hook that allows us to execute code when a component is rendered for the first time or when a component is re-rendered. It is a combination of componentDidMount() and componentDidUpdate().
