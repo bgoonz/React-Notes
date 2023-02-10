@@ -781,3 +781,31 @@ export default AddUser;
 **Context** - Context provides a way to pass data through the component tree without having to pass props down manually at every level. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
 
 UseEffect() - useEffect() is a hook that allows us to execute code when a component is rendered for the first time or when a component is re-rendered. It is a combination of componentDidMount() and componentDidUpdate().
+
+```jsx
+useEffect( () => { } , []); //useEffect() is a hook that allows us to execute some code when a component is rendered for the first time or when it is re-rendered
+```
+
+**The following would only run once because it has no dependencies to signal for it to run again on a change in dependency**
+
+```jsx
+    useEffect( () => { 
+          const loginState = localStorage.setItem("isLoggedIn", "1");
+          if (loginState === "1") {
+            setIsLoggedIn(true);
+          }
+    } , []); 
+```
+
+> Removing the dependency array will cause the useEffect() to run on every render cycle.
+
+
+> the following code will run whenever there is a change to the enteredEmail or enteredPassword state variables or when the setFormIsValid function is called.
+```jsx
+  useEffect(() => {
+    setFormIsValid(
+      enteredEmail.includes("@") && enteredPassword.trim().length > 6
+    );
+  }, [ setFormIsValid, enteredEmail, enteredPassword ] );
+  
+```
