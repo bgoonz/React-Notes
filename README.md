@@ -599,10 +599,9 @@ const FormControl = styled.div`
 - For a function that handles a submit event don't forget to pass the event object as an argument to the function and call event.preventDefault() to prevent the default behavior of the event.
 - for input elements add the value prop to reflect the current state... use the current state from useState for the value.
 
-
----
 ---
 
+---
 
 ### Fragments Portals & Refs:
 
@@ -617,46 +616,40 @@ const FormControl = styled.div`
 > i.e.
 
 ```html
+<div>
+  <div>
     <div>
+      <div>
         <div>
-            <div>
-                <div>
-                    <div>
-                        <h2>'Div Soup'</h2>
-                    </div>                     
-                </div>
-            </div>
+          <h2>'Div Soup'</h2>
         </div>
+      </div>
     </div>
-
+  </div>
+</div>
 ```
-
-
-
 
 ##### React Fragments:
 
-
 ```jsx
-return(
-    <React.Fragment>
-        <h2>Fragment Demo</h2>
-        <p>This is a fragment demo</p>
-    </React.Fragment>
-)
+return (
+  <React.Fragment>
+    <h2>Fragment Demo</h2>
+    <p>This is a fragment demo</p>
+  </React.Fragment>
+);
 ```
 
 **Or you can use the shorthand syntax:**
 
 ```jsx
-return(
-    <>
-        <h2>Fragment Demo</h2>
-        <p>This is a fragment demo</p>
-    </>
-)
+return (
+  <>
+    <h2>Fragment Demo</h2>
+    <p>This is a fragment demo</p>
+  </>
+);
 ```
-
 
 ##### React Portals:
 
@@ -664,14 +657,11 @@ return(
 
 ```jsx
 return (
-<React.Fragment>
-    <MyModal/>
-    <InputForm/>
-</React.Fragment>
+  <React.Fragment>
+    <MyModal />
+    <InputForm />
+  </React.Fragment>
 );
 ```
 
 **We can use a portal to render the modal outside of the component it was created in somewhere else on the actual DOM**
-
-
-
