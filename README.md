@@ -670,9 +670,7 @@ return (
 
 **Refs** - Refs provide a way to access DOM nodes or React elements created in the render method.
 
-
 **AddUser.js**
-
 
 ```jsx
 import React, { useState, useRef } from "react";
@@ -693,7 +691,7 @@ const AddUser = (props) => {
   const addUserHandler = (event) => {
     event.preventDefault();
     console.log(nameInputRef);
-    
+
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setError({
         title: "Invalid input",
@@ -760,18 +758,18 @@ const AddUser = (props) => {
 };
 
 export default AddUser;
-
-
-
 ```
 
 > The first time React reaches the code on the return statment of the AddUser component it will create a new object and store it in the nameInputRef variable. This object will have a property called current which will be a pointer to the input element with the id of username. This object will be stored in the nameInputRef variable and will be available for the entire lifetime of the AddUser component.
-
-
-
 
 ##### Controlled vs Uncontrolled Components
 
 **Controlled Components** -Manages its own internal state and reacts to user input. The state is updated by the event handlers. The state is then passed to the input element as a value prop. The input element then displays the value of the state.
 
 **Uncontrolled Components** - Use refs to interact with access DOM nodes or React elements created in the render method. They are uncontrolled because their internal state is not controlled by react. They are controlled by the DOM... we just use react refs to fetch the data from the DOM.
+
+---
+
+---
+
+### Effects Reducers & Context:
