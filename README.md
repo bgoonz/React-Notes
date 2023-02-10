@@ -634,3 +634,42 @@ const FormControl = styled.div`
 
 
 
+##### React Fragments:
+
+
+```jsx
+return(
+    <React.Fragment>
+        <h2>Fragment Demo</h2>
+        <p>This is a fragment demo</p>
+    </React.Fragment>
+)
+```
+
+**Or you can use the shorthand syntax:**
+
+```jsx
+return(
+    <>
+        <h2>Fragment Demo</h2>
+        <p>This is a fragment demo</p>
+    </>
+)
+```
+
+
+##### React Portals:
+
+> Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+```jsx
+return (
+<React.Fragment>
+    <MyModal/>
+    <InputForm/>
+</React.Fragment>
+);
+```
+
+
+
