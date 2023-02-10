@@ -671,5 +671,7 @@ return (
 );
 ```
 
+**We can use a portal to render the modal outside of the component it was created in somewhere else on the actual DOM**
+
 
 
