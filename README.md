@@ -855,3 +855,6 @@ In this example:
 -   `myTimer` is **NOT added as a dependency** because it's **not a component-internal variable** (i.e. not some state or a prop value) - it's defined outside of the component and changing it (no matter where) **wouldn't cause the component to be re-evaluated**
 
 -   `setTimeout` is **NOT added as a dependency** because it's **a built-in API** (built-into the browser) - it's independent from React and your components, it doesn't change
+
+
+> Debouncing is a technique used to improve performance by limiting the rate at which a function gets invoked. It is a common practice to improve the performance of input handlers. For example, if you have a search input field, you can debounce the onChange event handler to avoid making an API call on every keystroke. Instead, you can make the API call only after the user has stopped typing for a certain amount of time.
