@@ -879,3 +879,10 @@ In this example:
 
 ```
 in each of the cases above we are setting a state variable based on the value of another state variable. This is a dependency and it can lead to bugs. For example, if we have a button that triggers the validation of both the email and password, and we click the button twice, the second time the validation will be wrong because the state variables will have changed in the meantime. This is a problem that useReducer() can solve.
+
+
+**useReducer() Syntax**
+```js
+const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
+
+```
