@@ -856,3 +856,26 @@ In this example:
 - `setTimeout` is **NOT added as a dependency** because it's **a built-in API** (built-into the browser) - it's independent from React and your components, it doesn't change
 
 > Debouncing is a technique used to improve performance by limiting the rate at which a function gets invoked. It is a common practice to improve the performance of input handlers. For example, if you have a search input field, you can debounce the onChange event handler to avoid making an API call on every keystroke. Instead, you can make the API call only after the user has stopped typing for a certain amount of time.
+
+
+- useEffect() without a dependency array will run after every render cycle.
+  
+  
+##### useReducer():
+
+- Sometimes you have more complex state, for example multiple states, multiple ways of changing the state or dependencies to other states. In these cases useState() can become hard to use or error prone.
+- **useReducer()** is a hook that allows you to manage complex state in a more predictable way. It's a bit more complex than useState() but it's also more powerful.
+**Use case for useReducer()**: when you have state that belongs togther, like enteredEmail and emailIsValid, or enteredPassword and passwordIsValid, and or if you have state updates that depend on other state updates
+- For example:
+
+```js
+  const validateEmailHandler = () => {
+    setEmailIsValid(enteredEmail.includes("@"));
+  };
+
+  const validatePasswordHandler = () => {
+    setPasswordIsValid(enteredPassword.trim().length > 6);
+  };
+
+```
+in each of the cases above we are setting a state variable based on the value of another state variable. This is a dependency and it can lead to bugs. For example, if we have a button that triggers the validation of both the email and password, and we click the button twice, the second time the validation will be wrong because the state variables will have changed in the meantime. This is a problem that useReducer() can solve.
