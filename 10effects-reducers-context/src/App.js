@@ -7,13 +7,13 @@ import MainHeader from "./components/MainHeader/MainHeader";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    const storedUserLoggedInInformation = localStorage.getItem("isLoggedIn");
 
-    useEffect( () => { 
-          const loginState = localStorage.setItem("isLoggedIn", "1");
-          if (loginState === "1") {
-            setIsLoggedIn(true);
-          }
-    } , []); //useEffect() is a hook that allows us to execute some code when a component is rendered for the first time or when it is re-rendered
+    if (storedUserLoggedInInformation === "1") {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const loginHandler = (email, password) => {
     // We should of course check email and password
@@ -22,7 +22,7 @@ function App() {
     setIsLoggedIn(true);
   };
 
-    const logoutHandler = () => {
+  const logoutHandler = () => {
     localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
   };
