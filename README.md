@@ -857,32 +857,39 @@ In this example:
 
 > Debouncing is a technique used to improve performance by limiting the rate at which a function gets invoked. It is a common practice to improve the performance of input handlers. For example, if you have a search input field, you can debounce the onChange event handler to avoid making an API call on every keystroke. Instead, you can make the API call only after the user has stopped typing for a certain amount of time.
 
-
 - useEffect() without a dependency array will run after every render cycle.
-  
-  
+
 ##### useReducer():
 
 - Sometimes you have more complex state, for example multiple states, multiple ways of changing the state or dependencies to other states. In these cases useState() can become hard to use or error prone.
 - **useReducer()** is a hook that allows you to manage complex state in a more predictable way. It's a bit more complex than useState() but it's also more powerful.
-**Use case for useReducer()**: when you have state that belongs togther, like enteredEmail and emailIsValid, or enteredPassword and passwordIsValid, and or if you have state updates that depend on other state updates
+  **Use case for useReducer()**: when you have state that belongs togther, like enteredEmail and emailIsValid, or enteredPassword and passwordIsValid, and or if you have state updates that depend on other state updates
 - For example:
 
 ```js
-  const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.includes("@"));
-  };
+const validateEmailHandler = () => {
+  setEmailIsValid(enteredEmail.includes("@"));
+};
 
-  const validatePasswordHandler = () => {
-    setPasswordIsValid(enteredPassword.trim().length > 6);
-  };
-
+const validatePasswordHandler = () => {
+  setPasswordIsValid(enteredPassword.trim().length > 6);
+};
 ```
+
 in each of the cases above we are setting a state variable based on the value of another state variable. This is a dependency and it can lead to bugs. For example, if we have a button that triggers the validation of both the email and password, and we click the button twice, the second time the validation will be wrong because the state variables will have changed in the meantime. This is a problem that useReducer() can solve.
 
-
 **useReducer() Syntax**
+
 ```js
 const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
-
 ```
+
+- in the above example state is the latest state snapshot used in the component render cycle. The dispatchFn is a function that dispatches an action that will be consumed by the reducerFn.
+- The reducerFn is a function that is triggered automatically once an action is dispatched (via dispatchFn). The reducerFn receives the latest state snapshot and the action as arguments and returns a new state snapshot. The reducerFn is the only place where you can update the state.
+
+**reducerFn Syntax**
+
+```js
+(prevState, action) => newState;
+```
+
