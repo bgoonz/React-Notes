@@ -1122,27 +1122,24 @@ const Login = (props) => {
 export default Login;
 ```
 
-
-
-#### useEffect Review"
+#### useEffect Review
 
 ```jsx
+useEffect(() => {
+  const identifier = setTimeout(() => {
+    console.log("Checking form validity!");
+    setFormIsValid(
+      enteredEmail.includes("@") && enteredPassword.trim().length > 6
+    );
+  }, 500);
 
-  useEffect(() => {
-   const identifier = setTimeout(() => {
-      console.log("Checking form validity!");
-      setFormIsValid(
-        enteredEmail.includes("@") && enteredPassword.trim().length > 6
-      );
-    }, 500);
+  return () => {
+    console.log("Cleanup");
+    clearTimeout();
+  };
+}, [enteredEmail, enteredPassword]);
+```
 
-    return () => {
-      console.log("Cleanup");
-          clearTimeout();
-    };
-  }, [enteredEmail, enteredPassword]);
-  ```
-  
-  - In the above code the cleanup function (returned function) will run before the next useEffect() runs. Whenever the useEffect runs ...before it runs... except for the first time that it runs, the cleanup function will run.  
+- In the above code the cleanup function (returned function) will run before the next useEffect() runs. Whenever the useEffect runs ...before it runs... except for the first time that it runs, the cleanup function will run.
 - In addition, the cleanup function will run whenever the compnent you use the useEffect() in is unmounted from the DOM.
 - To reiterate... the cleanup function does not run before the first useEffect call.

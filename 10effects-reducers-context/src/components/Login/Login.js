@@ -9,7 +9,12 @@ const Login = (props) => {
   const [emailIsValid, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
-  const [formIsValid, setFormIsValid] = useState(false);
+    const [ formIsValid, setFormIsValid ] = useState( false );
+    
+    useEffect( () => {
+        console.log('Effect running');
+    } );
+    
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Checking form validity!");
