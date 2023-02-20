@@ -1143,3 +1143,34 @@ useEffect(() => {
 - In the above code the cleanup function (returned function) will run before the next useEffect() runs. Whenever the useEffect runs ...before it runs... except for the first time that it runs, the cleanup function will run.
 - In addition, the cleanup function will run whenever the compnent you use the useEffect() in is unmounted from the DOM.
 - To reiterate... the cleanup function does not run before the first useEffect call.
+
+
+
+#### useReducer() Review:
+
+> In the following code...
+```jsx
+const Login = (props) => {
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [emailIsValid, setEmailIsValid] = useState();
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [passwordIsValid, setPasswordIsValid] = useState();
+  const [formIsValid, setFormIsValid] = useState(false);
+  ```
+
+we can use useReducer to combine the state and the state update logic for the entered email and the emailIsValid state... as well as combining the enteredPassword and passwordIsValid state.
+
+
+
+```jsx
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [emailIsValid, setEmailIsValid] = useState();
+
+```
+
+
+```jsx
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [passwordIsValid, setPasswordIsValid] = useState();
+
+```

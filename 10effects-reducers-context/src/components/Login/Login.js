@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
@@ -9,28 +9,32 @@ const Login = (props) => {
   const [emailIsValid, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
-    const [ formIsValid, setFormIsValid ] = useState( false );
-    
-    useEffect( () => {
-        console.log('Effect running');
-    } );
-    
-  useEffect(() => {
-    const identifier = setTimeout(() => {
-      console.log("Checking form validity!");
-      setFormIsValid(
-        enteredEmail.includes("@") && enteredPassword.trim().length > 6
-      );
-    }, 500);
+  const [formIsValid, setFormIsValid] = useState(false);
 
-    return () => {
-      console.log("Cleanup");
-      clearTimeout(identifier);
-    };
-  }, [enteredEmail, enteredPassword]);
+  useEffect(() => {
+    console.log("Effect running");
+    return () => {};
+  }, [enteredPassword]);
+
+  //   useEffect(() => {
+  //     const identifier = setTimeout(() => {
+  //       console.log("Checking form validity!");
+  //       setFormIsValid(
+  //         enteredEmail.includes("@") && enteredPassword.trim().length > 6
+  //       );
+  //     }, 500);
+
+  //     return () => {
+  //       console.log("Cleanup");
+  //       clearTimeout(identifier);
+  //     };
+  //   }, [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
+    setFormIsValid(
+      enteredEmail.includes("@") && enteredPassword.trim().length > 6
+    );
   };
 
   const passwordChangeHandler = (event) => {
