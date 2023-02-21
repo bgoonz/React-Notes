@@ -1217,3 +1217,10 @@ Because now the **effect function would re-run whenever ANY property** of `s
 | great for independent pieces of state  | use if you have state that is related to other state  |
 | great for if state updates are simple and few  |   |
 
+
+
+### Context API:
+
+- to use context you need to do two things:
+  1.  Provide the context to components that need to be wrapped by it.
+  2.  Consume it (listen to it)
