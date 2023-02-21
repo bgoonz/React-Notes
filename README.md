@@ -1205,3 +1205,15 @@ useEffect(() => {
 **Why? ...**
 
 Because now the **effect function would re-run whenever ANY property** of `someObject` changes - not just the one property (`someProperty` in the above example) our effect might depend on.
+
+
+
+
+#### useState vs. useReducer:
+
+| useState  | useReducer  |
+|---|---|
+| the main state managment tool  | need more power (complex state like objects)  |
+| great for independent pieces of state  | use if you have state that is related to other state  |
+| great for if state updates are simple and few  |   |
+
