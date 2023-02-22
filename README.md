@@ -1229,3 +1229,10 @@ Because now the **effect function would re-run whenever ANY property** of `s
 **When to use props vs context:**
 - in most cases you will use props to pass data to components.
 - only if you have something you would forward through a lot of components and you are doing something specific with it in a certain component, (for instance, the logout button in navigation) then you would use context.
+
+
+
+**React Context Limitations**
+
+- React Context is not optimized for high frequency changes.
+- React Context should not be used to replace all component communications and props... components should still be configurable via props and short prop chains might not need to be replaced with context.
