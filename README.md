@@ -1224,3 +1224,8 @@ Because now the **effect function would re-run whenever ANY property** of `s
 - to use context you need to do two things:
   1.  Provide the context to components that need to be wrapped by it.
   2.  Consume it (listen to it)
+
+
+**When to use props vs context:**
+- in most cases you will use props to pass data to components.
+- only if you have something you would forward through a lot of components and you are doing something specific with it in a certain component, (for instance, the logout button in navigation) then you would use context.
