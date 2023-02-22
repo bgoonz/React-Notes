@@ -1,4 +1,4 @@
-Exercise: Passing Data via "props"
+# Exercise: Passing Data via "props"
 
 You're working on the UI prototype for an online shop and your task is to output **two product items** (via the `<Product />` component you find in the `Product.js` file) below the main page title (`"My Demo Shop"`) in the `App` component.
 
