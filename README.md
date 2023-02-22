@@ -1236,3 +1236,11 @@ Because now the **effect function would re-run whenever ANY property** of `s
 
 - React Context is not optimized for high frequency changes.
 - React Context should not be used to replace all component communications and props... components should still be configurable via props and short prop chains might not need to be replaced with context.
+
+
+#### Rules Of React Hooks:
+- only call react hooks in react functions...(either component function or in custom hooks)
+- You can only call react hooks at the top level of your component function or custom hooks. (not in loops, conditions, or nested functions)
+- for useEffect: always add every variable that is used in the effect function as a dependency to the array
+
+
