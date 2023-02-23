@@ -1360,3 +1360,5 @@ export default Modal;
 ```
 
 - bear in mind that in this example we added a div with the id of "overlays" in the index.html file.
+
+---
