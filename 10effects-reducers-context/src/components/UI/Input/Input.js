@@ -25,7 +25,6 @@ const Input = React.forwardRef((props, ref) => {
         onBlur={props.onBlur}
       />
     </div>
-    );
-    
+  );
 });
 export default Input;

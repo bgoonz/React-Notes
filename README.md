@@ -1206,18 +1206,13 @@ useEffect(() => {
 
 Because now the **effect function would re-run whenever ANY property** of `someObject` changes - not just the one property (`someProperty` in the above example) our effect might depend on.
 
-
-
-
 #### useState vs. useReducer:
 
-| useState  | useReducer  |
-|---|---|
-| the main state managment tool  | need more power (complex state like objects)  |
-| great for independent pieces of state  | use if you have state that is related to other state  |
-| great for if state updates are simple and few  |   |
-
-
+| useState                                      | useReducer                                           |
+| --------------------------------------------- | ---------------------------------------------------- |
+| the main state managment tool                 | need more power (complex state like objects)         |
+| great for independent pieces of state         | use if you have state that is related to other state |
+| great for if state updates are simple and few |                                                      |
 
 ### Context API:
 
@@ -1225,22 +1220,18 @@ Because now the **effect function would re-run whenever ANY property** of `s
   1.  Provide the context to components that need to be wrapped by it.
   2.  Consume it (listen to it)
 
-
 **When to use props vs context:**
+
 - in most cases you will use props to pass data to components.
 - only if you have something you would forward through a lot of components and you are doing something specific with it in a certain component, (for instance, the logout button in navigation) then you would use context.
-
-
 
 **React Context Limitations**
 
 - React Context is not optimized for high frequency changes.
 - React Context should not be used to replace all component communications and props... components should still be configurable via props and short prop chains might not need to be replaced with context.
 
-
 #### Rules Of React Hooks:
+
 - only call react hooks in react functions...(either component function or in custom hooks)
 - You can only call react hooks at the top level of your component function or custom hooks. (not in loops, conditions, or nested functions)
 - for useEffect: always add every variable that is used in the effect function as a dependency to the array
-
-
