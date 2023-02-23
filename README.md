@@ -1299,3 +1299,64 @@ Last but not least, for that to work, we should also pass `id` as a prop to `
 ```
 
 Again, **this is all 100% optional** when it comes to the general functionality of this demo app - everything works as shown in the videos without these changes as well. But for proper accessibility, you should consider making these adjustments.
+
+---
+
+#### How we would do the modal overlay (without using the react portal):
+
+```jsx
+import React from "react";
+import classes from "./Modal.module.css";
+
+const Backdrop = (props) => {
+  return <div className={classes.backdrop} />;
+};
+const ModalOverlay = (props) => {
+  <div className={classes.modal}>
+    <div className={classes.content}>{props.children}</div>
+  </div>;
+};
+
+const Modal = (props) => {
+  return (
+    <React.Fragment>
+      <Backdrop />
+      <ModalOverlay>{props.children}</ModalOverlay>
+    </React.Fragment>
+  );
+};
+export default Modal;
+```
+
+**This is how we do the modal overlay with the react portal:**
+
+```jsx
+import React from "react";
+import ReactDOM from "react-dom";
+import classes from "./Modal.module.css";
+
+const Backdrop = (props) => {
+  return <div className={classes.backdrop} />;
+};
+const ModalOverlay = (props) => {
+  <div className={classes.modal}>
+    <div className={classes.content}>{props.children}</div>
+  </div>;
+};
+
+const portalElement = document.getElementById("overlays");
+const Modal = (props) => {
+  return (
+    <React.Fragment>
+      {ReactDOM.createPortal(<Backdrop />, portalElement)}
+      {ReactDOM.createPortal(
+        <ModalOverlay>{props.children}</ModalOverlay>,
+        portalElement
+      )}
+    </React.Fragment>
+  );
+};
+export default Modal;
+```
+
+- bear in mind that in this example we added a div with the id of "overlays" in the index.html file.
