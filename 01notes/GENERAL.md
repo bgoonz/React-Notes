@@ -1,3 +1,13 @@
+# General
+
+---
+
+## Table of Contents
+
+---
+
+### toFixed()
+
 The **`toFixed()`** method formats a number using fixed-point notation.
 
 ## Syntax
@@ -74,3 +84,17 @@ Because member access has higher [precedence](/en-US/docs/Web/JavaScript/Referen
 -(2.34).toFixed(1); // -2.3, a number
 (-2.34).toFixed(1); // '-2.3'
 ```
+
+---
+
+### htmlFor:
+
+# HTMLLabelElement.htmlFor
+
+The `HTMLLabelElement.htmlFor` property reflects the value of the [`for`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label#attr-for) content property. That means that this script-accessible property is used to set and read the value of the content property `for`, which is the ID of the label's associated control element.
+
+## [Value](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor#value)
+
+A string which contains the ID string of the element which is associated with the control.
+
+---
