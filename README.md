@@ -1379,3 +1379,55 @@ export default Modal;
 **React uses a concept called the Virtual Dom which determines how the component tree (every component has a subtree) looks like and what it should look like when state changes**
 
 > it should be noted that re-evaluating a component is not the same thing as re-rendering the dom.
+
+##### Toggle Paragraph with useState function form vs w/o function form:
+
+###### w/o function form (not recommended)
+
+```jsx
+import React, { useState } from "react";
+import Button from "./components/UI/Button/Button";
+import "./App.css";
+
+function App() {
+  const [showParagraph, setShowParagraph] = useState(false);
+  const toggleParagraphHandler = () => {
+    setShowParagraph(!showParagraph);
+  };
+
+  return (
+    <div className="app">
+      <h1>Hi there!</h1>
+      {showParagraph && <p>This is new!</p>}
+      <Button onClick={toggleParagraphHandler}>Toggle Paragraph!</Button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+###### with function form (recommended)
+
+```jsx
+import React, { useState } from "react";
+import Button from "./components/UI/Button/Button";
+import "./App.css";
+
+function App() {
+  const [showParagraph, setShowParagraph] = useState(false);
+  const toggleParagraphHandler = () => {
+    setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+  };
+
+  return (
+    <div className="app">
+      <h1>Hi there!</h1>
+      {showParagraph && <p>This is new!</p>}
+      <Button onClick={toggleParagraphHandler}>Toggle Paragraph!</Button>
+    </div>
+  );
+}
+
+export default App;
+```
