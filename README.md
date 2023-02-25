@@ -1508,27 +1508,26 @@ export default React.memo(DemoOutput);
 
 - when you call a state updating function i.e. `setSomething('new state value'')` react will not immediately update the state and re-evaluate the component tree... Instead it will schedule a state update with the provided data.
 
-
----
 ---
 
+---
 
 ### Talking to a Database via HTTP:
 
 for this section we will be using the Star Wars API: https://swapi.dev/
+
 - [starwars api](https://swapi.dev/)
 
-
 **API** stands for Application Programming Interface. It is a set of rules that allow two software programs to communicate with each other. An API is a set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
-
 
 **Builtin Fetch API**:
 
 ```jsx
-function fetchMoviesHandler() { 
-    fetch( 'https://swapi.dev/api/films/', {
-        method: 'GET',
-    } )
+function fetchMoviesHandler() {
+  fetch("https://swapi.dev/api/films/", {
+    method: "GET",
+  });
 }
 ```
+
 - fetch returns a promise which allows us to respond to the response of the request or any errors that might occur if the request fails.
