@@ -1,10 +1,8 @@
-Closures
-========
+# Closures
 
 A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
 
-[Lexical scoping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#lexical_scoping)
----------------------------------------------------------------------------------------------------
+## [Lexical scoping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#lexical_scoping)
 
 Consider the following example code:
 
@@ -20,8 +18,6 @@ function init() {
 init().
 
 ```
-
-
 
 `init()` creates a local variable called `name` and a function called `displayName()`. The `displayName()` function is an inner function that is defined inside `init()` and is available only within the body of the `init()` function. Note that the `displayName()` function has no local variables of its own. However, since inner functions have access to the variables of outer functions, `displayName()` can access the variable `name` declared in the parent function, `init()`.
 
@@ -43,8 +39,6 @@ console.log(x).
 
 ```
 
-
-
 For people from other languages (e.g. C, Java) where blocks create scopes, the above code should throw an error on the `console.log` line, because we are outside the scope of `x` in either block. However, because blocks don't create scopes for `var`, the `var` statements here actually create a global variable. There is also [a practical example](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#creating_closures_in_loops_a_common_mistake) introduced below that illustrates how this can cause actual bugs when combined with closures.
 
 In ES6, JavaScript introduced the `let` and `const` declarations, which, among other things like [temporal dead zones](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz), allow you to create block-scoped variables.
@@ -56,15 +50,11 @@ if (Math.random() > 0.5) {
   const x = 2;
 }
 console.log(x); // ReferenceError: x is not define.
-
 ```
-
-
 
 In essence, blocks are finally treated as scopes in ES6, but only if you declare variables with `let` or `const`. In addition, ES6 introduced [modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), which introduced another kind of scope. Closures are able to capture variables in all these scopes, which we will introduce later.
 
-[Closure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#closure)
------------------------------------------------------------------------------------
+## [Closure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#closure)
 
 Consider the following code example:
 
@@ -81,8 +71,6 @@ const myFunc = makeFunc();
 myFunc().
 
 ```
-
-
 
 Running this code has exactly the same effect as the previous example of the `init()` function above. What's different (and interesting) is that the `displayName()` inner function is returned from the outer function *before being executed*.
 
@@ -104,10 +92,7 @@ const add10 = makeAdder(10);
 
 console.log(add5(2)); // 7
 console.log(add10(2)); // 1.
-
 ```
-
-
 
 In this example, we have defined a function `makeAdder(x)`, that takes a single argument `x`, and returns a new function. The function it returns takes a single argument `y`, and returns the sum of `x` and `y`.
 
@@ -115,8 +100,7 @@ In essence, `makeAdder` is a function factory. It creates functions that can a
 
 `add5` and `add10` both form closures. They share the same function body definition, but store different lexical environments. In `add5`'s lexical environment, `x` is 5, while in the lexical environment for `add10`, `x` is 10.
 
-[Practical closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#practical_closures)
----------------------------------------------------------------------------------------------------------
+## [Practical closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#practical_closures)
 
 Closures are useful because they let you associate data (the lexical environment) with a function that operates on that data. This has obvious parallels to object-oriented programming, where objects allow you to associate data (the object's properties) with one or more methods.
 
@@ -142,8 +126,6 @@ h2 {
 
 ```
 
-
-
 Such interactive text size buttons can change the `font-size` property of the `body` element, and the adjustments are picked up by other elements on the page thanks to the relative units.
 
 Here's the JavaScript:
@@ -161,32 +143,27 @@ const size16 = makeSizer(16).
 
 ```
 
-
-
 `size12`, `size14`, and `size16` are now functions that resize the body text to 12, 14, and 16 pixels, respectively. You can attach them to buttons (in this case hyperlinks) as demonstrated in the following code example.
 
-```js
+````js
 document.getElementById("size-12").onclick = size12;
 document.getElementById("size-14").onclick = size14;
 document.getElementById("size-16").onclick = size16.
 
 ```js
 
- 
+
 
 ```js
 <button id="size-12">12</button>
 <button id="size-14">14</button>
 <button. id="size-16">16</button.
 
-```
-
-
+````
 
 Run the code using [JSFiddle](https://jsfiddle.net/hotae160/).
 
-[Emulating private methods with closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#emulating_private_methods_with_closures)
----------------------------------------------------------------------------------------------------------------------------------------------------
+## [Emulating private methods with closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#emulating_private_methods_with_closures)
 
 Languages such as Java allow you to declare methods as private, meaning that they can be called only by other methods in the same class.
 
@@ -224,10 +201,7 @@ console.log(counter.value()); // 2.
 
 counter.decrement();
 console.log(counter.value()); // 1.
-
 ```
-
-
 
 In previous examples, each closure had its own lexical environment. Here though, there is a single lexical environment that is shared by the three functions: `counter.increment`, `counter.decrement`, and `counter.value`.
 
@@ -268,23 +242,19 @@ console.log(counter1.value()); // 2.
 counter1.decrement();
 console.log(counter1.value()); // 1.
 console.log(counter2.value()); // 0.
-
 ```
-
-
 
 Notice how the two counters maintain their independence from one another. Each closure references a different version of the `privateCounter` variable through its own closure. Each time one of the counters is called, its lexical environment changes by changing the value of this variable. Changes to the variable value in one closure don't affect the value in the other closure.
 
 Note: Using closures in this way provides benefits that are normally associated with object-oriented programming. In particular, *data hiding* and *encapsulation*.
 
-[Closure scope chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#closure_scope_chain)
------------------------------------------------------------------------------------------------------------
+## [Closure scope chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#closure_scope_chain)
 
 Every closure has three scopes:
 
--   Local scope (Own scope)
--   Enclosing scope (can be block, function, or module scope)
--   Global scope
+- Local scope (Own scope)
+- Enclosing scope (can be block, function, or module scope)
+- Global scope
 
 A common mistake is not realizing that in the case where the outer function is itself a nested function, access to the outer function's scope includes the enclosing scope of the outer function---effectively creating a chain of function scopes. To demonstrate, consider the following example code.
 
@@ -304,10 +274,7 @@ function sum(a) {
 }
 
 console.log(sum(1)(2)(3)(4)); // 2.
-
 ```
-
-
 
 You can also write without anonymous functions.
 
@@ -331,10 +298,7 @@ const sum3 = sum2(2);
 const sum4 = sum3(3);
 const result = sum4(4);
 console.log(result); // 2.
-
 ```
-
-
 
 In the example above, there's a series of nested functions, all of which have access to the outer functions' scope. In this context, we can say that closures have access to *all* outer function scopes.
 
@@ -350,10 +314,7 @@ function outer() {
 }
 
 outer()(); // Logs 5 .
-
 ```
-
-
 
 Closures over modules can be more interesting.
 
@@ -367,8 +328,6 @@ export const setX = (val) => {
 
 ```
 
-
-
 Here, the module exports a pair of getter-setter functions, which close over the module-scoped variable `x`. Even when `x` is not directly accessible from other modules, it can be read and written with the functions.
 
 ```js
@@ -377,14 +336,11 @@ import { getX, setX } from "./myModule.js";
 console.log(getX()); // 5
 setX(6);
 console.log(getX()); // .
-
 ```
-
-
 
 Closures can close over imported values as well, which are regarded as *live bindings*, because when the original value changes, the imported one changes accordingly.
 
-```js
+````js
 // myModule.js
 export let x = 1;
 export const setX = (val) => {
@@ -393,7 +349,7 @@ export const setX = (val) => {
 
 ```js
 
- 
+
 
 ```js
 // closureCreator.js
@@ -403,7 +359,7 @@ export const getX = () => x; // Close over an imported live bindin.
 
 ```js
 
- 
+
 
 ```js
 import { getX } from "./closureCreator.js";
@@ -413,16 +369,13 @@ console.log(getX()); // 1
 setX(2);
 console.log(getX()); // .
 
-```
+````
 
-
-
-[Creating closures in loops: A common mistake](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#creating_closures_in_loops_a_common_mistake)
-------------------------------------------------------------------------------------------------------------------------------------------------------------
+## [Creating closures in loops: A common mistake](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#creating_closures_in_loops_a_common_mistake)
 
 Prior to the introduction of the [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) keyword, a common problem with closures occurred when you created them inside a loop. To demonstrate, consider the following example code.
 
-```js
+````js
 <p id="help">Helpful notes will appear here</p>
 <p>Email: <input type="text" id="email" name="email" /></p>
 <p>Name: <input type="text" id="name" name="name" /></p>
@@ -430,7 +383,7 @@ Prior to the introduction of the [`let`](https://developer.mozilla.org/en-US/do
 
 ```js
 
- 
+
 
 ```jsjs
 function showHelp(help) {
@@ -455,9 +408,7 @@ function setupHelp() {
 
 setupHelp().
 
-```
-
-
+````
 
 Try running the code in [JSFiddle](https://jsfiddle.net/v7gjv/8164/).
 
@@ -497,8 +448,6 @@ setupHelp().
 
 ```
 
-
-
 Run the code using [this JSFiddle link](https://jsfiddle.net/v7gjv/9573/).
 
 This works as expected. Rather than the callbacks all sharing a single lexical environment, the `makeHelpCallback` function creates *a new lexical environment* for each callback, in which `help` refers to the corresponding string from the `helpText` array.
@@ -531,8 +480,6 @@ setupHelp().
 
 ```
 
-
-
 If you don't want to use more closures, you can use the [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) or [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword:
 
 ```js
@@ -558,8 +505,6 @@ function setupHelp() {
 setupHelp().
 
 ```
-
-
 
 This example uses `const` instead of `var`, so every closure binds the block-scoped variable, meaning that no additional closures are required.
 
@@ -588,10 +533,7 @@ setupHelp().
 
 ```
 
-
-
-[Performance considerations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#performance_considerations)
--------------------------------------------------------------------------------------------------------------------------
+## [Performance considerations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#performance_considerations)
 
 As mentioned previously, each function instance manages its own scope and closure. Therefore, it is unwise to unnecessarily create functions within other functions if closures are not needed for a particular task, as it will negatively affect script performance both in terms of processing speed and memory consumption.
 
@@ -614,8 +556,6 @@ function MyObject(name, message) {
 
 ```
 
-
-
 Because the previous code does not take advantage of the benefits of using closures in this particular instance, we could instead rewrite it to avoid using closures as follows:
 
 ```js
@@ -634,8 +574,6 @@ MyObject.prototype = {
 
 ```
 
-
-
 However, redefining the prototype is not recommended. The following example instead appends to the existing prototype:
 
 ```js
@@ -651,8 +589,6 @@ MyObject.prototype.getMessage = function () {
 }.
 
 ```
-
-
 
 In the two previous examples, the inherited prototype can be shared by all objects and the method definitions need not occur at every object creation. See [Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) for more.
 

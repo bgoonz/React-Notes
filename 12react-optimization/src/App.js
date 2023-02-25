@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 
 import Button from "./components/UI/Button/Button";
 import DemoOutput from "./components/Demo/DemoOutput";
@@ -24,7 +24,10 @@ function App() {
   const allowToggeHandler = () => {
     setAllowTogge((prevAllowTogge) => !prevAllowTogge);
   };
-
+  const listItems = useMemo(
+    () => [5, 3, 1, 10, 9, 56, 7, 38, 3, 8, 0, 3, 49, 567],
+    []
+  );
   return (
     <div className="app">
       <h1>Hi there!</h1>
@@ -32,10 +35,7 @@ function App() {
       <Button onClick={allowToggeHandler}>Allow Toggling!</Button>
       <Button onClick={toggleParagraphHandler}>Toggle Paragraph!</Button>
       <div>
-        <DemoList
-          title={listTitle}
-          items={[5, 3, 1, 10, 9, 56, 7, 38, 3, 8, 0, 3, 49, 567]}
-        />
+        <DemoList title={listTitle} items={listItems} />
         <Button onClick={changeTitleHandler}>Change List Title</Button>
       </div>
     </div>

@@ -1241,7 +1241,7 @@ Because now the **effect function would re-run whenever ANY property** of `s
 #### useState vs. useReducer:
 
 | useState                                      | useReducer                                           |
-|-----------------------------------------------|------------------------------------------------------|
+| --------------------------------------------- | ---------------------------------------------------- |
 | the main state managment tool                 | need more power (complex state like objects)         |
 | great for independent pieces of state         | use if you have state that is related to other state |
 | great for if state updates are simple and few |                                                      |
@@ -1496,18 +1496,15 @@ export default React.memo(DemoOutput);
 
 [notes on primatives vs reference types:](01notes/primatives-vs-references.md)
 
-
-
 ---
 
-### When to use React.callback() vs React.memo() 
+### When to use React.callback() vs React.memo()
 
 - when we want to memoize props that are functions objects or arrays (i.e. reference types)
-
 
 ---
 
 #### State Scheduling & Batching
 
 - when you call a state updating function i.e. `setSomething('new state value'')` react will not immediately update the state and re-evaluate the component tree... Instead it will schedule a state update with the provided data.
-- 
+-
