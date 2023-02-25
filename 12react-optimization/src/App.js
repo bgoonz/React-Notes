@@ -6,17 +6,17 @@ import "./App.css";
 
 function App() {
     const [ showParagraph, setShowParagraph ] = useState( false );
-      const [allowTogge, setAllowTogge] = useState(false);
+      const [allowToggle, setAllowTogge] = useState(false);
 
   console.log("APP RUNNING");
 
     
     const toggleParagraphHandler = useCallback( () => {
-        if ( allowTogge ) {
+        if ( allowToggle ) {
             setShowParagraph( ( prevShowParagraph ) => !prevShowParagraph );
         }
         
-  },[allowTogge]);
+  },[allowToggle]);
     const allowToggeHandler = () => { 
         setAllowTogge(prevAllowTogge => !prevAllowTogge);
     };
