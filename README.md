@@ -1433,4 +1433,4 @@ export default App;
 ```
 
 
-**
+**The component that has state or context that changes will be re-evaluated and possibly re-rendered whenever state changes**
