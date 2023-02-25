@@ -1,3 +1,4 @@
+
 import CartContext from "./cart-context";
 import { useReducer } from "react";
 
@@ -29,6 +30,27 @@ const cartReducer = (state, action) => {
       updatedItems = state.items.concat(action.item);
     }
 
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
+  }
+  if (action.type === "REMOVE") {
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.id
+    ); //find the index of an existing item
+    const existingItem = state.items[existingCartItemIndex]; //find the existing item it's self
+    const updatedTotalAmount = state.totalAmount - existingItem.price; //update the total amount
+    let updatedItems;
+    if (existingItem.amount === 1) {
+      //if the amount of the existing item is 1, we want to remove it from the cart
+      updatedItems = state.items.filter((item) => item.id !== action.id); //keep all items that don't have the same id as found on the action
+    } else {
+      //if the amount of the existing item is greater than 1, we want to update the amount of the existing item
+      const updatedItem = { ...existingItem, amount: existingItem.amount - 1 }; //update the amount of the existing item
+      updatedItems = [...state.items]; //copy of state items
+      updatedItems[existingCartItemIndex] = updatedItem; //on the copy we overwrite the existing item with the updated item
+    }
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
