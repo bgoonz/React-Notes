@@ -1434,3 +1434,10 @@ export default App;
 
 
 **The component that has state or context that changes will be re-evaluated and possibly re-rendered whenever state changes**
+
+
+
+**The exicution of a parent component will trigger the re-evaluation of all of its child components... if the state and props going to the child component do not change this will not trigger a change in the DOM**
+
+
+
