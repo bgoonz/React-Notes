@@ -1,10 +1,8 @@
-Immutable Update Patterns
-=========================
+# Immutable Update Patterns
 
 The articles listed in [Prerequisite Concepts#Immutable Data Management](https://redux.js.org/usage/structuring-reducers/prerequisite-concepts#immutable-data-management) give a number of good examples for how to perform basic update operations immutably, such as updating a field in an object or adding an item to the end of an array. However, reducers will often need to use those basic operations in combination to perform more complicated tasks. Here are some examples for some of the more common tasks you might have to implement.
 
-Updating Nested Objects[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#updating-nested-objects "Direct link to heading")
-------------------------------------------------------------------------------------------------------------------------------------------------------
+## Updating Nested Objects[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#updating-nested-objects "Direct link to heading")
 
 The key to updating nested data is that *every* level of nesting must be copied and updated appropriately. This is often a difficult concept for those learning Redux, and there are some specific problems that frequently occur when trying to update nested objects. These lead to accidental direct mutation, and should be avoided.
 
@@ -38,8 +36,7 @@ function updateNestedState(state, action) {  // Problem: this only does a shallo
 
 Doing a shallow copy of the top level is *not* sufficient - the `nestedState` object should be copied as well.
 
-Inserting and Removing Items in Arrays[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#inserting-and-removing-items-in-arrays "Direct link to heading")
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Inserting and Removing Items in Arrays[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#inserting-and-removing-items-in-arrays "Direct link to heading")
 
 Normally, a Javascript array's contents are modified using mutative functions like `push`, `unshift`, and `splice`. Since we don't want to mutate state directly in reducers, those should normally be avoided. Because of that, you might see "insert" or "remove" behavior written like this:
 
@@ -61,8 +58,7 @@ The remove function could also be implemented as:
 function removeItem(array, action) {  return array.filter((item, index) => index !== action.index)}
 ```
 
-Updating an Item in an Array[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#updating-an-item-in-an-array "Direct link to heading")
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Updating an Item in an Array[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#updating-an-item-in-an-array "Direct link to heading")
 
 Updating one item in an array can be accomplished by using `Array.map`, returning a new value for the item we want to update, and returning the existing values for all other items:
 
@@ -70,8 +66,7 @@ Updating one item in an array can be accomplished by using `Array.map`, returni
 function updateObjectInArray(array, action) {  return array.map((item, index) => {    if (index !== action.index) {      // This isn't the item we care about - keep it as-is      return item    }    // Otherwise, this is the one we want - return an updated value    return {      ...item,      ...action.item    }  })}
 ```
 
-Immutable Update Utility Libraries[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#immutable-update-utility-libraries "Direct link to heading")
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Immutable Update Utility Libraries[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#immutable-update-utility-libraries "Direct link to heading")
 
 Because writing immutable update code can become tedious, there are a number of utility libraries that try to abstract out the process. These libraries vary in APIs and usage, but all try to provide a shorter and more succinct way of writing these updates. For example, [Immer](https://github.com/mweststrate/immer) makes immutable updates a simple function and plain JavaScript objects:
 
@@ -95,8 +90,7 @@ They can provide a useful alternative to writing manual immutable update logic.
 
 A list of many immutable update utilities can be found in the [Immutable Data#Immutable Update Utilities](https://github.com/markerikson/redux-ecosystem-links/blob/master/immutable-data.md#immutable-update-utilities) section of the [Redux Addons Catalog](https://github.com/markerikson/redux-ecosystem-links).
 
-Simplifying Immutable Updates with Redux Toolkit[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#simplifying-immutable-updates-with-redux-toolkit "Direct link to heading")
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Simplifying Immutable Updates with Redux Toolkit[​](https://redux.js.org/usage/structuring-reducers/immutable-update-patterns#simplifying-immutable-updates-with-redux-toolkit "Direct link to heading")
 
 Our [Redux Toolkit](https://redux-toolkit.js.org/) package includes a [`createReducer` utility](https://redux-toolkit.js.org/api/createReducer) that uses Immer internally. Because of this, you can write reducers that appear to "mutate" state, but the updates are actually applied immutably.
 
