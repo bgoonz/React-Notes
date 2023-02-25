@@ -1362,7 +1362,9 @@ export default Modal;
 - bear in mind that in this example we added a div with the id of "overlays" in the index.html file.
 
 ---
-#### CartProvider With Notes: 
+
+#### CartProvider With Notes:
+
 ```jsx
 import CartContext from "./cart-context";
 import { useReducer } from "react";
@@ -1451,5 +1453,3 @@ const CartProvider = (props) => {
 
 export default CartProvider;
 ```
-
-
