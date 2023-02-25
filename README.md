@@ -1494,3 +1494,11 @@ export default React.memo(DemoOutput);
 ---
 
 [notes on primatives vs reference types:](01notes/primatives-vs-references.md)
+
+
+
+---
+
+### When to use React.callback() vs React.memo() 
+
+- when we want to memoize props that are functions objects or arrays (i.e. reference types)
