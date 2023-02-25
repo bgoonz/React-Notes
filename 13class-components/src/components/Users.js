@@ -4,9 +4,9 @@ import User from "./User";
 import classes from "./Users.module.css";
 
 const DUMMY_USERS = [
-  { id: "u1", name: "Max" },
-  { id: "u2", name: "Manuel" },
-  { id: "u3", name: "Julie" },
+  { id: "u1", name: "Bryan" },
+  { id: "u2", name: "Jack" },
+  { id: "u3", name: "Juliete" },
 ];
 
 const Users = () => {
