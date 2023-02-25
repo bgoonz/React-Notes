@@ -15,6 +15,7 @@
 - [events-practice.md](./01notes/events-practice.md)
 - [expense-form-state.md](./01notes/expense-form-state.md)
 - [fixing-errors.md](./01notes/fixing-errors.md)
+- [http-responses.md](./01notes/http-responses.md)
 - [immutable-update-patterns.md](./01notes/immutable-update-patterns.md)
 - [outputting-conditional-content.md](./01notes/outputting-conditional-content.md)
 - [primatives-vs-references.md](./01notes/primatives-vs-references.md)
