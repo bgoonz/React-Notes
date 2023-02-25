@@ -1432,12 +1432,26 @@ function App() {
 export default App;
 ```
 
-
 **The component that has state or context that changes will be re-evaluated and possibly re-rendered whenever state changes**
-
-
 
 **The exicution of a parent component will trigger the re-evaluation of all of its child components... if the state and props going to the child component do not change this will not trigger a change in the DOM**
 
+---
 
+#### React.memo()
 
+```jsx
+import React from "react";
+
+import MyParagraph from "./MyParagraph";
+
+const DemoOutput = (props) => {
+  console.log("DemoOutput RUNNING");
+  return <MyParagraph>{props.show ? "This is new!" : ""}</MyParagraph>;
+};
+
+export default React.memo(DemoOutput);
+```
+
+- React.memo() is a higher order function that takes a component as an argument and returns a new component that is wrapped in a memoization function.
+- In the example above React.memo tells react for the DemoOutput component to only re-evaluate if the props change.
