@@ -1455,3 +1455,6 @@ export default React.memo(DemoOutput);
 
 - React.memo() is a higher order function that takes a component as an argument and returns a new component that is wrapped in a memoization function.
 - In the example above React.memo tells react for the DemoOutput component to only re-evaluate if the props change.
+- The reason we don't use React.memo on every single component is because it comes with a performance cost.
+- It needs to store the previous prop values and compare them to the new prop values to determine if the component should be re-evaluated.
+- You're weighing the performance cost of re-evaluating the component vs the performance cost of storing the previous prop values and comparing them to the new prop values which depends on the component and how much data it is storing and how often it is re-evaluated.
