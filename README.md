@@ -1458,3 +1458,8 @@ export default React.memo(DemoOutput);
 - The reason we don't use React.memo on every single component is because it comes with a performance cost.
 - It needs to store the previous prop values and compare them to the new prop values to determine if the component should be re-evaluated.
 - You're weighing the performance cost of re-evaluating the component vs the performance cost of storing the previous prop values and comparing them to the new prop values which depends on the component and how much data it is storing and how often it is re-evaluated.
+- React.memo() is a good tool when you have a large component tree and you are higher up in the component tree and want to prevent unnecessary re-evaluations of components that are lower down in the component tree.
+
+---
+
+[notes on primatives vs reference types:](01notes/primatives-vs-references.md)
