@@ -9,6 +9,7 @@
 - [arrow-func.md](./01notes/arrow-func.md)
 - [cookies-vs-local-storage.md](./01notes/cookies-vs-local-storage.md)
 - [css-position.md](./01notes/css-position.md)
+- [closures.md](./01notes/closures.md)
 - [dynamic-classes.md](./01notes/dynamic-classes.md)
 - [dynamic-styles.md](./01notes/dynamic-styles.md)
 - [events-practice.md](./01notes/events-practice.md)
