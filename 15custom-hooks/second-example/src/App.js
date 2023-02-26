@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import Tasks from './components/Tasks/Tasks';
-import NewTask from './components/NewTask/NewTask';
+import Tasks from "./components/Tasks/Tasks";
+import NewTask from "./components/NewTask/NewTask";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +17,7 @@ function App() {
       );
 
       if (!response.ok) {
-        throw new Error('Request failed!');
+        throw new Error("Request failed!");
       }
 
       const data = await response.json();
@@ -30,7 +30,7 @@ function App() {
 
       setTasks(loadedTasks);
     } catch (err) {
-      setError(err.message || 'Something went wrong!');
+      setError(err.message || "Something went wrong!");
     }
     setIsLoading(false);
   };
