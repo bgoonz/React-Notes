@@ -1,5 +1,4 @@
-HTTP response status codes
-==========================
+# HTTP response status codes
 
 HTTP response status codes indicate whether a specific [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) request has been successfully completed. Responses are grouped in five classes:
 
@@ -13,8 +12,7 @@ The status codes listed below are defined by [RFC 9110](https://httpwg.org/spec
 
 Note: If you receive a response that is not in [this list](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#information_responses), it is a non-standard response, possibly custom to the server's software.
 
-[Information responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#information_responses)
--------------------------------------------------------------------------------------------------------
+## [Information responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#information_responses)
 
 [`100 Continue`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/100)
 
@@ -32,17 +30,16 @@ This code indicates that the server has received and is processing the request, 
 
 This status code is primarily intended to be used with the [`Link`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link) header, letting the user agent start [preloading](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload) resources while the server prepares a response.
 
-[Successful responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses)
------------------------------------------------------------------------------------------------------
+## [Successful responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses)
 
 [`200 OK`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
 
 The request succeeded. The result meaning of "success" depends on the HTTP method:
 
--   `GET`: The resource has been fetched and transmitted in the message body.
--   `HEAD`: The representation headers are included in the response without any message body.
--   `PUT` or `POST`: The resource describing the result of the action is transmitted in the message body.
--   `TRACE`: The message body contains the request message as received by the server.
+- `GET`: The resource has been fetched and transmitted in the message body.
+- `HEAD`: The representation headers are included in the response without any message body.
+- `PUT` or `POST`: The resource describing the result of the action is transmitted in the message body.
+- `TRACE`: The message body contains the request message as received by the server.
 
 [`201 Created`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201)
 
@@ -80,8 +77,7 @@ Used inside a `<dav:propstat>` response element to avoid repeatedly enumeratin
 
 The server has fulfilled a `GET` request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.
 
-[Redirection messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages)
------------------------------------------------------------------------------------------------------
+## [Redirection messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages)
 
 [`300 Multiple Choices`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/300)
 
@@ -119,8 +115,7 @@ The server sends this response to direct the client to get the requested resourc
 
 This means that the resource is now permanently located at another URI, specified by the `Location:` HTTP Response header. This has the same semantics as the `301 Moved Permanently` HTTP response code, with the exception that the user agent *must not* change the HTTP method used: if a `POST` was used in the first request, a `POST` must be used in the second request.
 
-[Client error responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses)
----------------------------------------------------------------------------------------------------------
+## [Client error responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses)
 
 [`400 Bad Request`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400)
 
@@ -238,8 +233,7 @@ The server is unwilling to process the request because its header fields are too
 
 The user agent requested a resource that cannot legally be provided, such as a web page censored by a government.
 
-[Server error responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses)
----------------------------------------------------------------------------------------------------------
+## [Server error responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses)
 
 [`500 Internal Server Error`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
 
