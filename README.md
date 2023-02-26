@@ -34,7 +34,7 @@
 
 ---
 
-#### What is React?
+### What is React?
 
 > A javascript library for building User Interfaces based on reusable components.
 
