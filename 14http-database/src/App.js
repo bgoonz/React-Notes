@@ -12,7 +12,9 @@ function App() {
     setIsLoading(true);
     setError(null); //clear previous errors
     try {
-      const response = await fetch("https://swapi.dev/api/films/");
+      const response = await fetch(
+        "https://react-complete-course-85dc9-default-rtdb.firebaseio.com/movies.json"
+      );
       //simulated error
       //   const response = await fetch("https://swapi.dev/api/films123/");
       if (!response.ok) {
