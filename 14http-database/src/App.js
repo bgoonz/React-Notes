@@ -43,8 +43,17 @@ function App() {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
   //-------------------AddMovieHandler-------------------
-  function addMovieHandler(movie) {
-    console.log(movie);
+  async function addMovieHandler(movie) {
+const response =await fetch(
+    "https://react-complete-course-85dc9-default-rtdb.firebaseio.com/movies.json",
+    {
+        method: 'POST',
+        body: JSON.stringify( movie ),
+        headers: { 'Content-Type': 'application/json' }
+    }
+);
+      const data = await response.json();
+        console.log(data);
   }
   //-----------------Conditional Content-----------------
   let content = <p>Found no movies.</p>;
