@@ -21,16 +21,17 @@ function App() {
         throw new Error("Something went wrong!");
       }
       const data = await response.json();
+      const loadedMovies = [];
+      for (const key in data) {
+        loadedMovies.push({
+          id: key,
+          title: data[key].title,
+          releaseDate: data[key].releaseDate,
+          openingText: data[key].openingText,
+        });
+      }
 
-      const transformedMovies = data.results.map((movieData) => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          releaseDate: movieData.release_date,
-          openingText: movieData.opening_crawl,
-        };
-      });
-      setMovies(transformedMovies);
+      setMovies(loadedMovies);
       setIsLoading(false);
     } catch (error) {
       setError(error.message);
@@ -44,16 +45,16 @@ function App() {
   }, [fetchMoviesHandler]);
   //-------------------AddMovieHandler-------------------
   async function addMovieHandler(movie) {
-const response =await fetch(
-    "https://react-complete-course-85dc9-default-rtdb.firebaseio.com/movies.json",
-    {
-        method: 'POST',
-        body: JSON.stringify( movie ),
-        headers: { 'Content-Type': 'application/json' }
-    }
-);
-      const data = await response.json();
-        console.log(data);
+    const response = await fetch(
+      "https://react-complete-course-85dc9-default-rtdb.firebaseio.com/movies.json",
+      {
+        method: "POST",
+        body: JSON.stringify(movie),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
   }
   //-----------------Conditional Content-----------------
   let content = <p>Found no movies.</p>;
