@@ -22,6 +22,7 @@
 - [push-pop-shift-unshift.md](./01notes/push-pop-shift-unshift.md)
 - [react-basics.md](./01notes/react-basics.md)
 - [react-hooks.md](./01notes/react-hooks.md)
+- [react-hooks-reference.md](./01notes/react-hooks-reference.md)
 - [rendering-lists-of-data.md](./01notes/rendering-lists-of-data.md)
 - [slides.pdf](./01notes/slides.pdf)
 - [slides3.pdf](./01notes/slides3.pdf)
