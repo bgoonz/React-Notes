@@ -1534,27 +1534,64 @@ function fetchMoviesHandler() {
 
 - fetch returns a promise which allows us to respond to the response of the request or any errors that might occur if the request fails.
 
-
-
 ---
+
 ---
 
 ### Custom Hooks:
 
-- Custom hooks are regular functions which can contain stateful logic 
+- Custom hooks are regular functions which can contain stateful logic
 - They are used to outsource stateful logic into reusable functions
 - Unlike regular functions custom hooks can use other react hooks & react state.
-  
-  
-#### Rules of Hooks:
-1.) Only call React Hooks in React Functions
-- React component functions
-- React custom hooks  
 
-2.) Only call React Hooks at the top level
+#### Rules of Hooks:
+
+1.) Only call React Hooks in React Functions
+
+- React component functions
+- React custom hooks
+
+  2.) Only call React Hooks at the top level
+
 - Don't call hooks inside loops, conditions, or nested functions
 - Don't call them inside any block statment
 
-3.) For useEffect() always add everything you refer to inside useEffect as a dependency.
+  3.) For useEffect() always add everything you refer to inside useEffect as a dependency.
 
+##### Rules of Custom Hooks:
 
+1.) **Custom hooks must start with the word "use"**
+
+> i.e.
+
+```jsx
+import { useState, useEffect } from "react";
+const useCounter = () => {
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounter((prevCounter) => prevCounter + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+  return counter;
+};
+
+export default useCounter;
+```
+
+> Applied:
+
+```jsx
+import useCounter from "../hooks/use-counter";
+import Card from "./Card";
+
+const ForwardCounter = () => {
+  const counter = useCounter();
+  return <Card>{counter}</Card>;
+};
+
+export default ForwardCounter;
+```
