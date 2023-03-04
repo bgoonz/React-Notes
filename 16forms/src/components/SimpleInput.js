@@ -44,7 +44,7 @@ const SimpleInput = (props) => {
       <div className={nameInputClasses}>
         <label htmlFor="name">Your Name</label>
         <input
-          ref={nameInputRef}
+ 
           type="text"
           id="name"
           onChange={nameInputChangeHandler}
