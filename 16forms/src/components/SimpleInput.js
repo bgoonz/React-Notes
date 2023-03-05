@@ -45,10 +45,12 @@ const SimpleInput = (props) => {
     setEnteredEmailTouched(false);
   };
 
-  const nameInputClasses =
-    nameInputIsInvalid ? "form-control invalid"
-      : "form-control";
-const emailInputClasses= emailInputIsInvalid ? "form-control invalid":"form-control";
+  const nameInputClasses = nameInputIsInvalid
+    ? "form-control invalid"
+    : "form-control";
+  const emailInputClasses = emailInputIsInvalid
+    ? "form-control invalid"
+    : "form-control";
   return (
     <form onSubmit={formSubmissionHandler}>
       <div className={nameInputClasses}>

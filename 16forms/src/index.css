@@ -83,11 +83,10 @@ button:disabled,
 button:disabled:hover,
 button:disabled:active {
   background-color: #ccc;
-  color:#494949;
+  color: #494949;
   border-color: #ccc;
   cursor: not-allowed;
 }
-
 
 .form-actions {
   text-align: right;

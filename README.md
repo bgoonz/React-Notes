@@ -1597,9 +1597,7 @@ export default ForwardCounter;
 ```
 
 ---
+
 ---
 
 ### Working with Forms & User Input:
-
-
-
