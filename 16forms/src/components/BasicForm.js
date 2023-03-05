@@ -25,32 +25,30 @@ const BasicForm = (props) => {
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     reset: resetEmailInput,
-  } = useInput( isEmail );
-    
-    let formIsValid = false;
-    if ( firstNameIsValid && lastNameIsValid && emailIsValid ) {
-        formIsValid = true;
+  } = useInput(isEmail);
+
+  let formIsValid = false;
+  if (firstNameIsValid && lastNameIsValid && emailIsValid) {
+    formIsValid = true;
+  }
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (!formIsValid) {
+      return;
     }
-    const submitHandler = ( event ) => {
-        event.preventDefault();
-        if ( !formIsValid ) {
-            return;
-        }
-        console.log( "Submitted!", firstNameValue, lastNameValue, emailValue );
-        resetFirstNameInput();
-        resetLastNameInput();
-        resetEmailInput();
-    };
-    
+    console.log("Submitted!", firstNameValue, lastNameValue, emailValue);
+    resetFirstNameInput();
+    resetLastNameInput();
+    resetEmailInput();
+  };
+
   const firstNameClasses = firstNameHasError
     ? "form-control invalid"
     : "form-control";
   const lastNameClasses = lastNameHasError
     ? "form-control invalid"
     : "form-control";
-  const emailClasses = emailHasError
-    ? "form-control invalid"
-    : "form-control";
+  const emailClasses = emailHasError ? "form-control invalid" : "form-control";
   return (
     <form onSubmit={submitHandler}>
       <div className="control-group">

@@ -2,6 +2,12 @@
 
 ---
 
+### Useful Commands
+
+`find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +`
+
+---
+
 ## Notes
 
 - [GENERAL.md](./01notes/GENERAL.md)
