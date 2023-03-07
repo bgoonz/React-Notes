@@ -2,10 +2,12 @@
 
 ---
 
-### Useful Commands
+### Useful Commands & Notes
 
 `find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +`
 
+
+>Firebase endpoint: https://react-complete-course-85dc9-default-rtdb.firebaseio.com/
 ---
 
 ## Notes
