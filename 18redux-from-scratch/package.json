@@ -1,0 +1,14 @@
+{
+  "name": "18redux-from-scratch",
+  "version": "1.0.0",
+  "description": "redux practice",
+  "main": "redux-demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bryan Guner",
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^4.2.1"
+  }
+}
