@@ -33,6 +33,7 @@
 - [react-hooks.md](./01notes/react-hooks.md)
 - [react-hooks-reference.md](./01notes/react-hooks-reference.md)
 - [rendering-lists-of-data.md](./01notes/rendering-lists-of-data.md)
+- [react-interview-questions.md](./01notes/react-interview-questions.md)
 - [slides.pdf](./01notes/slides.pdf)
 - [slides3.pdf](./01notes/slides3.pdf)
 - [slides4.pdf](./01notes/slides4.pdf)
