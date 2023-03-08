@@ -1,4 +1,3 @@
-
 ### Table of Contents
 
 | No. | Questions                                                                                                                                                                                                                        |
@@ -345,14 +344,14 @@
 | 333 | [What is a wrapper component ](#what-is-a-wrapper-component)                                                                                                                                                                     |
 | 334 | [What are the differences between useEffect and useLayoutEffect hooks](#what-are-the-differences-between-useEffect-and-useLayoutEffect-hooks)                                                                                    |
 | 335 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                                           |
-| 336 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)                                                                                                                 |
+| 336 | [Why does strict mode render twice in React?](#why-does-strict-mode-render-twice-in-react)                                                                                                                                       |
 
 ## Core React
 
 1.  ### What is React?
 
-    React(aka React.js or ReactJS) is an **open-source front-end JavaScript library** that is used for building composable user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps based on components in a declarative approach. 
-    
+    React(aka React.js or ReactJS) is an **open-source front-end JavaScript library** that is used for building composable user interfaces, especially for single-page applications. It is used for handling view layer for web and mobile apps based on components in a declarative approach.
+
     React was created by [Jordan Walke](https://github.com/jordwalke), a software engineer working for Facebook. React was first deployed on Facebook's News Feed in 2011 and on Instagram in 2012.
 
     **[⬆ Back to Top](#table-of-contents)**
@@ -632,7 +631,7 @@
     In React, both `state` and `props` are are plain JavaScript objects and used to manage the data of a component, but they are used in different ways and have different characteristics.
     `state` is managed by the component itself and can be updated using the `setState()` function. Unlike props, state can be modified by the component and is used to manage the internal state of the component. Changes in the state trigger a re-render of the component and its children.
     `props` (short for "properties") are passed to a component by its parent component and are `read-only`, meaning that they cannot be modified by the component itself. props can be used to configure the behavior of a component and to pass data between components.
-    
+
     **[⬆ Back to Top](#table-of-contents)**
 
 11. ### Why should we not update the state directly?
@@ -6400,9 +6399,9 @@
        const [data, setData] = React.useState({ hits: [] });
 
        React.useEffect(() => {
-        fetch("http://hn.algolia.com/api/v1/search?query=react")
-        .then(response => response.json())
-        .then(data => setData(data))
+         fetch("http://hn.algolia.com/api/v1/search?query=react")
+           .then((response) => response.json())
+           .then((data) => setData(data));
        }, []);
 
        return (
@@ -6907,7 +6906,7 @@ const loadUser = async () => {
      Wrapper component can also accept its own props and pass them down to the wrapped component, for example, we can create a wrapper component that will add a title to the message component:
 
      ```javascript
-     const MessageWrapperWithTitle = ({title, ...props}) => {
+     const MessageWrapperWithTitle = ({ title, ...props }) => {
        return (
          <div>
            <h3>{title}</h3>
@@ -6944,136 +6943,140 @@ const loadUser = async () => {
 **[⬆ Back to Top](#table-of-contents)**
 
 335. ### What are the differences between Functional and Class Components?
- 
-      There are two different ways to create components in ReactJS. The main differences are listed down as below,
 
-      ## 1.  Syntax:
+     There are two different ways to create components in ReactJS. The main differences are listed down as below,
 
-      The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
-      
-      The syntax for class component looks like as below.
-        ```
-        class App extends Reacts.Component {
-          render(){
-            return <h1>This is a class component</h1>}
-          }
+     ## 1. Syntax:
 
-        ```
+     The classs components uses ES6 classes to create the components. It uses `render` function to display the HTML content in the webpage.
 
-      **Note:** The **Pascal Case** is the recommended approach to provide naming to a component.
+     The syntax for class component looks like as below.
 
-      Functional component has been improved over the years with some added features like Hooks. Here is a syntax for functional component.
+     ```
+     class App extends Reacts.Component {
+       render(){
+         return <h1>This is a class component</h1>}
+       }
 
-      ```
-      function App(){
-        return <div className="App">
-          <h1>Hello, I'm a function component</h1>
-          </div>
-      }
+     ```
 
-      ```
+     **Note:** The **Pascal Case** is the recommended approach to provide naming to a component.
 
-      ## 2. State:
+     Functional component has been improved over the years with some added features like Hooks. Here is a syntax for functional component.
 
-      State contains information or data about a component which may change over time. 
-      
-      In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
-      <strong> A simple example showing how we use the setState() and constructor() <strong>
+     ```
+     function App(){
+       return <div className="App">
+         <h1>Hello, I'm a function component</h1>
+         </div>
+     }
 
-      ```
-      class App extends Component {
-        constructor() {
-          super();
-          this.state = {
-            message: "This is a class component",
-          };
+     ```
+
+     ## 2. State:
+
+     State contains information or data about a component which may change over time.
+
+     In class component, you can update the state when a user interacts with it or server updates the data using the `setState()` method. The initial state is going to be assigned in the `Constructor( ) `method using the the ` this.state` object and it is possible to different data types in the `this.state` object such as string, boolean, numbers, etc.
+     <strong> A simple example showing how we use the setState() and constructor() <strong>
+
+     ```
+     class App extends Component {
+       constructor() {
+         super();
+         this.state = {
+           message: "This is a class component",
+         };
+       }
+       updateMessage() {
+         this.setState({t
+           message: "Updating the class component",
+         });
+       }
+       render() {
+         return (
+           <>
+             <h1>{this.state.message}</h1>
+             <button
+               onClick={() => {
+                 this.updateMessage();
+               }}>
+               Click!!
+             </button>
+           </>
+         );
+       }
+     }
+
+     ```
+
+     You not use state in functional components because it was only supported in class components. But over the years hooks have been implemented in functional component which enable to use state in functional component too.
+
+     The `useState()` hook can used to implement state in funcitonal component. It returns an array with two items: the first item is current state and the next one is a function (setState) that updates the value of the current state.
+
+     Let's see an example to demonstrate the state in functional components,
+
+     ```
+     function App() {
+       const [message, setMessage] = useState("This is a functional component");
+       const updateMessage = () => {
+         setCountry("Updating the functional component");
+       };
+       return (
+         <div className="App">
+           <h1>{message} </h1>
+           <button onClick={updateMessage}>Click me!!</button>
+         </div>
+       );
+     }
+     ```
+
+     ## 4. Props:
+
+     Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords, they are similar to HTML attributes.
+
+     The props are accessible in child class component using `this.props` as shown in below example,
+
+     ```
+     class Child extends React.Component {
+       render() {
+         return <h1> This is a functional component and component name is {this.props.name} </h1>;
+       }
+     }
+
+     class Parent extends React.Component {
+       render() {
+              return (
+                 <div className="Parent">
+                 <Child name="First child component" />
+                 <Child name="Second child component" />
+                 </div>
+               );
         }
-        updateMessage() {
-          this.setState({t
-            message: "Updating the class component",
-          });
-        }
-        render() {
-          return (
-            <>
-              <h1>{this.state.message}</h1>
-              <button
-                onClick={() => {
-                  this.updateMessage();
-                }}>
-                Click!!
-              </button>
-            </>
-          );
-        }
-      }
+     }
+     ```
 
-      ```
+     Props in functional components are similar to that of the class components but the difference is the absence of 'this' keyword.
 
-      You not use state in functional components because it was only supported in class components. But over the years hooks have been implemented in functional component which enable to use state in functional component too.
-      
-      The `useState()` hook can used to implement state in funcitonal component. It returns an array with two items: the first item is current state and the next one is a function (setState) that updates the value of the current state. 
-      
-      Let's see an example to demonstrate the state in functional components,
+     ```
+     function Child(props) {
+       return <h1>This is a child component and the component name is{props.name}</h1>;
+     }
 
-      ```
-      function App() {
-        const [message, setMessage] = useState("This is a functional component");
-        const updateMessage = () => {
-          setCountry("Updating the functional component");
-        };
-        return (
-          <div className="App">
-            <h1>{message} </h1>
-            <button onClick={updateMessage}>Click me!!</button>
-          </div>
-        );
-      }
-      ```
+     function Parent() {
+       return (
+         <div className="Parent">
+               <Child name="First child component" />
+               <Child name="Second child component" />
+         </div>
+       );
+     }
+     ```
 
-      ## 4. Props:
-      Props are referred to as "properties". The props are passed into react component just like arguments passed to a function. In otherwords, they are similar to HTML attributes. 
-
-      The props are accessible in child class component using `this.props` as shown in below example,
-      ```
-      class Child extends React.Component {
-        render() {
-          return <h1> This is a functional component and component name is {this.props.name} </h1>;
-        }
-      }
-
-      class Parent extends React.Component {
-        render() {
-               return (
-                  <div className="Parent">
-                  <Child name="First child component" />
-                  <Child name="Second child component" />
-                  </div>
-                );
-         }
-      }
-      ```
-
-      Props in functional components are similar to that of the class components but the difference is the absence of 'this' keyword. 
-
-      ```
-      function Child(props) {
-        return <h1>This is a child component and the component name is{props.name}</h1>;
-      }
-
-      function Parent() {
-        return (
-          <div className="Parent">
-                <Child name="First child component" />
-                <Child name="Second child component" />
-          </div>
-        );
-      }
-      ```
-
-  **[⬆ Back to Top](#table-of-contents)**
+**[⬆ Back to Top](#table-of-contents)**
 
 336. ### Why does strict mode render twice in React?
+
 
     StrictMode renders components twice in development mode(not production) in order to detect any problems with your code and warn you about those problems. This is used to detect accidental side effects in the render phase.  If you used `create-react-app` development tool then it automatically enables StrictMode by default.
 
@@ -7089,7 +7092,7 @@ const loadUser = async () => {
     If you want to disable this behavior then you can remove `strict` mode.
         ```js
       ReactDOM.render(
-          {App}, 
+          {App},
         document.getElementById('root')
       );
     ```
@@ -7103,4 +7106,3 @@ const loadUser = async () => {
     5. Functions passed to useState, useMemo, or useReducer (any Hook)
 
     **[⬆ Back to Top](#table-of-contents)**
-

@@ -1612,9 +1612,8 @@ export default ForwardCounter;
 
 ### Working with Forms & User Input:
 
-
-
 ---
+
 ---
 
 ## Redux
@@ -1622,24 +1621,26 @@ export default ForwardCounter;
 #### Redux is a state managment system for cross component or app-wide state
 
 ** We have 3 main kinds of State:**
+
 1. **Local State** (state that is managed by a single component) _i.e. listening to user input in a imput field; toggling a "show more" details field_
 2. **Cross-Component State** (state that affects multiple components) _i.e. open/closed state of a modal overlay... clicking on another component may open that overlay... requires prop drilling or context_
 3. **App-wide State** (state that affects practically all components of an app) _i.e. user authentication, user preferences, shopping cart, etc... done with react context or Redux_
 
+> Why use Redux if we have React Context?
 
->Why use Redux if we have React Context?
 ###### Disadvantages of React Context:
+
 - Complex setup/managment (i.e. multiple nested context provider components)
 - Not great for high frequency state updates (redux is better for flux-like state propagation)
 
 #### Core Redux Concepts
+
 ###### Central Data (state) Store
+
 - The central data store is the single source of truth for the entire application
 - To access the state in the central sotre components subscribe to it
-- components never directly modify the state in the central store 
+- components never directly modify the state in the central store
 - we use a reducer function that mutates the stored data (_not useReducer() hook_)
 - Components trigger or _dispatch_ actions that are handled by the reducer function (actions describe what should be done but do not do it directly)
 - Redux forwards actions to the reducer function and the reducer function returns a new state
 - Once state is updated sucribing components are notified of the change in state.
-
-
