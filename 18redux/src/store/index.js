@@ -1,5 +1,6 @@
 import { createStore } from "redux";
 const initialState = { counter: 0, showCounter: true };
+//objects returned in the reducer to not change the existing state... they overwrite it
 const counterReducer = (state = initialState, action) => {
   if (action.type === "increment") {
     return {
