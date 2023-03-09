@@ -1620,7 +1620,7 @@ export default ForwardCounter;
 
 #### Redux is a state managment system for cross component or app-wide state
 
-** We have 3 main kinds of State:**
+**We have 3 main kinds of State:**
 
 1. **Local State** (state that is managed by a single component) _i.e. listening to user input in a imput field; toggling a "show more" details field_
 2. **Cross-Component State** (state that affects multiple components) _i.e. open/closed state of a modal overlay... clicking on another component may open that overlay... requires prop drilling or context_
