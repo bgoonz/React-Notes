@@ -1645,10 +1645,9 @@ export default ForwardCounter;
 - Redux forwards actions to the reducer function and the reducer function returns a new state
 - Once state is updated sucribing components are notified of the change in state.
 
-
----
 ---
 
+---
 
 ### Advanced Redux
 
@@ -1658,9 +1657,30 @@ export default ForwardCounter;
 > This is the same way the useReducer() hook works
 
 _Where should side effects and async tasks be exicuted?_
-**Inside the components (e.g. useEffect())**  OR **Inside the action creators (e.g. redux-thunk)**
+**Inside the components (e.g. useEffect())** OR **Inside the action creators (e.g. redux-thunk)**
 
+##### To acess store in component
 
+1. import { useSelector } from "react-redux";
+2. Use useSelector to access the store state...
 
+```js
+const Cart = ( props ) => {
+    const cartItems = useSelector((state) => state.cart.items);
+```
 
+3. Translate properties in redux state to props in component
 
+```js
+{cartItems.map((item) => (
+    <CartItem
+      item={{
+        title: item.title,
+        quantity: item.quantity,
+        total: item.totalPrice,
+        price: item.price,
+      }}
+    />
+  ));
+}
+```
