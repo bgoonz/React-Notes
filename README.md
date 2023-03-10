@@ -1644,3 +1644,23 @@ export default ForwardCounter;
 - Components trigger or _dispatch_ actions that are handled by the reducer function (actions describe what should be done but do not do it directly)
 - Redux forwards actions to the reducer function and the reducer function returns a new state
 - Once state is updated sucribing components are notified of the change in state.
+
+
+---
+---
+
+
+### Advanced Redux
+
+**Reducers must be pure, side-effect free, synchronous functions**
+
+> input (old state + action) -> output (new state)
+> This is the same way the useReducer() hook works
+
+_Where should side effects and async tasks be exicuted?_
+**Inside the components (e.g. useEffect())**  OR **Inside the action creators (e.g. redux-thunk)**
+
+
+
+
+
