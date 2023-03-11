@@ -1684,3 +1684,7 @@ const Cart = ( props ) => {
   ));
 }
 ```
+**Note: reducers cannot handle side effects or async tasks**
+
+
+
