@@ -1687,4 +1687,11 @@ const Cart = ( props ) => {
 **Note: reducers cannot handle side effects or async tasks**
 
 
+###### What is a Thunk?
+> A thunk is a function that wraps an expression to delay its evaluation.
+> Thunks are typically used to delay the evaluation of an expression until its results are needed, such as the dispatching of an action, or the calculation of derived data.
 
+
+_It is an action creator function that does not return the action it's self but another function which eventually returns the action_
+
+```js
