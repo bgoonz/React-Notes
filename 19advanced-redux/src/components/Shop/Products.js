@@ -15,6 +15,7 @@ const DUMMY_PRODUCTS = [
     description: "The second book I ever wrote",
   },
 ];
+
 const Products = (props) => {
   return (
     <section className={classes.products}>
@@ -22,11 +23,11 @@ const Products = (props) => {
       <ul>
         {DUMMY_PRODUCTS.map((product) => (
           <ProductItem
+            key={product.id}
+            id={product.id}
             title={product.title}
             price={product.price}
             description={product.description}
-            key={product.id}
-            id={product.id}
           />
         ))}
       </ul>
