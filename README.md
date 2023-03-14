@@ -65,13 +65,11 @@ import "./Card.css";
 function Card(props) {
   return <div className="card">{props.children}</div>;
 }
-
 export default Card;
 ```
 
 - props.children works because children is a reserved keyword in react and the value of the children prop will always be the content between the opening closing tags of your custom component.
-
-> props.children is important for composition using a custom wrapper component often used to apply styles that are shared among components
+  > props.children is important for composition using a custom wrapper component often used to apply styles that are shared among components
 
 #### A closer look at JSX
 
@@ -97,7 +95,6 @@ return React.createElement(
 ## Events
 
 - On all bult in html elements in react we have access to native dom events... we can use them in react by adding a prop to the element and setting it to a function that will be executed when the event occurs.
-
 - Imperative approach:
 
 ```js
@@ -107,10 +104,8 @@ document.getElementById("root").addEventListener("click", () => {
 ```
 
 > In react we add a special prop to the element we want to listen to and set it to a function that will be executed when the event occurs.
-
 > React exposes events as props that start with prefix on... so onClick, onChange, onSubmit, etc.
-
-i.e.
+> i.e.
 
 ```jsx
 <button onClick={clickHandler}>Change Title</button>
@@ -146,9 +141,7 @@ import React, { useState } from "react";
 > here {UseState} is a `named import` from react
 
 - useState is a React hook that returns an array with 2 elements, the first element is the current state and the second element is a function that allows us to update the state.
-
 - useState is declared inside of our component function. It should be called at the top level of the function... do not nest UseState inside of if statements or loops or other functions.
-
 - UseState wants a default value as an argument. This is the initial value that will be used when the component is first rendered.
 
 ###### We use array destructuring to store the current state and update state function in variables.
@@ -158,13 +151,9 @@ const [title, setTitle] = useState(props.title);
 ```
 
 - the initial value of title is the value of props.title which is passed in as a prop from the parent component.
-
 - We can use the update state function (setTitle) to update the state.
-
-The useState hook always returns an array with these two elements.
-
-Now instead of using the title variable we use the state variable.
-
+  The useState hook always returns an array with these two elements.
+  Now instead of using the title variable we use the state variable.
 - So
 
 ```js
@@ -190,17 +179,14 @@ import React, { useState } from "react";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 import "./ExpenseItem.css";
-
 const ExpenseItem = (props) => {
   // let title = props.title;
   const [title, setTitle] = useState(props.title);
   console.log("ExpenseItem evaluated by React");
-
   const clickHandler = () => {
     setTitle("Updated!");
     console.log(title);
   };
-
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
@@ -212,12 +198,10 @@ const ExpenseItem = (props) => {
     </Card>
   );
 };
-
 export default ExpenseItem;
 ```
 
 - In the above code calling setTitle("Updated!") will not update the title variable but will update the state variable which will cause react to re-evaluate the component function and update the dom. Changes to the state will cause react to re-render the component on which the state is used and only that component.
-
 - Notice that below
 
 ```js
@@ -225,7 +209,6 @@ const [title, setTitle] = useState(props.title);
 ```
 
 - we are using const here even though we do eventually assign a new value to title. This is because we are not reassigning the variable title but rather the state variable which is managed by react.
-
 - The line above is exicuted whenever the component is re-evaulated by react. So if the state changes react will re-evaluate the component and re-execute the useState hook.
 
 ###### Events in vanilla javascript:
@@ -266,7 +249,6 @@ const ExpenseForm = () => {
     enteredAmount: "",
     enteredDate: "",
   });
-
   const titleChangeHandler = (event) => {
     console.log("title change event: value:", event.target.value);
     // setEnteredTitle(event.target.value);
@@ -288,7 +270,6 @@ const ExpenseForm = () => {
       return { ...userInput, enteredDate: event.target.value };
     });
   };
-
   return (
     <form>
       <div className="new-expense__controls">
@@ -321,14 +302,12 @@ const ExpenseForm = () => {
     </form>
   );
 };
-
 export default ExpenseForm;
 ```
 
 ##### Submitting and Working with Form Data:
 
 ```js
-
     const submitHandler = ( event ) => {
         event.preventDefault();
         const expenseData = {
@@ -338,7 +317,6 @@ export default ExpenseForm;
         };
   return (
       <form onSubmit={ submitHandler}>
-
 ```
 
 - onSubmit is a special event that is triggered when the form is submitted. It submits a request to the server, in this case the development server and that's not what we want here.
@@ -347,11 +325,8 @@ export default ExpenseForm;
 #### Two way binding:
 
 In React, data flows one way: from owner to child. We think that this makes your app's code easier to understand. You can think of it as "one-way data binding."
-
 However, there are lots of applications that require you to read some data and flow it back into your program. For example, when developing forms, you'll often want to update some React `state` when you receive user input. Or perhaps you want to perform layout in JavaScript and react to changes in some DOM element size.
-
 In React, you would implement this by listening to a "change" event, read from your data source (usually the DOM) and call `setState()` on one of your components. "Closing the data flow loop" explicitly leads to more understandable and easier-to-maintain programs.
-
 Two-way binding --- implicitly enforcing that some value in the DOM is always consistent with some React `state` --- is concise and supports a wide variety of applications. We've provided `LinkedStateMixin`: syntactic sugar for setting up the common data flow loop pattern described above, or "linking" some data source to React `state`.
 
 - For inputs we don't just listen for changes but we can aslo pass a new value back into the input so that we can reset the input programatically. This is called two way binding.
@@ -361,9 +336,7 @@ Two-way binding --- implicitly enforcing that some value in the DOM is always co
 // onChange is a prop that wants a function as a value
 ```
 
-This will set the internal value property which every input element has and we can set it to a new value.
-
----
+## This will set the internal value property which every input element has and we can set it to a new value.
 
 ```js
 const submitHandler = (event) => {
@@ -387,18 +360,14 @@ const submitHandler = (event) => {
     setEnteredAmount("");
     setEnteredDate("");
     ```
-
 ````
 
 ##### How to pass data from child to parent component:
 
 > we pass data from parent to child via props and from child to parent via function props.
-
 > We can pass data from child to parent via function props.We can create our own event props that expect functions as values which allows us to pass a function from a parent component to a child component and then call that function inside of the child component. When we call said function we can pass data to that function as a parameter and that data will then be passed back to the parent component.
-
 > props can only be passed from parent component to child and we can't skip intermediate components.
-
-Let's say we want to pass expense data which we gather in the expense form component to the new expense component. We can do this by passing a function from the new expense component to the expense form component and then call that function inside of the expense form component and pass the data as a parameter to that function.
+> Let's say we want to pass expense data which we gather in the expense form component to the new expense component. We can do this by passing a function from the new expense component to the expense form component and then call that function inside of the expense form component and pass the data as a parameter to that function.
 
 ###### NEW EXPENSE COMPONENT:
 
@@ -406,7 +375,6 @@ Let's say we want to pass expense data which we gather in the expense form compo
 import React from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
-
 const NewExpense = (props) => {
   //the value for onSaveExpenseData should be a function that is triggered when the user clicks the submit button.
   const onSaveExpenseDataHandler = (enteredExpenseData) => {
@@ -433,12 +401,10 @@ export default NewExpense;
 #### Keys in Lists:
 
 > Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
-
-A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. In other words, we can say that keys are used to give an identity to the elements in the lists. The next thing that comes to mind is that what should be good to be chosen as key for the items in lists. It is recommended to use a string as a key that uniquely identifies the items in the list. Below example shows a list with string keys:
+> A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. In other words, we can say that keys are used to give an identity to the elements in the lists. The next thing that comes to mind is that what should be good to be chosen as key for the items in lists. It is recommended to use a string as a key that uniquely identifies the items in the list. Below example shows a list with string keys:
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
-
 const updatedNums = numbers.map((number) => {
   return <li key={index}>{number} </li>;
 });
@@ -448,7 +414,6 @@ You can also assign the array indexes as keys to the list items. The below examp
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
-
 const updatedNums = numbers.map((number, index) => (
   <li key={index}>{number}</li>
 ));
@@ -459,7 +424,6 @@ Assigning indexes as keys are highly discouraged because if the elements of the 
 #### Using Keys with Components
 
 Consider a situation where you have created a separate component for list items and you are extracting list items from that component. In that case, you will have to assign keys to the component you are returning from the iterator and not to the list items. That is you should assign keys to <Component /> and not to <li> A good practice to avoid mistakes is to keep in mind that anything you are returning from inside of the map() function is needed to be assigned key.
-
 Below code shows incorrect usage of keys:
 
 ```js
@@ -470,7 +434,6 @@ function MenuItems(props) {
   const item = props.item;
   return <li key={item.toString()}>{item}</li>;
 }
-
 // Component that will return an
 // unordered list
 function Navmenu(props) {
@@ -478,7 +441,6 @@ function Navmenu(props) {
   const updatedList = list.map((listItems) => {
     return <MenuItems item={listItems} />;
   });
-
   return <ul>{updatedList}</ul>;
 }
 const menuItems = [1, 2, 3, 4, 5];
@@ -489,11 +451,8 @@ ReactDOM.render(
 ```
 
 **Output: **
-
 ![incorrect use of keys](https://media.geeksforgeeks.org/wp-content/uploads/incorrect.png)
-
 You can see in the above output that the list is rendered successfully but a warning is thrown to the console that the elements inside the iterator are not assigned *keys*. This is because we had not assigned *key* to the elements we are returning to the map() iterator.
-
 Below example shows correct usage of keys:
 
 ```js
@@ -504,7 +463,6 @@ function MenuItems(props) {
   const item = props.item;
   return <li>{item}</li>;
 }
-
 // Component that will return an
 // unordered list
 function Navmenu(props) {
@@ -512,12 +470,9 @@ function Navmenu(props) {
   const updatedList = list.map((listItems) => {
     return <MenuItems key={listItems.toString()} item={listItems} />;
   });
-
   return <ul>{updatedList}</ul>;
 }
-
 const menuItems = [1, 2, 3, 4, 5];
-
 ReactDOM.render(
   <Navmenu menuitems={menuItems} />,
   document.getElementById("root")
@@ -543,22 +498,16 @@ ReactDOM.render(
 ```
 
 - += operator in js:
-
-The addition assignment ( += ) operator **adds the value of the right operand to a variable and assigns the result to the variable**. The types of the two operands determine the behavior of the addition assignment operator. Addition or concatenation is possible.
-
+  The addition assignment ( += ) operator **adds the value of the right operand to a variable and assigns the result to the variable**. The types of the two operands determine the behavior of the addition assignment operator. Addition or concatenation is possible.
 - For in vs for of loops in js:
-
-Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a list of keys on the object being iterated, whereas `for..of` returns a list of values of the numeric properties of the object being iterated.
-
-Here is an example that demonstrates this distinction:
+  Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a list of keys on the object being iterated, whereas `for..of` returns a list of values of the numeric properties of the object being iterated.
+  Here is an example that demonstrates this distinction:
 
 ```js
 let list = [4, 5, 6];
-
 for (let i in list) {
   console.log(i); // "0", "1", "2",
 }
-
 for (let i of list) {
   console.log(i); // "4", "5", "6"
 }
@@ -569,11 +518,9 @@ Another distinction is that `for..in` operates on any object; it serves as a w
 ```js
 let pets = new Set(["Cat", "Dog", "Hamster"]);
 pets["species"] = "mammals";
-
 for (let pet in pets) {
   console.log(pet); // "species"
 }
-
 for (let pet of pets) {
   console.log(pet); // "Cat", "Dog", "Hamster"
 }
@@ -591,13 +538,11 @@ import styled from "styled-components";
 //-------------------------------Form Control Component--------------------------------------
 const FormControl = styled.div`
   margin: 0.5rem 0;
-
   & label {
     font-weight: bold;
     display: block;
     margin-bottom: 0.5rem;
   }
-
   & input {
     display: block;
     width: 100%;
@@ -607,19 +552,16 @@ const FormControl = styled.div`
     line-height: 1.5rem;
     padding: 0 0.25rem;
   }
-
   & input:focus {
     outline: none;
     background: #fad0ec;
     border-color: #8b005d;
   }
-
   /* the following applies to input elements that have class name form-control and invalid*/
   &.invalid input {
     border-color: red;
     background: #fad0ec;
   }
-
   &.invalid label {
     color: red;
   }
@@ -652,12 +594,10 @@ const FormControl = styled.div`
 - **Fragments** - A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
 - **Portals** - Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 - **Refs** - Refs provide a way to access DOM nodes or React elements created in the render method.
-
 - You need a wrapping element for the root element of any component because React.createComponent can only return one thing.
 - you can solve this problem by wrapping adjeacent elements in a div (or any enclosing tag) or a React Fragment.
 - When using wrapping divs you can end up with `div soup` which is when you end up with tons of unnecessary divs in your code that add no semantic meaning or structure to the page but are just there to wrap other elements because React requires a single root element.
-
-> i.e.
+  > i.e.
 
 ```html
 <div>
@@ -713,7 +653,6 @@ return (
 ##### React Refs:
 
 **Refs** - Refs provide a way to access DOM nodes or React elements created in the render method.
-
 **AddUser.js**
 
 ```jsx
@@ -723,19 +662,15 @@ import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
 import classes from "./AddUser.module.css";
-
 const AddUser = (props) => {
   const nameInputRef = useRef(); //useRef() returns an object with a property called current which is a pointer to the element we want to focus on
   const ageInputRef = useRef();
-
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
   const [error, setError] = useState();
-
   const addUserHandler = (event) => {
     event.preventDefault();
     console.log(nameInputRef);
-
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setError({
         title: "Invalid input",
@@ -754,19 +689,15 @@ const AddUser = (props) => {
     setEnteredUsername("");
     setEnteredAge("");
   };
-
   const usernameChangeHandler = (event) => {
     setEnteredUsername(event.target.value);
   };
-
   const ageChangeHandler = (event) => {
     setEnteredAge(event.target.value);
   };
-
   const errorHandler = () => {
     setError(null);
   };
-
   return (
     <Wrapper>
       {error && (
@@ -800,7 +731,6 @@ const AddUser = (props) => {
     </Wrapper>
   );
 };
-
 export default AddUser;
 ```
 
@@ -809,7 +739,6 @@ export default AddUser;
 ##### Controlled vs Uncontrolled Components
 
 **Controlled Components** -Manages its own internal state and reacts to user input. The state is updated by the event handlers. The state is then passed to the input element as a value prop. The input element then displays the value of the state.
-
 **Uncontrolled Components** - Use refs to interact with access DOM nodes or React elements created in the render method. They are uncontrolled because their internal state is not controlled by react. They are controlled by the DOM... we just use react refs to fetch the data from the DOM.
 
 ---
@@ -819,11 +748,8 @@ export default AddUser;
 ### Effects Reducers & Context:
 
 **Effects (also known as Side Effects)** - Effects are used to perform side effects in functional components. Side effects are things that happen outside of the component. For example, making an HTTP request, accessing the browser local storage, etc. Effects are triggered by changes to the component's state or props. They are also triggered by changes to the component's dependencies. Dependencies are values that the effect depends on. For example, if the effect depends on the value of a prop, then the effect will be triggered when the prop changes.
-
 **Reducers** - Reducers are functions that take the current state and an action as arguments and return a new state result. Reducers are pure functions. They should not perform any side effects. They should not mutate the state. They should not access the DOM. They should not access global variables. They should not access the arguments object. They should not access the this keyword. They should not access the event object. They should not access the event target. They should not access the event target value. They should not access the event target checked. They should not access the event target files. They should not access the event target name. They should not access the event target type. They should not
-
 **Context** - Context provides a way to pass data through the component tree without having to pass props down manually at every level. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
-
 UseEffect() - useEffect() is a hook that allows us to execute code when a component is rendered for the first time or when a component is re-rendered. It is a combination of componentDidMount() and componentDidUpdate().
 
 ```jsx
@@ -842,7 +768,6 @@ useEffect(() => {
 ```
 
 > Removing the dependency array will cause the useEffect() to run on every render cycle.
-
 > the following code will run whenever there is a change to the enteredEmail or enteredPassword state variables or when the setFormIsValid function is called.
 
 ```jsx
@@ -854,27 +779,19 @@ useEffect(() => {
 ```
 
 **What to and what not to add as useEffect() dependencies**
-
 That is correct, but there are a **few exceptions** you should be aware of:
 
 - You **DON'T need to add state updating functions** (as we did in the last lecture with `setFormIsValid`): React guarantees that those functions never change, hence you don't need to add them as dependencies (you could though)
-
 - You also **DON'T need to add "built-in" APIs or functions** like `fetch()`, `localStorage` etc (functions and features built-into the browser and hence available globally): These browser APIs / global functions are not related to the React component render cycle and they also never change
-
 - You also **DON'T need to add variables or functions** you might've **defined OUTSIDE of your components** (e.g. if you create a new helper function in a separate file): Such functions or variables also are not created inside of a component function and hence changing them won't affect your components (components won't be re-evaluated if such variables or functions change and vice-versa)
-
-So long story short: You must add all "things" you use in your effect function **if those "things" could change because your component (or some parent component) re-rendered.** That's why variables or state defined in component functions, props or functions defined in component functions have to be added as dependencies!
-
-Here's a made-up dummy example to further clarify the above-mentioned scenarios:
+  So long story short: You must add all "things" you use in your effect function **if those "things" could change because your component (or some parent component) re-rendered.** That's why variables or state defined in component functions, props or functions defined in component functions have to be added as dependencies!
+  Here's a made-up dummy example to further clarify the above-mentioned scenarios:
 
 ```jsx
 import { useEffect, useState } from "react";
-
 let myTimer;
-
 const MyComponent = (props) => {
   const [timerIsActive, setTimerIsActive] = useState(false);
-
   const { timerDuration } = props; // using destructuring to pull out specific props values
   useEffect(() => {
     if (!timerIsActive) {
@@ -890,17 +807,11 @@ const MyComponent = (props) => {
 In this example:
 
 - `timerIsActive` is **added as a dependency** because it's component state that may change when the component changes (e.g. because the state was updated)
-
 - `timerDuration` is **added as a dependency** because it's a prop value of that component - so it may change if a parent component changes that value (causing this MyComponent component to re-render as well)
-
 - `setTimerIsActive` is **NOT added as a dependency** because it's that **exception**: State updating functions could be added but don't have to be added since React guarantees that the functions themselves never change
-
 - `myTimer` is **NOT added as a dependency** because it's **not a component-internal variable** (i.e. not some state or a prop value) - it's defined outside of the component and changing it (no matter where) **wouldn't cause the component to be re-evaluated**
-
 - `setTimeout` is **NOT added as a dependency** because it's **a built-in API** (built-into the browser) - it's independent from React and your components, it doesn't change
-
-> Debouncing is a technique used to improve performance by limiting the rate at which a function gets invoked. It is a common practice to improve the performance of input handlers. For example, if you have a search input field, you can debounce the onChange event handler to avoid making an API call on every keystroke. Instead, you can make the API call only after the user has stopped typing for a certain amount of time.
-
+  > Debouncing is a technique used to improve performance by limiting the rate at which a function gets invoked. It is a common practice to improve the performance of input handlers. For example, if you have a search input field, you can debounce the onChange event handler to avoid making an API call on every keystroke. Instead, you can make the API call only after the user has stopped typing for a certain amount of time.
 - useEffect() without a dependency array will run after every render cycle.
 
 ##### useReducer():
@@ -914,14 +825,12 @@ In this example:
 const validateEmailHandler = () => {
   setEmailIsValid(enteredEmail.includes("@"));
 };
-
 const validatePasswordHandler = () => {
   setPasswordIsValid(enteredPassword.trim().length > 6);
 };
 ```
 
 in each of the cases above we are setting a state variable based on the value of another state variable. This is a dependency and it can lead to bugs. For example, if we have a button that triggers the validation of both the email and password, and we click the button twice, the second time the validation will be wrong because the state variables will have changed in the meantime. This is a problem that useReducer() can solve.
-
 **useReducer() Syntax**
 
 ```js
@@ -930,8 +839,7 @@ const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
 
 - in the above example state is the latest state snapshot used in the component render cycle. The dispatchFn is a function that dispatches an action that will be consumed by the reducerFn.
 - The reducerFn is a function that is triggered automatically once an action is dispatched (via dispatchFn). The reducerFn receives the latest state snapshot and the action as arguments and returns a new state snapshot. The reducerFn is the only place where you can update the state.
-
-**reducerFn Syntax**
+  **reducerFn Syntax**
 
 ```js
 (prevState, action) => newState;
@@ -943,26 +851,21 @@ const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
 
 ```jsx
 import React, { useState, useEffect, useReducer } from "react";
-
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
-
 const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [emailIsValid, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
-
   useEffect(() => {
     console.log("EFFECT RUNNING");
-
     return () => {
       console.log("EFFECT CLEANUP");
     };
   }, []);
-
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Checking form validity!");
@@ -970,34 +873,27 @@ const Login = (props) => {
         enteredEmail.includes("@") && enteredPassword.trim().length > 6
       );
     }, 500);
-
     return () => {
       console.log("CLEANUP");
       clearTimeout(identifier);
     };
   }, [enteredEmail, enteredPassword]);
-
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
   };
-
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
   };
-
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes("@"));
   };
-
   const validatePasswordHandler = () => {
     setPasswordIsValid(enteredPassword.trim().length > 6);
   };
-
   const submitHandler = (event) => {
     event.preventDefault();
     props.onLogin(enteredEmail, enteredPassword);
   };
-
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
@@ -1038,7 +934,6 @@ const Login = (props) => {
     </Card>
   );
 };
-
 export default Login;
 ```
 
@@ -1046,11 +941,9 @@ export default Login;
 
 ```jsx
 import React, { useState, useEffect, useReducer } from "react";
-
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
-
 const emailReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
     return { value: action.val, isValid: action.val.includes("@") };
@@ -1060,27 +953,22 @@ const emailReducer = (state, action) => {
   }
   return { value: "", isValid: false };
 };
-
 const Login = (props) => {
   // const [enteredEmail, setEnteredEmail] = useState('');
   // const [emailIsValid, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
-
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: "",
     isValid: null,
   });
-
   useEffect(() => {
     console.log("EFFECT RUNNING");
-
     return () => {
       console.log("EFFECT CLEANUP");
     };
   }, []);
-
   // useEffect(() => {
   //   const identifier = setTimeout(() => {
   //     console.log('Checking form validity!');
@@ -1088,40 +976,31 @@ const Login = (props) => {
   //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
   //     );
   //   }, 500);
-
   //   return () => {
   //     console.log('CLEANUP');
   //     clearTimeout(identifier);
   //   };
   // }, [enteredEmail, enteredPassword]);
-
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-
     setFormIsValid(
       event.target.value.includes("@") && enteredPassword.trim().length > 6
     );
   };
-
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
-
     setFormIsValid(emailState.isValid && event.target.value.trim().length > 6);
   };
-
   const validateEmailHandler = () => {
     dispatchEmail({ type: "INPUT_BLUR" });
   };
-
   const validatePasswordHandler = () => {
     setPasswordIsValid(enteredPassword.trim().length > 6);
   };
-
   const submitHandler = (event) => {
     event.preventDefault();
     props.onLogin(emailState.value, enteredPassword);
   };
-
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
@@ -1162,7 +1041,6 @@ const Login = (props) => {
     </Card>
   );
 };
-
 export default Login;
 ```
 
@@ -1176,7 +1054,6 @@ useEffect(() => {
       enteredEmail.includes("@") && enteredPassword.trim().length > 6
     );
   }, 500);
-
   return () => {
     console.log("Cleanup");
     clearTimeout();
@@ -1225,9 +1102,7 @@ useEffect(() => {
 ```
 
 This is a **very common pattern and approach**, which is why I typically use it and why I show it here (I will keep on using it throughout the course).
-
 I just want to point out, that they **key thing is NOT that we use destructuring** but that we **pass specific properties instead of the entire object** as a dependency.
-
 We could also write this code and it would **work in the same way**.
 
 ```js
@@ -1237,7 +1112,6 @@ useEffect(() => {
 ```
 
 This works just fine as well!
-
 But you should **avoid** this code:
 
 ```js
@@ -1247,7 +1121,6 @@ useEffect(() => {
 ```
 
 **Why? ...**
-
 Because now the **effect function would re-run whenever ANY property** of `someObject` changes - not just the one property (`someProperty` in the above example) our effect might depend on.
 
 #### useState vs. useReducer:
@@ -1263,14 +1136,10 @@ Because now the **effect function would re-run whenever ANY property** of `s
 - to use context you need to do two things:
   1.  Provide the context to components that need to be wrapped by it.
   2.  Consume it (listen to it)
-
-**When to use props vs context:**
-
+      **When to use props vs context:**
 - in most cases you will use props to pass data to components.
 - only if you have something you would forward through a lot of components and you are doing something specific with it in a certain component, (for instance, the logout button in navigation) then you would use context.
-
-**React Context Limitations**
-
+  **React Context Limitations**
 - React Context is not optimized for high frequency changes.
 - React Context should not be used to replace all component communications and props... components should still be configurable via props and short prop chains might not need to be replaced with context.
 
@@ -1303,12 +1172,9 @@ With the current implementation of `MealItemForm`, every `MealItem` `<Input /
 This works but it has **two major disadvantages** which are **not immediately obvious** (and hence unfortunately slipped through during the recordings):
 
 1.  Clicking on ANY label will always select the same, first input element - even if that's not the one belonging to the actual MeatItem
-
 2.  Screenreaders won't be able to connect labels + inputs correctly (since all labels point at the same input)
-
-Everything shown in the videos works as shown and **fixing this is optional**, but since fixing this is easy, you might want to consider making the below adjustments:
-
-One possible workaround is to accept an `id` prop on the MealItemForm component and use that to create a unique id per `<Input />`:
+    Everything shown in the videos works as shown and **fixing this is optional**, but since fixing this is easy, you might want to consider making the below adjustments:
+    One possible workaround is to accept an `id` prop on the MealItemForm component and use that to create a unique id per `<Input />`:
 
 ```jsx
 <Input
@@ -1342,16 +1208,13 @@ Last but not least, for that to work, we should also pass `id` as a prop to `
 />
 ```
 
-Again, **this is all 100% optional** when it comes to the general functionality of this demo app - everything works as shown in the videos without these changes as well. But for proper accessibility, you should consider making these adjustments.
-
----
+## Again, **this is all 100% optional** when it comes to the general functionality of this demo app - everything works as shown in the videos without these changes as well. But for proper accessibility, you should consider making these adjustments.
 
 #### How we would do the modal overlay (without using the react portal):
 
 ```jsx
 import React from "react";
 import classes from "./Modal.module.css";
-
 const Backdrop = (props) => {
   return <div className={classes.backdrop} />;
 };
@@ -1360,7 +1223,6 @@ const ModalOverlay = (props) => {
     <div className={classes.content}>{props.children}</div>
   </div>;
 };
-
 const Modal = (props) => {
   return (
     <React.Fragment>
@@ -1378,7 +1240,6 @@ export default Modal;
 import React from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
-
 const Backdrop = (props) => {
   return <div className={classes.backdrop} />;
 };
@@ -1387,7 +1248,6 @@ const ModalOverlay = (props) => {
     <div className={classes.content}>{props.children}</div>
   </div>;
 };
-
 const portalElement = document.getElementById("overlays");
 const Modal = (props) => {
   return (
@@ -1412,17 +1272,14 @@ export default Modal;
 ### How React Works Under The Hood (Optimizations)
 
 - React does not know anything about the browser...it is just a library that is used to build user interfaces. ReactDOM is what brings actual html elements to the screen from react components... it is the interface between react and the browser(web).
-
->                                        Context(component-wide data)
->                                                    ⇓
->
-> (Props...data from parent component)=======>(React Component)=======>(DOM...what the user sees)
-> ⇑
-> State(internal data)
-
-**React uses a concept called the Virtual Dom which determines how the component tree (every component has a subtree) looks like and what it should look like when state changes**
-
-> it should be noted that re-evaluating a component is not the same thing as re-rendering the dom.
+  >                                        Context(component-wide data)
+  >                                                    ⇓
+  >
+  > (Props...data from parent component)=======>(React Component)=======>(DOM...what the user sees)
+  > ⇑
+  > State(internal data)
+  > **React uses a concept called the Virtual Dom which determines how the component tree (every component has a subtree) looks like and what it should look like when state changes**
+  > it should be noted that re-evaluating a component is not the same thing as re-rendering the dom.
 
 ##### Toggle Paragraph with useState function form vs w/o function form:
 
@@ -1432,13 +1289,11 @@ export default Modal;
 import React, { useState } from "react";
 import Button from "./components/UI/Button/Button";
 import "./App.css";
-
 function App() {
   const [showParagraph, setShowParagraph] = useState(false);
   const toggleParagraphHandler = () => {
     setShowParagraph(!showParagraph);
   };
-
   return (
     <div className="app">
       <h1>Hi there!</h1>
@@ -1447,7 +1302,6 @@ function App() {
     </div>
   );
 }
-
 export default App;
 ```
 
@@ -1457,13 +1311,11 @@ export default App;
 import React, { useState } from "react";
 import Button from "./components/UI/Button/Button";
 import "./App.css";
-
 function App() {
   const [showParagraph, setShowParagraph] = useState(false);
   const toggleParagraphHandler = () => {
     setShowParagraph((prevShowParagraph) => !prevShowParagraph);
   };
-
   return (
     <div className="app">
       <h1>Hi there!</h1>
@@ -1472,12 +1324,10 @@ function App() {
     </div>
   );
 }
-
 export default App;
 ```
 
 **The component that has state or context that changes will be re-evaluated and possibly re-rendered whenever state changes**
-
 **The exicution of a parent component will trigger the re-evaluation of all of its child components... if the state and props going to the child component do not change this will not trigger a change in the DOM**
 
 ---
@@ -1486,14 +1336,11 @@ export default App;
 
 ```jsx
 import React from "react";
-
 import MyParagraph from "./MyParagraph";
-
 const DemoOutput = (props) => {
   console.log("DemoOutput RUNNING");
   return <MyParagraph>{props.show ? "This is new!" : ""}</MyParagraph>;
 };
-
 export default React.memo(DemoOutput);
 ```
 
@@ -1506,9 +1353,7 @@ export default React.memo(DemoOutput);
 
 ---
 
-[notes on primatives vs reference types:](01notes/primatives-vs-references.md)
-
----
+## [notes on primatives vs reference types:](01notes/primatives-vs-references.md)
 
 ### When to use React.callback() vs React.memo()
 
@@ -1529,10 +1374,8 @@ export default React.memo(DemoOutput);
 for this section we will be using the Star Wars API: https://swapi.dev/
 
 - [starwars api](https://swapi.dev/)
-
-**API** stands for Application Programming Interface. It is a set of rules that allow two software programs to communicate with each other. An API is a set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
-
-**Builtin Fetch API**:
+  **API** stands for Application Programming Interface. It is a set of rules that allow two software programs to communicate with each other. An API is a set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
+  **Builtin Fetch API**:
 
 ```jsx
 function fetchMoviesHandler() {
@@ -1560,12 +1403,9 @@ function fetchMoviesHandler() {
 
 - React component functions
 - React custom hooks
-
   2.) Only call React Hooks at the top level
-
 - Don't call hooks inside loops, conditions, or nested functions
 - Don't call them inside any block statment
-
   3.) For useEffect() always add everything you refer to inside useEffect as a dependency.
 
 ##### Rules of Custom Hooks:
@@ -1578,17 +1418,14 @@ function fetchMoviesHandler() {
 import { useState, useEffect } from "react";
 const useCounter = () => {
   const [counter, setCounter] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter((prevCounter) => prevCounter + 1);
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
   return counter;
 };
-
 export default useCounter;
 ```
 
@@ -1597,12 +1434,10 @@ export default useCounter;
 ```jsx
 import useCounter from "../hooks/use-counter";
 import Card from "./Card";
-
 const ForwardCounter = () => {
   const counter = useCounter();
   return <Card>{counter}</Card>;
 };
-
 export default ForwardCounter;
 ```
 
@@ -1625,8 +1460,7 @@ export default ForwardCounter;
 1. **Local State** (state that is managed by a single component) _i.e. listening to user input in a imput field; toggling a "show more" details field_
 2. **Cross-Component State** (state that affects multiple components) _i.e. open/closed state of a modal overlay... clicking on another component may open that overlay... requires prop drilling or context_
 3. **App-wide State** (state that affects practically all components of an app) _i.e. user authentication, user preferences, shopping cart, etc... done with react context or Redux_
-
-> Why use Redux if we have React Context?
+   > Why use Redux if we have React Context?
 
 ###### Disadvantages of React Context:
 
@@ -1655,9 +1489,8 @@ export default ForwardCounter;
 
 > input (old state + action) -> output (new state)
 > This is the same way the useReducer() hook works
-
-_Where should side effects and async tasks be exicuted?_
-**Inside the components (e.g. useEffect())** OR **Inside the action creators (e.g. redux-thunk)**
+> _Where should side effects and async tasks be exicuted?_
+> **Inside the components (e.g. useEffect())** OR **Inside the action creators (e.g. redux-thunk)**
 
 ##### To acess store in component
 
@@ -1672,7 +1505,8 @@ const Cart = ( props ) => {
 3. Translate properties in redux state to props in component
 
 ```js
-{cartItems.map((item) => (
+{
+  cartItems.map((item) => (
     <CartItem
       item={{
         title: item.title,
@@ -1684,24 +1518,16 @@ const Cart = ( props ) => {
   ));
 }
 ```
+
 **Note: reducers cannot handle side effects or async tasks**
 
-
 ###### What is a Thunk?
+
 > A thunk is a function that wraps an expression to delay its evaluation.
 > Thunks are typically used to delay the evaluation of an expression until its results are needed, such as the dispatching of an action, or the calculation of derived data.
 
-
-_It is an action creator function that does not return the action it's self but another function which eventually returns the action_
-
-
-
+## _It is an action creator function that does not return the action it's self but another function which eventually returns the action_
 
 ---
----
-
 
 ## React Router
-
-
-
