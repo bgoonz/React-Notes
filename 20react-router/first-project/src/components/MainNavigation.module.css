@@ -21,3 +21,12 @@
   color: var(--color-primary-800);
   text-decoration: underline;
 }
+
+/* here we are targeting the anchor element because the react router Link component does generate an anchor tag*/
+.list a:hover,
+.list a.active {
+  color: var(--color-primary-800);
+  text-decoration: underline;
+}
+    
+
