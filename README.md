@@ -1531,3 +1531,5 @@ const Cart = ( props ) => {
 ---
 
 ## React Router
+
+**When building complex user interfaces we typically build single page applications (only one initial html request & response)**
