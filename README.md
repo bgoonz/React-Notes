@@ -1694,4 +1694,14 @@ const Cart = ( props ) => {
 
 _It is an action creator function that does not return the action it's self but another function which eventually returns the action_
 
-```js
+
+
+
+---
+---
+
+
+## React Router
+
+
+
