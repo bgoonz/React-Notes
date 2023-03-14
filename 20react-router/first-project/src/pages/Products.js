@@ -1,4 +1,4 @@
-
+import MainNavigation from "../components/MainNavigation";
 
 function ProductsPage() {
   return (

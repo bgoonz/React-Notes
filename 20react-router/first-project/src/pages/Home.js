@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import MainNavigation from '../components/MainNavigation';
 function HomePage() {
   return (
     <div>
