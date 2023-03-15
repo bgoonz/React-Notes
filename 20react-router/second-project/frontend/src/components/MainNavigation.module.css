@@ -4,6 +4,7 @@
   padding: 2rem;
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 
 .list {
@@ -19,4 +20,5 @@
 .list a:hover,
 .list a.active {
   color: var(--color-primary-800);
+  text-decoration: underline;
 }

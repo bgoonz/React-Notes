@@ -4,16 +4,24 @@ import Home from "./pages/Home";
 import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import NewEvent from "./pages/NewEvent";
-
+import EditEvent from "./pages/EditEvent";
+import EventsRootLayout from "./pages/EventsRoot";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/events", element: <Events /> },
-      { path: "/events/:eventId", element: <EventDetail /> },
-      { path: "/new-event", element: <NewEvent /> },
+      { index: true, element: <Home /> },
+      {
+        path: "events",
+        element: <EventsRootLayout />,
+        children: [
+          { path: "", element: <Events /> },
+          { path: ":eventId", element: <EventDetail /> },
+          { path: "new", element: <NewEvent /> },
+          { path: ":eventId/edit", element: <EditEvent /> },
+        ],
+      },
     ],
   },
 ]);
