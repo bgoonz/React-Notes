@@ -1533,3 +1533,10 @@ const Cart = ( props ) => {
 ## React Router
 
 **When building complex user interfaces we typically build single page applications (only one initial html request & response)**
+
+
+
+> absolute path: starts with a forward slash (i.e. /products) and follows the domain name (i.e. https://mydomain.com/products)
+> relative path: starts with a dot (i.e. ./products) and follows the current path (i.e. https://mydomain.com/products/123)
+
+
