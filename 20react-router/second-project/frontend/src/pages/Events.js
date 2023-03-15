@@ -1,11 +1,11 @@
 import EventsList from "../components/EventsList";
-//import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 function EventsPage() {
   // useLoaderData() is a hook that returns the data that was the result of the promise returned by the loader function.
- // const events = useLoaderData();
+ const events = useLoaderData();
   return (
     <>
-      <EventsList />
+      <EventsList events={events}/>
     </>
   );
 }
