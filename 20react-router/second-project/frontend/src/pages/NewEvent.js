@@ -1,7 +1,10 @@
+import EventForm from "../components/EventForm";
+
 function NewEventPage() {
   return (
     <div>
-      <h1>New Event</h1>
+      <h1 style={{ textAlign: "center" }}>New Event</h1>
+      <EventForm />
     </div>
   );
 }
