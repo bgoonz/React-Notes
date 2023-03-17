@@ -1489,8 +1489,7 @@ export default ForwardCounter;
 
 > input (old state + action) -> output (new state)
 > This is the same way the useReducer() hook works
-> _Where should side effects and async tasks be exicuted?_
-> **Inside the components (e.g. useEffect())** OR **Inside the action creators (e.g. redux-thunk)**
+> _Where should side effects and async tasks be exicuted?_ > **Inside the components (e.g. useEffect())** OR **Inside the action creators (e.g. redux-thunk)**
 
 ##### To acess store in component
 
@@ -1534,9 +1533,5 @@ const Cart = ( props ) => {
 
 **When building complex user interfaces we typically build single page applications (only one initial html request & response)**
 
-
-
 > absolute path: starts with a forward slash (i.e. /products) and follows the domain name (i.e. https://mydomain.com/products)
 > relative path: starts with a dot (i.e. ./products) and follows the current path (i.e. https://mydomain.com/products/123)
-
-
