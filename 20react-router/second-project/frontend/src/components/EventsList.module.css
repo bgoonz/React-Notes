@@ -24,7 +24,8 @@
 }
 
 .item img {
-  width: 33%;
+  width: 70%;
+  height: 300px;
   object-fit: cover;
 }
 
