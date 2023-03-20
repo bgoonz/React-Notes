@@ -2,9 +2,9 @@ import {
   Form,
   useNavigate,
   useNavigation,
-    useActionData,
-    json,
-    redirect,
+  useActionData,
+  json,
+  redirect,
 } from "react-router-dom";
 
 import classes from "./EventForm.module.css";
@@ -13,7 +13,9 @@ function EventForm({ method, event }) {
   const data = useActionData();
   const navigate = useNavigate();
   const navigation = useNavigation();
+
   const isSubmitting = navigation.state === "submitting";
+
   function cancelHandler() {
     navigate("..");
   }
@@ -81,9 +83,7 @@ function EventForm({ method, event }) {
 
 export default EventForm;
 
-
-
-export async function action( { request, params } ) {
+export async function action({ request, params }) {
   const method = request.method;
   //.formData is a method on the request object sent by the Form Component provided  by the react-router-dom package
   const data = await request.formData();

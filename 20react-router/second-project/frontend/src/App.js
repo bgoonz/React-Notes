@@ -3,13 +3,14 @@ import { action as manipulateEventAction } from './components/EventForm';
 import EditEvent from "./pages/EditEvent";
 import ErrorPage from "./pages/Error";
 import EventDetail, {
-    action as DeleteEventAction, loader as eventDetailLoader
+    action as deleteEventAction, loader as eventDetailLoader
 } from "./pages/EventDetail";
 import Events, { loader as eventsLoader } from "./pages/Events";
 import EventsRootLayout from "./pages/EventsRoot";
 import Home from "./pages/Home";
 import NewEvent from "./pages/NewEvent";
 import RootLayout from "./pages/Root";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,9 +35,13 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetail />,
-                action: DeleteEventAction,
+                action: deleteEventAction,
               },
-              { path: "edit", element: <EditEvent /> },
+              {
+                path: "edit",
+                element: <EditEvent />,
+                action: manipulateEventAction,
+              },
             ],
           },
           {
