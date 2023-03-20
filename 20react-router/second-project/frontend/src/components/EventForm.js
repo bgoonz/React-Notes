@@ -2,7 +2,9 @@ import {
   Form,
   useNavigate,
   useNavigation,
-  useActionData,
+    useActionData,
+    json,
+    redirect,
 } from "react-router-dom";
 
 import classes from "./EventForm.module.css";
@@ -17,7 +19,7 @@ function EventForm({ method, event }) {
   }
 
   return (
-    <Form method="post" className={classes.form}>
+    <Form method={method} className={classes.form}>
       {data && data.errors && (
         <ul>
           {Object.values(data.errors).map((error) => {
@@ -78,3 +80,44 @@ function EventForm({ method, event }) {
 }
 
 export default EventForm;
+
+
+
+export async function action( { request, params } ) {
+  const method = request.method;
+  //.formData is a method on the request object sent by the Form Component provided  by the react-router-dom package
+  const data = await request.formData();
+
+  const eventData = {
+    title: data.get("title"),
+    image: data.get("image"),
+    date: data.get("date"),
+    description: data.get("description"),
+  };
+
+  let url = "http://localhost:8080/events";
+
+  if (method === "PATCH") {
+    const eventId = params.eventId;
+    url = "http://localhost:8080/events/" + eventId;
+  }
+
+  const response = await fetch(url, {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(eventData),
+  });
+
+  if (response.status === 422) {
+    return response;
+  }
+
+  if (!response.ok) {
+    throw json({ message: "Could not save event." }, { status: 500 });
+  }
+
+  return redirect("/events");
+}
+
