@@ -1,8 +1,8 @@
 function HomePage() {
   return (
     <div>
-          <h1>The Home Page</h1>
-          {/*comment*/}
+      <h1>The Home Page</h1>
+      {/*comment*/}
     </div>
   );
 }

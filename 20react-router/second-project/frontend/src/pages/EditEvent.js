@@ -6,7 +6,7 @@ function EditEventPage() {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>Edit Event</h1>
-      <EventForm method='patch' event={event} />
+      <EventForm method="patch" event={event} />
     </div>
   );
 }
