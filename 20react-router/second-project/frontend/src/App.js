@@ -10,6 +10,7 @@ import EventsRootLayout from "./pages/EventsRoot";
 import Home from "./pages/Home";
 import NewEvent from "./pages/NewEvent";
 import RootLayout from "./pages/Root";
+import NewsLetter from './pages/NewsLetter';
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
             action: manipulateEventAction,
           },
         ],
-      },
+        },
+        {
+            path: 'newsletter',
+            element: <NewsLetter />
+      }
     ],
   },
 ]);
