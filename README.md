@@ -1127,7 +1127,7 @@ Because now the **effect function would re-run whenever ANY property** of `s
 #### useState vs. useReducer:
 
 | useState                                      | useReducer                                           |
-| --------------------------------------------- | ---------------------------------------------------- |
+|-----------------------------------------------|------------------------------------------------------|
 | the main state managment tool                 | need more power (complex state like objects)         |
 | great for independent pieces of state         | use if you have state that is related to other state |
 | great for if state updates are simple and few |                                                      |
@@ -1561,3 +1561,18 @@ export default NewsletterSignup;
 
 ```
 **In the code above useFetcher is the hook you should use if you want to trigger an action or loader without navigating to a different route"**
+
+
+---
+---
+
+## Authentication
+
+###### How Authentication Works
+
+- authentication is needed if content should not be accessed by everyone
+- The client or browser sends a request to the server with user credentials
+- If the credentials are valid the server sends back a token
+- We can use server side sessions or authentication tokens to authenticate users
+- Server side sessions (not popular in react) stores unique identifier on server and sends it to the client... then the client sends the identifier back to the server on every request
+- Authentication tokens are more popular in react... the server creates and sends (but does not store)a token to the client which the client sends back to the server on every request
