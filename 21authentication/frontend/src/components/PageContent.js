@@ -1,4 +1,4 @@
-import classes from "./PageContent.module.css";
+import classes from './PageContent.module.css';
 
 function PageContent({ title, children }) {
   return (
