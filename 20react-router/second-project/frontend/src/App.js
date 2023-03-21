@@ -11,7 +11,8 @@ import EventsRootLayout from "./pages/EventsRoot";
 import Home from "./pages/Home";
 import NewEvent from "./pages/NewEvent";
 import RootLayout from "./pages/Root";
-import NewsLetter from "./pages/NewsLetter";
+import NewsLetter from "./pages/Newsletter";
+import Newsletter, { action as newsletterAction } from "./pages/Newsletter";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
       {
         path: "newsletter",
         element: <NewsLetter />,
+        action: newsletterAction,
       },
     ],
   },

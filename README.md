@@ -24,6 +24,7 @@
 - [events-practice.md](./01notes/events-practice.md)
 - [expense-form-state.md](./01notes/expense-form-state.md)
 - [fixing-errors.md](./01notes/fixing-errors.md)
+- [FreeCodeCamp.md](./01notes/FreeCodeCamp.md)
 - [http-responses.md](./01notes/http-responses.md)
 - [immutable-update-patterns.md](./01notes/immutable-update-patterns.md)
 - [outputting-conditional-content.md](./01notes/outputting-conditional-content.md)
@@ -1535,3 +1536,28 @@ const Cart = ( props ) => {
 
 > absolute path: starts with a forward slash (i.e. /products) and follows the domain name (i.e. https://mydomain.com/products)
 > relative path: starts with a dot (i.e. ./products) and follows the current path (i.e. https://mydomain.com/products/123)
+
+
+```js
+import classes from "./NewsletterSignup.module.css";
+import { useFetcher } from "react-router-dom";
+function NewsletterSignup() {
+    const fetcher = useFetcher();
+    
+    return (
+      /*Fetcher.Form will still trigger an action without initializing a route transition  */
+    <fetcher.Form method="post" action="/newsletter" className={classes.newsletter}>
+      <input
+        type="email"
+        placeholder="Sign up for newsletter..."
+        aria-label="Sign up for newsletter"
+      />
+      <button>Sign up</button>
+    </fetcher.Form>
+  );
+}
+
+export default NewsletterSignup;
+
+```
+**In the code above useFetcher is the hook you should use if you want to trigger an action or loader without navigating to a different route"**
