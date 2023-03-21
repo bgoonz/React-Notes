@@ -19,8 +19,12 @@ function NewsletterSignup() {
       action="/newsletter"
       className={classes.newsletter}
     >
+      <label htmlFor="email"></label>
       <input
+        id="email"
         type="email"
+    
+        
         placeholder="Sign up for newsletter..."
         aria-label="Sign up for newsletter"
       />

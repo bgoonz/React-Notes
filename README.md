@@ -1576,3 +1576,8 @@ export default NewsletterSignup;
 - We can use server side sessions or authentication tokens to authenticate users
 - Server side sessions (not popular in react) stores unique identifier on server and sends it to the client... then the client sends the identifier back to the server on every request
 - Authentication tokens are more popular in react... the server creates and sends (but does not store)a token to the client which the client sends back to the server on every request
+
+
+**Query Parameters**
+- Query parameters are appended to the url after a question mark
+  
