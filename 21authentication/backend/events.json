@@ -8,5 +8,11 @@
       "id": "2a42fcc4-ea21-4bdd-abf6-c40006dc66a9"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "bryan.guner@gmail.com",
+      "password": "$2a$12$q6h1W7I6CgAExORfn66lB.H4JzujZ6gjImk5iO2CVofFio1.yJlZK",
+      "id": "dce78566-de08-450a-96ed-99edb5d141cd"
+    }
+  ]
 }

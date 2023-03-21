@@ -1,11 +1,10 @@
-
-import { Form , Link,useSearchParams} from "react-router-dom";
+import { Form, Link, useSearchParams } from "react-router-dom";
 
 import classes from "./AuthForm.module.css";
 
 function AuthForm() {
-  const [searchParams]=  useSearchParams();
-    const isLogin = searchParams.get("mode") === "login";
+  const [searchParams] = useSearchParams();
+  const isLogin = searchParams.get("mode") === "login";
   return (
     <>
       <Form method="post" className={classes.form}>
@@ -19,7 +18,7 @@ function AuthForm() {
           <input id="password" type="password" name="password" required />
         </p>
         <div className={classes.actions}>
-          <Link to={`?mode=${isLogin?'signup':'login'}`}>
+          <Link to={`?mode=${isLogin ? "signup" : "login"}`}>
             {isLogin ? "Create new user" : "Login"}
           </Link>
           <button>Save</button>
