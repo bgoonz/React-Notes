@@ -1,8 +1,12 @@
+import PageContent from "../components/PageContent";
 function HomePage() {
   return (
     <div>
       <h1>The Home Page</h1>
-      {/*comment*/}
+      <PageContent title="Welcome">
+        <p>Browse all our amazing events!</p>
+        
+      </PageContent>
     </div>
   );
 }
