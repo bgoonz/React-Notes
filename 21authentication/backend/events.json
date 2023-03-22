@@ -1,1 +1,44 @@
-{"events":[{"title":"Hiiiii","image":"https://blog.knoldus.com/wp-content/uploads/2020/10/React-featured.png","date":"2023-03-23","description":"Is submitting!!!!","id":"383a4f40-a664-443e-932a-db97078372eb"},{"title":"A new Event","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png","date":"2023-03-17","description":"React image","id":"125f54b7-198e-4386-816b-0cc9064eb456"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}],"users":[{"email":"bryan.guner@gmail.com","password":"$2a$12$q6h1W7I6CgAExORfn66lB.H4JzujZ6gjImk5iO2CVofFio1.yJlZK","id":"dce78566-de08-450a-96ed-99edb5d141cd"},{"email":"webdevhub@gmail.com","password":"$2a$12$A32nkfO./VHsv9gYSI2fw.HPVj8iVfs5Vx.sNhYvdfs.8m4/xASJ2","id":"0585c373-6f9c-40f8-9d32-50bd56c8e4f0"}]}
+{
+  "events": [
+    {
+      "title": "Birthday",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Birthday_candles.jpg/1200px-Birthday_candles.jpg",
+      "date": "2023-03-23",
+      "description": "Happy birthday",
+      "id": "1e3ad52c-90b0-4bdf-bae5-09e6b9602015"
+    },
+    {
+      "title": "Hiiiii",
+      "image": "https://blog.knoldus.com/wp-content/uploads/2020/10/React-featured.png",
+      "date": "2023-03-23",
+      "description": "Is submitting!!",
+      "id": "383a4f40-a664-443e-932a-db97078372eb"
+    },
+    {
+      "title": "A new Event",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+      "date": "2023-03-17",
+      "description": "React image",
+      "id": "125f54b7-198e-4386-816b-0cc9064eb456"
+    },
+    {
+      "id": "e1",
+      "title": "A dummy event",
+      "date": "2023-02-22",
+      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
+      "description": "Join this amazing event and connect with fellow developers."
+    }
+  ],
+  "users": [
+    {
+      "email": "bryan.guner@gmail.com",
+      "password": "$2a$12$q6h1W7I6CgAExORfn66lB.H4JzujZ6gjImk5iO2CVofFio1.yJlZK",
+      "id": "dce78566-de08-450a-96ed-99edb5d141cd"
+    },
+    {
+      "email": "webdevhub@gmail.com",
+      "password": "$2a$12$A32nkfO./VHsv9gYSI2fw.HPVj8iVfs5Vx.sNhYvdfs.8m4/xASJ2",
+      "id": "0585c373-6f9c-40f8-9d32-50bd56c8e4f0"
+    }
+  ]
+}
