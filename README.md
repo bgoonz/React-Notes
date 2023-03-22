@@ -1581,19 +1581,27 @@ export default NewsletterSignup;
 **Query Parameters**
 - Query parameters are appended to the url after a question mark
   
-**TEMP NOTES**
 
-```js
 
-export function checkAuthLoader() {
-  // this function will be added in the next lecture
-  // make sure it looks like this in the end
-  const token = getAuthToken();
-  
-  if (!token) {
-    return redirect('/auth');
-  }
+---
+---
+
+## Next.js
+[Next.js Website](https://nextjs.org/)
+
+**The fullstack framework for React**
+
+- React is a library for building user interfaces... Next.js is a framework for building fullstack React applications
+- A framework has more features than a library... has stricter conventions and is more opinionated than a library.
+- Next.js solves common problems and makes building react apps easier.
+
+
+**Key features of Next.js**
+
+**Server Side Rendering(ssr):** is about preparing the content of a page on the server rather than on the client.
  
-  return null; // this is missing in the next lecture video and should be added by you
-}
-```
+**SSR** allows us to render the page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
+
+**Static Site Generation(ssg):** is about pre-rendering the content of a page at build time rather than at request time.
+
+**NEXT (key feature)** _Simplified Routing... with file based routing_: Next.js has a built in router that allows us to define routes and map them to pages. Next.js uses the file system to map routes to pages. This means that we can create a file in the pages folder and Next.js will automatically create a route for that page.
