@@ -1605,3 +1605,9 @@ export default NewsletterSignup;
 **Static Site Generation(ssg):** is about pre-rendering the content of a page at build time rather than at request time.
 
 **NEXT (key feature)** _Simplified Routing... with file based routing_: Next.js has a built in router that allows us to define routes and map them to pages. Next.js uses the file system to map routes to pages. This means that we can create a file in the pages folder and Next.js will automatically create a route for that page.
+
+**NEXT (key feature)** _Build Fullstack Apps_: Next.js has a built in API route system that allows us to create API endpoints. Next.js API routes are serverless functions that are executed on the server. Next.js API routes are similar to express routes. Next.js API routes are defined in the pages/api folder.
+
+
+
+
