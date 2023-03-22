@@ -1,6 +1,5 @@
 /*https://my-domain/news */
 
-
 function NewsPage() {
   return (
     <>

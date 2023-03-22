@@ -1610,4 +1610,8 @@ export default NewsletterSignup;
 
 
 
+**Routing in Next.js**: Next.js has a built in router that allows us to define routes and map them to pages. Next.js uses the file system to map routes to pages. This means that we can create a file in the pages folder and Next.js will automatically create a route for that page.
 
+**Dynamic Routes in Next.js**: Next.js allows us to create dynamic routes. Dynamic routes are routes that can accept parameters. Next.js uses square brackets to define dynamic routes. Next.js will automatically create a route for each file in the pages folder. Next.js will also create a route for each file in the pages folder that matches the dynamic route. Next.js will pass the dynamic route parameters to the page component as props.
+
+> File naming syntax for dynamic routes: [id].js
