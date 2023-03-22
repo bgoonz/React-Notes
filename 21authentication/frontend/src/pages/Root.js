@@ -1,7 +1,7 @@
 import { Outlet, useLoaderData, useSubmit } from "react-router-dom";
 import { useEffect } from "react";
 import MainNavigation from "../components/MainNavigation";
-
+import { getTokenDuration } from "../util/auth";
 function RootLayout() {
   const token = useLoaderData();
   const submit = useSubmit();
@@ -9,9 +9,16 @@ function RootLayout() {
     if (!token) {
       return;
     }
+    if (token === "EXPIRED") {
+      submit(null, { action: "/logout", method: "post" });
+      return;
+    }
+
+    const tokenDuration = getTokenDuration();
+    console.log("tokenDuration", tokenDuration);
     setTimeout(() => {
       submit(null, { action: "/logout", method: "post" });
-    }, 1000 * 60 * 60);
+    }, tokenDuration);
   }, [token, submit]);
 
   return (
