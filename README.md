@@ -1581,3 +1581,19 @@ export default NewsletterSignup;
 **Query Parameters**
 - Query parameters are appended to the url after a question mark
   
+**TEMP NOTES**
+
+```js
+
+export function checkAuthLoader() {
+  // this function will be added in the next lecture
+  // make sure it looks like this in the end
+  const token = getAuthToken();
+  
+  if (!token) {
+    return redirect('/auth');
+  }
+ 
+  return null; // this is missing in the next lecture video and should be added by you
+}
+```
