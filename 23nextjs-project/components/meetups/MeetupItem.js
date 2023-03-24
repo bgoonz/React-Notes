@@ -1,14 +1,14 @@
 import Card from "../ui/Card";
 import classes from "./MeetupItem.module.css";
 import { useRouter } from "next/router";
-function MeetupItem( props ) {
-    //useRouter is a react hook and thus should only be used in the top level of a function component
-    const router = useRouter();
-    function showDetailsHandler() {
-    router.push('/' + props.id)
-    }
+function MeetupItem(props) {
+  //useRouter is a react hook and thus should only be used in the top level of a function component
+  const router = useRouter();
+  function showDetailsHandler() {
+    router.push("/" + props.id);
+  }
 
-    return (
+  return (
     <li className={classes.item}>
       <Card>
         <div className={classes.image}>
