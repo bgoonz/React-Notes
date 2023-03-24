@@ -1615,3 +1615,10 @@ export default NewsletterSignup;
 **Dynamic Routes in Next.js**: Next.js allows us to create dynamic routes. Dynamic routes are routes that can accept parameters. Next.js uses square brackets to define dynamic routes. Next.js will automatically create a route for each file in the pages folder. Next.js will also create a route for each file in the pages folder that matches the dynamic route. Next.js will pass the dynamic route parameters to the page component as props.
 
 > File naming syntax for dynamic routes: [id].js
+**With Next.js there are 2 forms of Pre-rendering:**
+- Static Generation
+- Server Side Rendering
+
+**Static Generation**: is about pre-rendering the content of a page at build time rather than at request time. Static Generation is the preferred method of pre-rendering pages. Static Generation is great for pages that can be pre-rendered ahead of a user's request. Static Generation is also great for pages that change infrequently. Static Generation allows us to pre-render a page at build time and serve the pre-rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
+
+**Server Side Rendering**: is about preparing the content of a page on the server rather than on the client. Server Side Rendering is great for pages that change frequently. Server Side Rendering allows us to pre-render a page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.

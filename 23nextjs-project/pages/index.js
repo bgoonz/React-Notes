@@ -1,5 +1,5 @@
 import MeetupList from "../components/meetups/MeetupList";
-import {useEffect, useState} from 'react';
+
 const DUMMY_MEETUPS = [
   {
     id: "m1",
@@ -19,14 +19,15 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage() {
-    const [loadedMeetups, setLoadedMeetups] = useState([]);
-    useEffect( () => {
-        //send http request and fetch data
-        setLoadedMeetups(DUMMY_MEETUPS);
-        
-    }, []);
-  return <MeetupList meetups={loadedMeetups} />;
+function HomePage(props) {
+  return <MeetupList meetups={props.meetups} />;
 }
 
+//getStaticProps is a special function that Next.js will recognize and will exicute during the pre-rendering process... it can be async meaning it can fetch data from an API.. the code in here is executed during the build process not on the client side... you always need to return an object from this function which has a props property which will be passed to the page component as an argument
+
+export function getStaticProps() {
+  return {
+    props: { meetups: DUMMY_MEETUPS },
+  };
+}
 export default HomePage;
