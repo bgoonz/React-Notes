@@ -1,47 +1,53 @@
 import MeetupDetail from "../../components/meetups/MeetupDetail";
-function MetupDetails() {
+import { MongoClient, ObjectId } from "mongodb";
+function MetupDetails(props) {
   return (
     <MeetupDetail
-      image={
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/1200px-American_Beaver.jpg"
-      }
-      title={"This is a first meetup"}
-      address={"Some address 5, 12345 Some City"}
-      description={"This is a first meetup"}
+      image={props.meetupData.image}
+      title={props.meetupData.title}
+      address={props.meetupData.address}
+      description={props.meetupData.description}
     />
   );
 }
 export async function getStaticPaths() {
+  const client = await MongoClient.connect(
+    "mongodb+srv://bryanguner:lVjEqV6QbEBhEx4l@cluster0.mdh4edk.mongodb.net/meetups?retryWrites=true&w=majority"
+  );
+  const db = client.db();
+  const meetupsCollection = db.collection("meetups");
+  const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
+  client.close();
   return {
     fallback: false,
-    paths: [
-      {
-        params: {
-          meetupId: "m1",
-        },
-      },
-      {
-        params: {
-          meetupId: "m2",
-        },
-      },
-    ],
+    paths: meetups.map((meetup) => ({
+      params: { meetupId: meetup._id.toString() },
+    })),
   };
 }
 
 export async function getStaticProps(context) {
-  //fetch data for a single meetup
   const meetupId = context.params.meetupId;
-  /*meetupId because that's the dynamic route identifier*/
-  console.log(meetupId);
+  const client = await MongoClient.connect(
+    "mongodb+srv://bryanguner:lVjEqV6QbEBhEx4l@cluster0.mdh4edk.mongodb.net/meetups?retryWrites=true&w=majority"
+  );
+  const db = client.db();
+  const meetupsCollection = db.collection("meetups");
+  const selectedMeetup = await meetupsCollection.findOne({
+    _id: new ObjectId(meetupId),
+  });
+
+  client.close();
+
   return {
     props: {
-      id: meetupId,
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/1200px-American_Beaver.jpg",
-      title: "This is a first meetup",
-      address: "Some address 5, 12345 Some City",
-      description: "This is a first meetup",
+      meetupData: {
+        id: selectedMeetup._id.toString(),
+        title: selectedMeetup.title,
+        image: selectedMeetup.image,
+        address: selectedMeetup.address,
+        description: selectedMeetup.description,
+      },
     },
   };
 }
