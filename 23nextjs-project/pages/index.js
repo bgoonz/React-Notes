@@ -25,11 +25,25 @@ function HomePage(props) {
 
 //getStaticProps is a special function that Next.js will recognize and will exicute during the pre-rendering process... it can be async meaning it can fetch data from an API.. the code in here is executed during the build process not on the client side... you always need to return an object from this function which has a props property which will be passed to the page component as an argument
 
+//similar to getStaticProps but this function is executed on the server side and not during the build process
+// export async function getServerSideProps( context ) {
+//     const req = context.req;
+//     const res = context.res;
+//     //fetch data from an API
+//     return {
+//         props: {
+//             meetups: DUMMY_MEETUPS
+//         },
+//
+//     }
+//
+// }
+
 export function getStaticProps() {
-    //revalidate is a special property that tells next.js that it should re-generate the page at most once every 10 seconds
+  //revalidate is a special property that tells next.js that it should re-generate the page at most once every 10 seconds
   return {
-      props: { meetups: DUMMY_MEETUPS },
-        revalidate: 10,
+    props: { meetups: DUMMY_MEETUPS },
+    revalidate: 10,
   };
 }
 export default HomePage;
