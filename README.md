@@ -1653,3 +1653,8 @@ export default NewsletterSignup;
 - Mongo db works with collections of documents where a collection is like a table and (in the context of our event planner app) a document refers to the information about a single event.
 - A document is a JSON object that contains key value pairs.
 
+```js
+ const meetups = await meetupsCollection.find()
+// .find() will return a promise which should resolve to an array of documents
+
+```

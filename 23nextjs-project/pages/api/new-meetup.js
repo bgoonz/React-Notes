@@ -10,15 +10,14 @@ async function handler(req, res) {
     //store that in a database or in a file
     const client = await MongoClient.connect(
       "mongodb+srv://bryanguner:lVjEqV6QbEBhEx4l@cluster0.mdh4edk.mongodb.net/meetups?retryWrites=true&w=majority"
-      );
-      const db = client.db();
-      const meetupsCollection = db.collection( "meetups" );
-      const result = await meetupsCollection.insertOne( data )
-      console.log( 'result(should be the automatically generated id):', result );
-      client.close();
-      res.status(201).json({message: 'Meetup inserted!'})
-    }
-    
+    );
+    const db = client.db();
+    const meetupsCollection = db.collection("meetups");
+    const result = await meetupsCollection.insertOne(data);
+    console.log("result(should be the automatically generated id):", result);
+    client.close();
+    res.status(201).json({ message: "Meetup inserted!" });
+  }
 }
 
 export default handler;
