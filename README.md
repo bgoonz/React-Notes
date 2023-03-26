@@ -1625,3 +1625,11 @@ export default NewsletterSignup;
 
 
 **getStaticPaths**: is a function that allows us to define the dynamic routes that should be pre-rendered at build time for getStaticProps (not needed for getServerSideProps and not needed if you're using neither)
+
+
+###### MongoDB:
+**MongoDB is a NoSQL database**
+**NoSQL databases are document based databases**
+- Mongo db works with collections of documents where a collection is like a table and (in the context of our event planner app) a document refers to the information about a single event.
+- A document is a JSON object that contains key value pairs.
+
