@@ -1627,6 +1627,26 @@ export default NewsletterSignup;
 **getStaticPaths**: is a function that allows us to define the dynamic routes that should be pre-rendered at build time for getStaticProps (not needed for getServerSideProps and not needed if you're using neither)
 
 
+```js
+//getStaticProps is a special function that Next.js will recognize and will exicute during the pre-rendering process... it can be async meaning it can fetch data from an API.. the code in here is executed during the build process not on the client side... you always need to return an object from this function which has a props property which will be passed to the page component as an argument
+
+//similar to getStaticProps but this function is executed on the server side and not during the build process
+ export async function getServerSideProps( context ) {
+     const req = context.req;
+     const res = context.res;
+     //fetch data from an API
+     return {
+         props: {
+             meetups: DUMMY_MEETUPS
+         },
+
+    }
+
+ }
+
+
+```
+
 ###### MongoDB:
 **MongoDB is a NoSQL database**
 **NoSQL databases are document based databases**
