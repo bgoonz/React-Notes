@@ -1622,3 +1622,6 @@ export default NewsletterSignup;
 **Static Generation**: is about pre-rendering the content of a page at build time rather than at request time. Static Generation is the preferred method of pre-rendering pages. Static Generation is great for pages that can be pre-rendered ahead of a user's request. Static Generation is also great for pages that change infrequently. Static Generation allows us to pre-render a page at build time and serve the pre-rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
 
 **Server Side Rendering**: is about preparing the content of a page on the server rather than on the client. Server Side Rendering is great for pages that change frequently. Server Side Rendering allows us to pre-render a page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
+
+
+**getStaticPaths**: is a function that allows us to define the dynamic routes that should be pre-rendered at build time for getStaticProps (not needed for getServerSideProps and not needed if you're using neither)
