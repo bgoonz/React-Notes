@@ -1658,3 +1658,14 @@ export default NewsletterSignup;
 // .find() will return a promise which should resolve to an array of documents
 
 ```
+
+
+#### [Deployed Website](https://nextjs-mongodb-event-planner-5bxvnxukp-bgoonz.vercel.app/)
+
+
+---
+---
+
+## Animating React Apps:
+
+
