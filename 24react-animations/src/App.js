@@ -8,7 +8,6 @@ import List from "./components/List/List";
 class App extends Component {
   state = {
     modalIsOpen: false,
-
   };
 
   showModal = () => {
