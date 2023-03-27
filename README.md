@@ -1670,3 +1670,4 @@ export default NewsletterSignup;
 ## Animating React Apps:
 
 
+###### [React Transition Group](https://github.com/reactjs/react-transition-group)

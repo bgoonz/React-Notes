@@ -11,6 +11,9 @@ body {
   background-color: #521751;
   color: white;
   cursor: pointer;
+  border-radius:10px;
+  padding:10px;
+  margin:10px;
 }
 
 .Button:hover,
