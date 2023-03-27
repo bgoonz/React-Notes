@@ -1127,7 +1127,7 @@ Because now the **effect function would re-run whenever ANY property** of `s
 #### useState vs. useReducer:
 
 | useState                                      | useReducer                                           |
-|-----------------------------------------------|------------------------------------------------------|
+| --------------------------------------------- | ---------------------------------------------------- |
 | the main state managment tool                 | need more power (complex state like objects)         |
 | great for independent pieces of state         | use if you have state that is related to other state |
 | great for if state updates are simple and few |                                                      |
@@ -1537,16 +1537,19 @@ const Cart = ( props ) => {
 > absolute path: starts with a forward slash (i.e. /products) and follows the domain name (i.e. https://mydomain.com/products)
 > relative path: starts with a dot (i.e. ./products) and follows the current path (i.e. https://mydomain.com/products/123)
 
-
 ```js
 import classes from "./NewsletterSignup.module.css";
 import { useFetcher } from "react-router-dom";
 function NewsletterSignup() {
-    const fetcher = useFetcher();
-    
-    return (
-      /*Fetcher.Form will still trigger an action without initializing a route transition  */
-    <fetcher.Form method="post" action="/newsletter" className={classes.newsletter}>
+  const fetcher = useFetcher();
+
+  return (
+    /*Fetcher.Form will still trigger an action without initializing a route transition  */
+    <fetcher.Form
+      method="post"
+      action="/newsletter"
+      className={classes.newsletter}
+    >
       <input
         type="email"
         placeholder="Sign up for newsletter..."
@@ -1558,12 +1561,12 @@ function NewsletterSignup() {
 }
 
 export default NewsletterSignup;
-
 ```
+
 **In the code above useFetcher is the hook you should use if you want to trigger an action or loader without navigating to a different route"**
 
-
 ---
+
 ---
 
 ## Authentication
@@ -1577,16 +1580,16 @@ export default NewsletterSignup;
 - Server side sessions (not popular in react) stores unique identifier on server and sends it to the client... then the client sends the identifier back to the server on every request
 - Authentication tokens are more popular in react... the server creates and sends (but does not store)a token to the client which the client sends back to the server on every request
 
-
 **Query Parameters**
-- Query parameters are appended to the url after a question mark
-  
 
+- Query parameters are appended to the url after a question mark
 
 ---
+
 ---
 
 ## Next.js
+
 [Next.js Website](https://nextjs.org/)
 
 **The fullstack framework for React**
@@ -1595,11 +1598,10 @@ export default NewsletterSignup;
 - A framework has more features than a library... has stricter conventions and is more opinionated than a library.
 - Next.js solves common problems and makes building react apps easier.
 
-
 **Key features of Next.js**
 
 **Server Side Rendering(ssr):** is about preparing the content of a page on the server rather than on the client.
- 
+
 **SSR** allows us to render the page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
 
 **Static Site Generation(ssg):** is about pre-rendering the content of a page at build time rather than at request time.
@@ -1608,14 +1610,13 @@ export default NewsletterSignup;
 
 **NEXT (key feature)** _Build Fullstack Apps_: Next.js has a built in API route system that allows us to create API endpoints. Next.js API routes are serverless functions that are executed on the server. Next.js API routes are similar to express routes. Next.js API routes are defined in the pages/api folder.
 
-
-
 **Routing in Next.js**: Next.js has a built in router that allows us to define routes and map them to pages. Next.js uses the file system to map routes to pages. This means that we can create a file in the pages folder and Next.js will automatically create a route for that page.
 
 **Dynamic Routes in Next.js**: Next.js allows us to create dynamic routes. Dynamic routes are routes that can accept parameters. Next.js uses square brackets to define dynamic routes. Next.js will automatically create a route for each file in the pages folder. Next.js will also create a route for each file in the pages folder that matches the dynamic route. Next.js will pass the dynamic route parameters to the page component as props.
 
 > File naming syntax for dynamic routes: [id].js
-**With Next.js there are 2 forms of Pre-rendering:**
+> **With Next.js there are 2 forms of Pre-rendering:**
+
 - Static Generation
 - Server Side Rendering
 
@@ -1623,51 +1624,43 @@ export default NewsletterSignup;
 
 **Server Side Rendering**: is about preparing the content of a page on the server rather than on the client. Server Side Rendering is great for pages that change frequently. Server Side Rendering allows us to pre-render a page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
 
-
 **getStaticPaths**: is a function that allows us to define the dynamic routes that should be pre-rendered at build time for getStaticProps (not needed for getServerSideProps and not needed if you're using neither)
-
 
 ```js
 //getStaticProps is a special function that Next.js will recognize and will exicute during the pre-rendering process... it can be async meaning it can fetch data from an API.. the code in here is executed during the build process not on the client side... you always need to return an object from this function which has a props property which will be passed to the page component as an argument
 
 //similar to getStaticProps but this function is executed on the server side and not during the build process
- export async function getServerSideProps( context ) {
-     const req = context.req;
-     const res = context.res;
-     //fetch data from an API
-     return {
-         props: {
-             meetups: DUMMY_MEETUPS
-         },
-
-    }
-
- }
-
-
+export async function getServerSideProps(context) {
+  const req = context.req;
+  const res = context.res;
+  //fetch data from an API
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+  };
+}
 ```
 
 ###### MongoDB:
+
 **MongoDB is a NoSQL database**
 **NoSQL databases are document based databases**
+
 - Mongo db works with collections of documents where a collection is like a table and (in the context of our event planner app) a document refers to the information about a single event.
 - A document is a JSON object that contains key value pairs.
 
 ```js
- const meetups = await meetupsCollection.find()
+const meetups = await meetupsCollection.find();
 // .find() will return a promise which should resolve to an array of documents
-
 ```
-
 
 #### [Deployed Website](https://react-complete-guide-course-8n0h3sfbz-bgoonz.vercel.app/)
 
-
-
 ---
+
 ---
 
 ## Animating React Apps:
-
 
 ###### [React Transition Group](https://github.com/reactjs/react-transition-group)

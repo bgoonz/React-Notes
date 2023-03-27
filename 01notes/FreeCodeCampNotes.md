@@ -229,8 +229,8 @@ class ShoppingCart extends React.Component {
 ---
 
 ---
-Use PropTypes to Define the Props You Expect
-============================================
+
+# Use PropTypes to Define the Props You Expect
 
 React provides useful type-checking features to verify that components receive props of the correct type. For example, your application makes an API call to retrieve data that you expect to be in an array, which is then passed to a component as a prop. You can set `propTypes` on your component to require the data to be of type `array`. This will throw a useful warning when the data is of any other type.
 
@@ -245,13 +245,13 @@ In the example above, the `PropTypes.func` part checks that `handleClick` is
 
 **Note:** As of React v15.5.0, `PropTypes` is imported independently from React, like this: `import PropTypes from 'prop-types';`
 
-* * * * *
+---
 
 Define `propTypes` for the `Items` component to require `quantity` as a prop and verify that it is of type `number`.
 
 ```js
 const Items = (props) => {
-  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>;
 };
 
 // Change code below this line
@@ -259,7 +259,7 @@ const Items = (props) => {
 // Change code above this line
 
 Items.defaultProps = {
-  quantity: 0
+  quantity: 0,
 };
 
 class ShoppingCart extends React.Component {
@@ -267,68 +267,66 @@ class ShoppingCart extends React.Component {
     super(props);
   }
   render() {
-    return <Items />
+    return <Items />;
   }
-};
+}
 
-Items.propTypes ={quantity:PropTypes.number.isRequired}
-
+Items.propTypes = { quantity: PropTypes.number.isRequired };
 ```
 
-
----
 ---
 
-Access Props Using this.props
-=============================
+---
+
+# Access Props Using this.props
 
 The last several challenges covered the basic ways to pass props to child components. But what if the child component that you're passing a prop to is an ES6 class component, rather than a stateless functional component? The ES6 class component uses a slightly different convention to access props.
 
 Anytime you refer to a class component within itself, you use the `this` keyword. To access props within a class component, you preface the code that you use to access it with `this`. For example, if an ES6 class component has a prop called `data`, you write `{this.props.data}` in JSX.
 
-* * * * *
+---
 
 Render an instance of the `Welcome` component in the parent component `App`. Here, give `Welcome` a prop of `name` and assign it a value of a string. Within the child, `Welcome`, access the `name` prop within the `strong` tags.
-
 
 ```js
 class App extends React.Component {
   constructor(props) {
     super(props);
-
   }
   render() {
     return (
-        <div>
-            { /* Change code below this line */ }
-            <Welcome name={'Bryan'}/>
-            { /* Change code above this line */ }
-        </div>
+      <div>
+        {/* Change code below this line */}
+        <Welcome name={"Bryan"} />
+        {/* Change code above this line */}
+      </div>
     );
   }
-};
+}
 
 class Welcome extends React.Component {
   constructor(props) {
     super(props);
-
   }
   render() {
     return (
-        <div>
-          { /* Change code below this line */ }
-          <p>Hello, <strong>{this.props.name}</strong>!</p>
-          { /* Change code above this line */ }
-        </div>
+      <div>
+        {/* Change code below this line */}
+        <p>
+          Hello, <strong>{this.props.name}</strong>!
+        </p>
+        {/* Change code above this line */}
+      </div>
     );
   }
-};
-
+}
 ```
+
 ---
+
 ---
-Review Using Props with Stateless Functional Components
-=======================================================
+
+# Review Using Props with Stateless Functional Components
 
 Except for the last challenge, you've been passing props to stateless functional components. These components act like pure functions. They accept props as input and return the same view every time they are passed the same props. You may be wondering what state is, and the next challenge will cover it in more detail. Before that, here's a review of the terminology for components.
 
@@ -336,11 +334,9 @@ A *stateless functional component* is any function you write which accepts pro
 
 A common pattern is to try to minimize statefulness and to create stateless functional components wherever possible. This helps contain your state management to a specific area of your application. In turn, this improves development and maintenance of your app by making it easier to follow how changes to state affect its behavior.
 
-* * * * *
+---
 
 The code editor has a `CampSite` component that renders a `Camper` component as a child. Define the `Camper` component and assign it default props of `{ name: 'CamperBot' }`. Inside the `Camper` component, render any code that you want, but make sure to have one `p` element that includes only the `name` value that is passed in as a `prop`. Finally, define `propTypes` on the `Camper` component to require `name` to be provided as a prop and verify that it is of type `string`.
-
-
 
 ```js
 class CampSite extends React.Component {
@@ -350,26 +346,25 @@ class CampSite extends React.Component {
   render() {
     return (
       <div>
-        <Camper name={'Bryan'}/>
+        <Camper name={"Bryan"} />
       </div>
     );
   }
-};
+}
 // Change code below this line
 
-const Camper =(props)=>{
-return <p>{props.name}</p>
-}
-Camper.defaultProps = { name: 'CamperBot' };
-Camper.propTypes ={name:PropTypes.string.isRequired}
-
+const Camper = (props) => {
+  return <p>{props.name}</p>;
+};
+Camper.defaultProps = { name: "CamperBot" };
+Camper.propTypes = { name: PropTypes.string.isRequired };
 ```
 
 ---
+
 ---
 
-Create a Stateful Component
-===========================
+# Create a Stateful Component
 
 One of the most important topics in React is `state`. State consists of any data your application needs to know about, that can change over time. You want your apps to respond to state changes and present an updated UI when necessary. React offers a nice solution for the state management of modern web applications.
 
@@ -384,7 +379,7 @@ this.state = {
 
 You have access to the `state` object throughout the life of your component. You can update it, render it in your UI, and pass it as props to child components. The `state` object can be as complex or as simple as you need it to be. Note that you must create a class component by extending `React.Component` in order to create `state` like this.
 
-* * * * *
+---
 
 There is a component in the code editor that is trying to render a `firstName` property from its `state`. However, there is no `state` defined. Initialize the component with `state` in the `constructor` and assign your name to a property of `firstName`.
 
@@ -393,9 +388,9 @@ class StatefulComponent extends React.Component {
   constructor(props) {
     super(props);
     // Only change code below this line
-this.state={
-  firstName:'bryan'
-}
+    this.state = {
+      firstName: "bryan",
+    };
     // Only change code above this line
   }
   render() {
@@ -405,13 +400,14 @@ this.state={
       </div>
     );
   }
-};
-
+}
 ```
+
 ---
+
 ---
-Render State in the User Interface
-==================================
+
+# Render State in the User Interface
 
 Once you define a component's initial state, you can display any part of it in the UI that is rendered. If a component is stateful, it will always have access to the data in `state` in its `render()` method. You can access the data with `this.state`.
 
@@ -421,78 +417,74 @@ If you want to access a state value within the `return` of the render method, 
 
 Note that if you make a component stateful, no other components are aware of its `state`. Its `state` is completely encapsulated, or local to that component, unless you pass state data to a child component as `props`. This notion of encapsulated `state` is very important because it allows you to write certain logic, then have that logic contained and isolated in one place in your code.
 
-* * * * *
+---
 
 In the code editor, `MyComponent` is already stateful. Define an `h1` tag in the component's render method which renders the value of `name` from the component's state.
 
 **Note:** The `h1` should only render the value from `state` and nothing else. In JSX, any code you write with curly braces `{ }` will be treated as JavaScript. So to access the value from `state` just enclose the reference in curly braces.
 
-
 ```js
-
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'freeCodeCamp'
-    }
+      name: "freeCodeCamp",
+    };
   }
   render() {
     return (
       <div>
-        { /* Change code below this line */}
+        {/* Change code below this line */}
         <h1>{this.state.name}</h1>
-        { /* Change code above this line */}
+        {/* Change code above this line */}
       </div>
     );
   }
-};
-
+}
 ```
----
+
 ---
 
-Render State in the User Interface Another Way
-==============================================
+---
+
+# Render State in the User Interface Another Way
 
 There is another way to access `state` in a component. In the `render()` method, before the `return` statement, you can write JavaScript directly. For example, you could declare functions, access data from `state` or `props`, perform computations on this data, and so on. Then, you can assign any data to variables, which you have access to in the `return` statement.
 
-* * * * *
+---
 
 In the `MyComponent` render method, define a `const` called `name` and set it equal to the name value in the component's `state`. Because you can write JavaScript directly in this part of the code, you don't have to enclose this reference in curly braces.
 
 Next, in the return statement, render this value in an `h1` tag using the variable `name`. Remember, you need to use the JSX syntax (curly braces for JavaScript) in the return statement.
 
-
 ```js
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'freeCodeCamp'
-    }
+      name: "freeCodeCamp",
+    };
   }
   render() {
     // Change code below this line
-    const name = this.state.name
+    const name = this.state.name;
     // Change code above this line
     return (
       <div>
-        { /* Change code below this line */}
+        {/* Change code below this line */}
         <h1>{name}</h1>
-        { /* Change code above this line */}
+        {/* Change code above this line */}
       </div>
     );
   }
-};
-
-
+}
 ```
----
+
 ---
 
-Set State with this.setState
-============================
+---
+
+# Set State with this.setState
 
 The previous challenges covered component `state` and how to initialize state in the `constructor`. There is also a way to change the component's `state`. React provides a method for updating component `state` called `setState`. You call the `setState` method within your component class like so: `this.setState()`, passing in an object with key-value pairs. The keys are your state properties and the values are the updated state data. For instance, if we were storing a `username` in state and wanted to update it, it would look like this:
 
@@ -505,27 +497,26 @@ this.setState({
 
 React expects you to never modify `state` directly, instead always use `this.setState()` when state changes occur. Also, you should note that React may batch multiple state updates in order to improve performance. What this means is that state updates through the `setState` method can be asynchronous. There is an alternative syntax for the `setState` method which provides a way around this problem. This is rarely needed but it's good to keep it in mind! Please consult our [React article](https://www.freecodecamp.org/news/what-is-state-in-react-explained-with-examples/) for further details.
 
-* * * * *
+---
 
 There is a `button` element in the code editor which has an `onClick()` handler. This handler is triggered when the `button` receives a click event in the browser, and runs the `handleClick` method defined on `MyComponent`. Within the `handleClick` method, update the component `state` using `this.setState()`. Set the `name` property in `state` to equal the string `React Rocks!`.
 
 Click the button and watch the rendered state update. Don't worry if you don't fully understand how the click handler code works at this point. It's covered in upcoming challenges.
-
 
 ```js
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Initial State'
+      name: "Initial State",
     };
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
     // Change code below this line
-this.setState({
-  name:"React Rocks!"
-})
+    this.setState({
+      name: "React Rocks!",
+    });
     // Change code above this line
   }
   render() {
@@ -536,13 +527,12 @@ this.setState({
       </div>
     );
   }
-};
-
+}
 ```
+
 ---
 
-Bind 'this' to a Class Method
-=============================
+# Bind 'this' to a Class Method
 
 In addition to setting and updating `state`, you can also define methods for your component class. A class method typically needs to use the `this` keyword so it can access properties on the class (such as `state` and `props`) inside the scope of the method. There are a few ways to allow your class methods to access `this`.
 
@@ -550,7 +540,7 @@ One common way is to explicitly bind `this` in the constructor so `this` bec
 
 **Note:** The `this` keyword is one of the most confusing aspects of JavaScript but it plays an important role in React. Although its behavior here is totally normal, these lessons aren't the place for an in-depth review of `this` so please refer to other lessons if the above is confusing!
 
-* * * * *
+---
 
 The code editor has a component with a `state` that keeps track of the text. It also has a method which allows you to set the text to `You clicked!`. However, the method doesn't work because it's using the `this` keyword that is undefined. Fix it by explicitly binding `this` to the `handleClick()` method in the component's constructor.
 
@@ -558,8 +548,6 @@ Next, add a click handler to the `button` element in the render method. It sho
 
 Once you complete the above steps you should be able to click the button and see `You clicked!`.
 
-
 ```js
-
 
 ```

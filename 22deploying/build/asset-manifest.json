@@ -14,8 +14,5 @@
     "229.ee7d7335.chunk.css.map": "/static/css/229.ee7d7335.chunk.css.map",
     "229.e56e41ee.chunk.js.map": "/static/js/229.e56e41ee.chunk.js.map"
   },
-  "entrypoints": [
-    "static/css/main.0fd63127.css",
-    "static/js/main.89766539.js"
-  ]
+  "entrypoints": ["static/css/main.0fd63127.css", "static/js/main.89766539.js"]
 }
