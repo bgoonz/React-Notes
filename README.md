@@ -1660,7 +1660,8 @@ export default NewsletterSignup;
 ```
 
 
-#### [Deployed Website](https://nextjs-mongodb-event-planner-5bxvnxukp-bgoonz.vercel.app/)
+#### [Deployed Website](https://react-complete-guide-course-8n0h3sfbz-bgoonz.vercel.app/)
+
 
 
 ---
