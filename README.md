@@ -1812,3 +1812,15 @@ it helps us grab the following from App.js
           Learn React
         </a>
 ```
+
+
+###### How to write a test... 3 A's:
+1. **Arrange:** _set up the test environment_
+2. **Act:** _trigger the code you want to test_
+3. **Assert:** _check if the result is what you expected_
+
+
+**Screen Methods**
+`screen.get` throw an error if element is not found
+`screen.querry` return null if element is not found
+`screen.find` return a promise that resolves when element is found
