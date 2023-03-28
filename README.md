@@ -1145,7 +1145,7 @@ Because now the **effect function would re-run whenever ANY property** of `s
 #### useState vs. useReducer:
 
 | useState                                      | useReducer                                           |
-| --------------------------------------------- | ---------------------------------------------------- |
+|-----------------------------------------------|------------------------------------------------------|
 | the main state managment tool                 | need more power (complex state like objects)         |
 | great for independent pieces of state         | use if you have state that is related to other state |
 | great for if state updates are simple and few |                                                      |
@@ -1824,3 +1824,34 @@ it helps us grab the following from App.js
 `screen.get` throw an error if element is not found
 `screen.querry` return null if element is not found
 `screen.find` return a promise that resolves when element is found
+
+
+```js
+import { render, screen } from "@testing-library/react";
+import Greeting from "./Greeting";
+
+describe("Greeting component", () => {
+  test("renders Hello World! as text", () => {
+    render(<Greeting />);
+    const helloWorldElement = screen.getByText("Hello World!", {
+      exact: false,
+    });
+    expect(helloWorldElement).toBeInTheDocument();
+  });
+});
+
+```
+
+In the terminal output the describe block is a group of tests and the test block is a single test.
+
+```txt
+ PASS  src/components/Greeting.test.js
+  Greeting component
+    √ renders Hello World! as text (79 ms)
+
+Test Suites: 1 passed, 1 total   <========Describe
+Tests:       1 passed, 1 total   <========Test
+Snapshots:   0 total
+Time:        3.495 s
+Ran all test suites related to changed files.
+```
