@@ -30,3 +30,6 @@ describe("Greeting component", () => {
         expect( outputElement ).toBeNull();
     })
 });
+
+
+
