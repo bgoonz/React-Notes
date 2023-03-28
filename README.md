@@ -1664,3 +1664,67 @@ const meetups = await meetupsCollection.find();
 ## Animating React Apps:
 
 ###### [React Transition Group](https://github.com/reactjs/react-transition-group)
+
+---
+
+---
+
+## Replacing Redux with Custom Hooks:
+
+###### store.js:
+
+```js
+import { useState, useEffect } from "react";
+let globalState = {};
+let listeners = [];
+let actions = {};
+export const useStore = () => {
+  const setState = useState(globalState)[1];
+  const dispatch = (actionIdentifier, payload) => {
+    const newState = actions[actionIdentifier](globalState, payload);
+    globalState = { ...globalState, ...newState };
+    for (const listener of listeners) {
+      listener(globalState);
+    }
+  };
+  useEffect(() => {
+    listeners.push(setState);
+    return () => {
+      listeners = listeners.filter((listener) => listener !== setState);
+    };
+  }, [setState]);
+  return [globalState, dispatch];
+};
+export const initStore = (userActions, initialState) => {
+  if (initialState) {
+    globalState = { ...globalState, ...initialState };
+  }
+  actions = { ...actions, ...userActions };
+};
+```
+
+**We have some variables that are not global but are global to the file.**
+
+```js
+let globalState = {};
+let listeners = [];
+let actions = {};
+```
+
+**Because these variables are defined outside of the custom hook function every component that uses the custom hook will share the same state.**
+
+- Then we have our custom hook:
+
+```js
+export const useStore = () => {
+  const setState = useState(globalState)[1];
+  const dispatch = (actionIdentifier, payload) => {
+    const newState = actions[actionIdentifier](globalState, payload);
+    globalState = { ...globalState, ...newState };
+    for (const listener of listeners) {
+      listener(globalState);
+    }
+  };
+```
+
+**In our custom useStore hook we have a dispatch function which makes sure whenever we call dispatch we update our global state**

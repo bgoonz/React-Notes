@@ -4,6 +4,7 @@ import Card from "../UI/Card";
 import "./ProductItem.css";
 
 const ProductItem = (props) => {
+  console.log("Rendering");
   const dispatch = useStore()[1];
 
   const toggleFavHandler = () => {
