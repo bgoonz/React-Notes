@@ -1779,3 +1779,36 @@ export const useStore = () => {
 - **Unit tests:** _testing the individual building blocks (functions and components) in isolation._
 - **integration tests:** _tests the combination of multiple building blocks.. projects usually contain a couple of integration tests... in react there's not much difference between a unit and integration test because most components are made of other components_
 - **End to end Tests:** _Test complete scenarios in your app as the user would experience them (i.e. logging in)... projects usually only contain a few e2e tests_
+
+
+> App.test.js
+
+```js
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+
+test("renders learn react link", () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+```
+
+> **render** is a function that comes from the testing library and it allows us to render a react component and it returns a bunch of utility functions that we can use to interact with the rendered component.
+> screen.getByText is a function that allows us to get a reference to an element on the page by its text content.
+```js
+  const linkElement = screen.getByText(/learn react/i);
+```
+- the **/learn react/i** is a regular expression which means that we're looking for a text that contains the string learn react and the i at the end means that we're looking for a case insensitive match.
+
+it helps us grab the following from App.js
+```jsx
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+```
