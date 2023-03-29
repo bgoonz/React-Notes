@@ -1877,3 +1877,17 @@ console.log(result);
 
 ```
 - here javascript knows that 2 and 5 are of type number but it doesn't know what type a and b are... so it's up to the developer to make sure that the function is called with the correct arguments to it's parameters.
+
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+const result = add(2, 5);
+const result2 = add("2", "5");
+console.log( result );
+console.log( result2 );
+
+```
+- Here where we add the strings 2 and 5 we get the unexpected behavior of 25 because it concatenates the strings instead of adding them as numbers
