@@ -1897,3 +1897,7 @@ console.log( result2 );
 ```bash
 npx tsc <filename.ts>
 ```
+
+- Default type assumed for a variable is `any` which means that the variable can be of any type.
+
+
