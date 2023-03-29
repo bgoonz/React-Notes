@@ -372,8 +372,7 @@ setEnteredDate("");
 - We can pass data from child to parent via function props.We can create our own event props that expect functions as values which allows us to pass a function from a parent component to a child component and then call that function inside of the child component. When we call said function we can pass data to that function as a parameter and that data will then be passed back to the parent component.
 - props can only be passed from parent component to child and we can't skip intermediate components.
   > Let's say we want to pass expense data which we gather in the expense form component to the new expense component. We can do this by passing a function from the new expense component to the expense form component and then call that function inside of the expense form component and pass the data as a parameter to that function.
-
-> NewExpense.js
+  > NewExpense.js
 
 ```js
 import React from "react";
@@ -405,13 +404,10 @@ export default NewExpense;
 ##### Keys in Lists:
 
 - Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
-
   > A “key” is a special string attribute you need to include when creating lists of elements in React.
-
 - Keys are used in React to identify which items in the list are changed, updated, or deleted.
   > In other words, we can say that keys are used to give an identity to the elements in the lists. The next thing that comes to mind is that what should be good to be chosen as key for the items in lists. It is recommended to use a string as a key that uniquely identifies the items in the list.
-
-_Below example shows a list with string keys:_
+  > _Below example shows a list with string keys:_
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
@@ -434,10 +430,8 @@ Assigning indexes as keys are highly discouraged because if the elements of the 
 #### Using Keys with Components
 
 - Consider a situation where you have created a separate component for list items and you are extracting list items from that component. In that case, you will have to assign keys to the component you are returning from the iterator and not to the list items. That is you should assign keys to \<Component /> and not to \<li> A good practice to avoid mistakes is to keep in mind that anything you are returning from inside of the map() function is needed to be assigned key.
-
-**Below code shows incorrect usage of keys:**
-
-> MenuItems.js (incorrect usage of keys)
+  **Below code shows incorrect usage of keys:**
+  > MenuItems.js (incorrect usage of keys)
 
 ```js
 import React from "react";
@@ -467,9 +461,7 @@ ReactDOM.render(
 ![incorrect use of keys](https://media.geeksforgeeks.org/wp-content/uploads/incorrect.png)
 
 > You can see in the above output that the list is rendered successfully but a warning is thrown to the console that the elements inside the iterator are not assigned *keys*. This is because we had not assigned *key* to the elements we are returning to the map() iterator.
-
-**Below example shows correct usage of keys:**
-
+> **Below example shows correct usage of keys:**
 > MenuItems.js (correct usage of keys)
 
 ```js
@@ -1550,9 +1542,7 @@ const Cart = ( props ) => {
 > A thunk is a function that wraps an expression to delay its evaluation.
 > Thunks are typically used to delay the evaluation of an expression until its results are needed, such as the dispatching of an action, or the calculation of derived data.
 
-_It is an action creator function that does not return the action it's self but another function which eventually returns the action_
-
----
+## _It is an action creator function that does not return the action it's self but another function which eventually returns the action_
 
 ## React Router
 
@@ -1566,7 +1556,6 @@ import classes from "./NewsletterSignup.module.css";
 import { useFetcher } from "react-router-dom";
 function NewsletterSignup() {
   const fetcher = useFetcher();
-
   return (
     /*Fetcher.Form will still trigger an action without initializing a route transition  */
     <fetcher.Form
@@ -1583,13 +1572,10 @@ function NewsletterSignup() {
     </fetcher.Form>
   );
 }
-
 export default NewsletterSignup;
 ```
 
-**In the code above useFetcher is the hook you should use if you want to trigger an action or loader without navigating to a different route"**
-
----
+## **In the code above useFetcher is the hook you should use if you want to trigger an action or loader without navigating to a different route"**
 
 ---
 
@@ -1603,9 +1589,7 @@ export default NewsletterSignup;
 - We can use server side sessions or authentication tokens to authenticate users
 - Server side sessions (not popular in react) stores unique identifier on server and sends it to the client... then the client sends the identifier back to the server on every request
 - Authentication tokens are more popular in react... the server creates and sends (but does not store)a token to the client which the client sends back to the server on every request
-
-**Query Parameters**
-
+  **Query Parameters**
 - Query parameters are appended to the url after a question mark
 
 ---
@@ -1615,44 +1599,29 @@ export default NewsletterSignup;
 ## Next.js
 
 [Next.js Website](https://nextjs.org/)
-
 **The fullstack framework for React**
 
 - React is a library for building user interfaces... Next.js is a framework for building fullstack React applications
 - A framework has more features than a library... has stricter conventions and is more opinionated than a library.
 - Next.js solves common problems and makes building react apps easier.
-
-**Key features of Next.js**
-
-**Server Side Rendering(ssr):** is about preparing the content of a page on the server rather than on the client.
-
-**SSR** allows us to render the page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
-
-**Static Site Generation(ssg):** is about pre-rendering the content of a page at build time rather than at request time.
-
-**NEXT (key feature)** _Simplified Routing... with file based routing_: Next.js has a built in router that allows us to define routes and map them to pages. Next.js uses the file system to map routes to pages. This means that we can create a file in the pages folder and Next.js will automatically create a route for that page.
-
-**NEXT (key feature)** _Build Fullstack Apps_: Next.js has a built in API route system that allows us to create API endpoints. Next.js API routes are serverless functions that are executed on the server. Next.js API routes are similar to express routes. Next.js API routes are defined in the pages/api folder.
-
-**Routing in Next.js**: Next.js has a built in router that allows us to define routes and map them to pages. Next.js uses the file system to map routes to pages. This means that we can create a file in the pages folder and Next.js will automatically create a route for that page.
-
-**Dynamic Routes in Next.js**: Next.js allows us to create dynamic routes. Dynamic routes are routes that can accept parameters. Next.js uses square brackets to define dynamic routes. Next.js will automatically create a route for each file in the pages folder. Next.js will also create a route for each file in the pages folder that matches the dynamic route. Next.js will pass the dynamic route parameters to the page component as props.
-
-> File naming syntax for dynamic routes: [id].js
-> **With Next.js there are 2 forms of Pre-rendering:**
-
+  **Key features of Next.js**
+  **Server Side Rendering(ssr):** is about preparing the content of a page on the server rather than on the client.
+  **SSR** allows us to render the page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
+  **Static Site Generation(ssg):** is about pre-rendering the content of a page at build time rather than at request time.
+  **NEXT (key feature)** _Simplified Routing... with file based routing_: Next.js has a built in router that allows us to define routes and map them to pages. Next.js uses the file system to map routes to pages. This means that we can create a file in the pages folder and Next.js will automatically create a route for that page.
+  **NEXT (key feature)** _Build Fullstack Apps_: Next.js has a built in API route system that allows us to create API endpoints. Next.js API routes are serverless functions that are executed on the server. Next.js API routes are similar to express routes. Next.js API routes are defined in the pages/api folder.
+  **Routing in Next.js**: Next.js has a built in router that allows us to define routes and map them to pages. Next.js uses the file system to map routes to pages. This means that we can create a file in the pages folder and Next.js will automatically create a route for that page.
+  **Dynamic Routes in Next.js**: Next.js allows us to create dynamic routes. Dynamic routes are routes that can accept parameters. Next.js uses square brackets to define dynamic routes. Next.js will automatically create a route for each file in the pages folder. Next.js will also create a route for each file in the pages folder that matches the dynamic route. Next.js will pass the dynamic route parameters to the page component as props.
+  > File naming syntax for dynamic routes: [id].js
+  > **With Next.js there are 2 forms of Pre-rendering:**
 - Static Generation
 - Server Side Rendering
-
-**Static Generation**: is about pre-rendering the content of a page at build time rather than at request time. Static Generation is the preferred method of pre-rendering pages. Static Generation is great for pages that can be pre-rendered ahead of a user's request. Static Generation is also great for pages that change infrequently. Static Generation allows us to pre-render a page at build time and serve the pre-rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
-
-**Server Side Rendering**: is about preparing the content of a page on the server rather than on the client. Server Side Rendering is great for pages that change frequently. Server Side Rendering allows us to pre-render a page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
-
-**getStaticPaths**: is a function that allows us to define the dynamic routes that should be pre-rendered at build time for getStaticProps (not needed for getServerSideProps and not needed if you're using neither)
+  **Static Generation**: is about pre-rendering the content of a page at build time rather than at request time. Static Generation is the preferred method of pre-rendering pages. Static Generation is great for pages that can be pre-rendered ahead of a user's request. Static Generation is also great for pages that change infrequently. Static Generation allows us to pre-render a page at build time and serve the pre-rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
+  **Server Side Rendering**: is about preparing the content of a page on the server rather than on the client. Server Side Rendering is great for pages that change frequently. Server Side Rendering allows us to pre-render a page on the server and send the fully rendered page to the client. This means that the client does not have to wait for the page to be rendered on the client side. This also means that search engines can index the page content.
+  **getStaticPaths**: is a function that allows us to define the dynamic routes that should be pre-rendered at build time for getStaticProps (not needed for getServerSideProps and not needed if you're using neither)
 
 ```js
 //getStaticProps is a special function that Next.js will recognize and will exicute during the pre-rendering process... it can be async meaning it can fetch data from an API.. the code in here is executed during the build process not on the client side... you always need to return an object from this function which has a props property which will be passed to the page component as an argument
-
 //similar to getStaticProps but this function is executed on the server side and not during the build process
 export async function getServerSideProps(context) {
   const req = context.req;
@@ -1751,9 +1720,7 @@ export const useStore = () => {
   };
 ```
 
-**In our custom useStore hook we have a dispatch function which makes sure whenever we call dispatch we update our global state**
-
----
+## **In our custom useStore hook we have a dispatch function which makes sure whenever we call dispatch we update our global state**
 
 ---
 
@@ -1766,21 +1733,18 @@ export const useStore = () => {
 ###### [React Testing Library Cheat Sheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
 
 > Usecase: if you have a complex react app with lots of pages and features... it's hard to test all possible combinations of scenarios manually... so you can use unit tests to test your app automatically.
-
-**Automated testing** _You write code that tests your code_
+> **Automated testing** _You write code that tests your code_
 
 ##### **Different types of tests:**
 
 - **Unit tests:** _testing the individual building blocks (functions and components) in isolation._
 - **integration tests:** _tests the combination of multiple building blocks.. projects usually contain a couple of integration tests... in react there's not much difference between a unit and integration test because most components are made of other components_
 - **End to end Tests:** _Test complete scenarios in your app as the user would experience them (i.e. logging in)... projects usually only contain a few e2e tests_
-
-> App.test.js
+  > App.test.js
 
 ```js
 import { render, screen } from "@testing-library/react";
 import App from "./App";
-
 test("renders learn react link", () => {
   render(<App />);
   const linkElement = screen.getByText(/learn react/i);
@@ -1796,8 +1760,7 @@ const linkElement = screen.getByText(/learn react/i);
 ```
 
 - the **/learn react/i** is a regular expression which means that we're looking for a text that contains the string learn react and the i at the end means that we're looking for a case insensitive match.
-
-it helps us grab the following from App.js
+  it helps us grab the following from App.js
 
 ```jsx
 <a
@@ -1815,16 +1778,14 @@ it helps us grab the following from App.js
 1. **Arrange:** _set up the test environment_
 2. **Act:** _trigger the code you want to test_
 3. **Assert:** _check if the result is what you expected_
-
-**Screen Methods**
-`screen.get` throw an error if element is not found
-`screen.querry` return null if element is not found
-`screen.find` return a promise that resolves when element is found
+   **Screen Methods**
+   `screen.get` throw an error if element is not found
+   `screen.querry` return null if element is not found
+   `screen.find` return a promise that resolves when element is found
 
 ```js
 import { render, screen } from "@testing-library/react";
 import Greeting from "./Greeting";
-
 describe("Greeting component", () => {
   test("renders Hello World! as text", () => {
     render(<Greeting />);
@@ -1842,7 +1803,6 @@ In the terminal output the describe block is a group of tests and the test block
  PASS  src/components/Greeting.test.js
   Greeting component
     √ renders Hello World! as text (79 ms)
-
 Test Suites: 1 passed, 1 total   <========Describe
 Tests:       1 passed, 1 total   <========Test
 Snapshots:   0 total
@@ -1869,27 +1829,22 @@ Ran all test suites related to changed files.
 function add(a, b) {
   return a + b;
 }
-
 const result = add(2, 5);
-
 console.log(result);
-
-
 ```
-- here javascript knows that 2 and 5 are of type number but it doesn't know what type a and b are... so it's up to the developer to make sure that the function is called with the correct arguments to it's parameters.
 
+- here javascript knows that 2 and 5 are of type number but it doesn't know what type a and b are... so it's up to the developer to make sure that the function is called with the correct arguments to it's parameters.
 
 ```js
 function add(a, b) {
   return a + b;
 }
-
 const result = add(2, 5);
 const result2 = add("2", "5");
-console.log( result );
-console.log( result2 );
-
+console.log(result);
+console.log(result2);
 ```
+
 - Here where we add the strings 2 and 5 we get the unexpected behavior of 25 because it concatenates the strings instead of adding them as numbers.
 - Typescript can not run directly in the browser... we need to compile it to javascript first.
 - To compile a specific typescript file without a typescript config file we can use the following command:
@@ -1903,37 +1858,29 @@ npx tsc <filename.ts>
 ```ts
 //Primatives (number, string, boolean, null, undefined, symbol)
 //References(Objects, Arrays, Functions)
-
 // Primatives
 let age: number;
 age = 12;
-
 let userName: string;
 userName = "Bryan";
-
 let isInstructor: boolean;
 isInstructor = true;
-
 // References
 let hobbies: string[];
 hobbies = ["Sports", "Cooking"];
-
 let person: {
   name: string;
   age: number;
 };
-
 person = {
   name: "Bryan",
   age: 27,
 };
-
 //People is an array of objects of the person type description
 let people: {
   name: string;
   age: number;
 }[];
-
 //Type Alias
 type Person = {
   name: string;
@@ -1941,39 +1888,30 @@ type Person = {
 };
 //this is an array of objects of the person type description
 let People: Person[];
-
 people = [
   {
     name: "Bryan",
     age: 27,
   },
 ];
-
 //Type inference
 let course = "React - The Complete Guide";
 //course = 12345; //Error
-
 //Union Types
 let courseUnion: string | number = "React - The Complete Guide";
 courseUnion = 12345;
-
 //Union of a string or an array of strings
 let courseUnion2: string | string[] = "React - The Complete Guide";
 courseUnion2 = ["React - The Complete Guide", "Angular - The Complete Guide"];
-
 //Functions & Types
 function addNumbers(a: number, b: number): number {
   return a + b;
 }
-
 function printOutput(value: any) {
   console.log(value);
 }
-
 printOutput(add(5, 2));
-
 //Generics
-
 function insertAtBeginning<T>(array: T[], value: T) {
   const newArray = [value, ...array];
   return newArray;
@@ -1981,93 +1919,106 @@ function insertAtBeginning<T>(array: T[], value: T) {
 const demoArray = [1, 2, 3];
 const updatedArray = insertAtBeginning(demoArray, -1); // [-1, 1, 2, 3]
 const stringArray = insertAtBeginning(["a", "b", "c"], "d"); // ['d', 'a', 'b', 'c']
-
 //the problem with the above is that it is not type safe... the following would not throw an error
 //Can't use split on a number
 // console.log(updatedArray[0].split("")); // ['-', '1']
-
 //This tells typescript that the type of the elements in the array and the value that should be added to it must be of the same type:
 //array: T[], value: T
-
 ```
-
 
 **Type Infrenece** _Typescript can infer the type of a variable based on the value assigned to it_
 
 ```ts
 //Type inference
-let course = 'React - The Complete Guide';
+let course = "React - The Complete Guide";
 //course = 12345; //Error
 ```
-
 
 **Union Types** _Typescript allows us to define a variable as a union of types_
 
 ```ts
 //Union Types
-let courseUnion: string | number = 'React - The Complete Guide';
+let courseUnion: string | number = "React - The Complete Guide";
 courseUnion = 12345;
 ```
-
 
 **Generics** _Generics allow us to create reusable components that can work with a variety of types_
 
 ```ts
 //Generics
 function insertAtBeginning<T>(array: T[], value: T) {
-    const newArray = [value, ...array];
-    return newArray;
+  const newArray = [value, ...array];
+  return newArray;
 }
 ```
 
 Generic Types ("Generics") can be tricky to wrap your head around.
-
 But indeed, we are working with them all the time - one of the most prominent examples is an array.
-
 Consider this example array:
 
-1.  let numbers = [1,  2,  3];
-
-Here, the type is inferred, but if we would assign it explicitly, we could do it like this:
-
-1.  let numbers: number[]  = [1,  2,  3];
-
-`number[]` is the TypeScript notation for saying "this is an array of numbers".
-
-But actually, `number[]` is just syntactic sugar!
-
-The actual type is `Array`. ALL arrays are of the `Array` type.
-
-BUT: Since an array type really only makes sense if we also describe the type of items in the array, `Array` actually is a generic type.
-
-You could also write the above example liks this:
-
-1.  let numbers:  Array<number>  = [1,  2,  3];
-
-Here we have the angle brackets (`<>`) again! But this time NOT to create our own type (as we did it in the previous lecture) but instead to tell TypeScript which actual type should be used for the "generic type placeholder" (`T` in the previous lecture).
-
-Just as shown in the last lecture, TypeScript would be able to infer this as well - we rely on that when we just write:
-
-1.  let numbers = [1,  2,  3];
-
-But if we want to explicitly set a type, we could do it like this:
-
-1.  let numbers:  Array<number>  = [1,  2,  3];
-
-Of course it can be a bit annoying to write this rather long and clunky type, that's why we have this alternative (syntactic sugar) for arrays:
-
-1.  let numbers: number[]  = [1,  2,  3];
-
-If we take the example from the previous lecture, we could've also set the concrete type for our placeholder `T` explicitly:
-
-1.  const stringArray = insertAtBeginning<string>(['a',  'b',  'c'],  'd');
-
-So we can not just use the angle brackets to define a generic type but also to USE a generic type and explicitly set the placeholder type that should be used - sometimes this is required if TypeScript is not able to infer the (correct) type. We'll see this later in this course section!
-
-
-**Creating a React Typescript Project** _We can create a typescript project using the create-react-app command with the --template typescript flag_
+1.  let numbers = [1, 2, 3];
+    Here, the type is inferred, but if we would assign it explicitly, we could do it like this:
+1.  let numbers: number[] = [1, 2, 3];
+    `number[]` is the TypeScript notation for saying "this is an array of numbers".
+    But actually, `number[]` is just syntactic sugar!
+    The actual type is `Array`. ALL arrays are of the `Array` type.
+    BUT: Since an array type really only makes sense if we also describe the type of items in the array, `Array` actually is a generic type.
+    You could also write the above example liks this:
+1.  let numbers: Array<number> = [1, 2, 3];
+    Here we have the angle brackets (`<>`) again! But this time NOT to create our own type (as we did it in the previous lecture) but instead to tell TypeScript which actual type should be used for the "generic type placeholder" (`T` in the previous lecture).
+    Just as shown in the last lecture, TypeScript would be able to infer this as well - we rely on that when we just write:
+1.  let numbers = [1, 2, 3];
+    But if we want to explicitly set a type, we could do it like this:
+1.  let numbers: Array<number> = [1, 2, 3];
+    Of course it can be a bit annoying to write this rather long and clunky type, that's why we have this alternative (syntactic sugar) for arrays:
+1.  let numbers: number[] = [1, 2, 3];
+    If we take the example from the previous lecture, we could've also set the concrete type for our placeholder `T` explicitly:
+1.  const stringArray = insertAtBeginning<string>(['a', 'b', 'c'], 'd');
+    So we can not just use the angle brackets to define a generic type but also to USE a generic type and explicitly set the placeholder type that should be used - sometimes this is required if TypeScript is not able to infer the (correct) type. We'll see this later in this course section!
+    **Creating a React Typescript Project** _We can create a typescript project using the create-react-app command with the --template typescript flag_
 
 ```bash
 npx create-react-app my-app --template typescript
 ```
 
+###### Prop Types in React
+
+```tsx
+import React from "react";
+const Todos: React.FC = (props) => {
+  return <ul>{}</ul>;
+};
+export default Todos;
+```
+
+**React.FC** is a type that is a generic type that takes in a generic type argument. This generic type argument is the type of props that the component will receive. It makes it clear that Todos is a function that is a _React Function Component_ that takes in a generic type argument of type _object_.
+**Three ways to create a data model with typescript**
+
+- Interface
+- type
+- class
+  **using classes**
+
+```tsx
+class Todo {
+  id: string;
+  text: string;
+  constructor(todoText: string) {
+    this.id = new Date().toISOString();
+    this.text = todoText;
+  }
+}
+export default Todo;
+```
+
+> In Javascript it would look like this:
+
+```js
+class Todo {
+  constructor(todoText: string) {
+    this.id = new Date().toISOString();
+    this.text = todoText;
+  }
+}
+export default Todo;
+```
