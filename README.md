@@ -2063,3 +2063,11 @@ If we take the example from the previous lecture, we could've also set the concr
 1.  const stringArray = insertAtBeginning<string>(['a',  'b',  'c'],  'd');
 
 So we can not just use the angle brackets to define a generic type but also to USE a generic type and explicitly set the placeholder type that should be used - sometimes this is required if TypeScript is not able to infer the (correct) type. We'll see this later in this course section!
+
+
+**Creating a React Typescript Project** _We can create a typescript project using the create-react-app command with the --template typescript flag_
+
+```bash
+npx create-react-app my-app --template typescript
+```
+
