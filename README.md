@@ -89,10 +89,9 @@ return React.createElement(
 );
 ```
 
-
----
 ---
 
+---
 
 ## Events
 
@@ -156,8 +155,6 @@ const [title, setTitle] = useState(props.title);
 - We can use the update state function (setTitle) to update the state.
   The useState hook always returns an array with these two elements.
   Now instead of using the title variable we use the state variable.
-  
-  
 - So...
 
 ```js
@@ -177,7 +174,9 @@ const clickHandler = () => {
 ```
 
 ###### Expense Item Code:
+
 > ExpenseItem.js
+
 ```js
 import React, { useState } from "react";
 import ExpenseDate from "./ExpenseDate";
@@ -237,10 +236,12 @@ const dateChangeHandler = (event) => {
 };
 ```
 
-  - ...  takes all of the properties of the userInput object and adds them to a new object. It then overwrites the enteredTitle property with the new value. This is called merging objects. It is a common pattern in react to merge objects when you want to update a state property that is an object.
+- ... takes all of the properties of the userInput object and adds them to a new object. It then overwrites the enteredTitle property with the new value. This is called merging objects. It is a common pattern in react to merge objects when you want to update a state property that is an object.
 
 ###### Single State version of Expense Form:
+
 > ExpenseForm.js
+
 ```js
 import React, { useState } from "react";
 import "./ExpenseForm.css";
@@ -360,20 +361,20 @@ const submitHandler = (event) => {
 > We can clear the data after hittin submit using the following code:
 
 ```js
-   setEnteredTitle("");
-    setEnteredAmount("");
-    setEnteredDate("");
+setEnteredTitle("");
+setEnteredAmount("");
+setEnteredDate("");
 ```
-
 
 ##### How to pass data from child to parent component:
 
 - we pass data from parent to child via props and from child to parent via function props.
--  We can pass data from child to parent via function props.We can create our own event props that expect functions as values which allows us to pass a function from a parent component to a child component and then call that function inside of the child component. When we call said function we can pass data to that function as a parameter and that data will then be passed back to the parent component.
--  props can only be passed from parent component to child and we can't skip intermediate components.
-> Let's say we want to pass expense data which we gather in the expense form component to the new expense component. We can do this by passing a function from the new expense component to the expense form component and then call that function inside of the expense form component and pass the data as a parameter to that function.
+- We can pass data from child to parent via function props.We can create our own event props that expect functions as values which allows us to pass a function from a parent component to a child component and then call that function inside of the child component. When we call said function we can pass data to that function as a parameter and that data will then be passed back to the parent component.
+- props can only be passed from parent component to child and we can't skip intermediate components.
+  > Let's say we want to pass expense data which we gather in the expense form component to the new expense component. We can do this by passing a function from the new expense component to the expense form component and then call that function inside of the expense form component and pass the data as a parameter to that function.
 
 > NewExpense.js
+
 ```js
 import React from "react";
 import "./NewExpense.css";
@@ -404,11 +405,11 @@ export default NewExpense;
 ##### Keys in Lists:
 
 - Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
-> A “key” is a special string attribute you need to include when creating lists of elements in React. 
 
-- Keys are used in React to identify which items in the list are changed, updated, or deleted. 
-> In other words, we can say that keys are used to give an identity to the elements in the lists. The next thing that comes to mind is that what should be good to be chosen as key for the items in lists. It is recommended to use a string as a key that uniquely identifies the items in the list. 
+  > A “key” is a special string attribute you need to include when creating lists of elements in React.
 
+- Keys are used in React to identify which items in the list are changed, updated, or deleted.
+  > In other words, we can say that keys are used to give an identity to the elements in the lists. The next thing that comes to mind is that what should be good to be chosen as key for the items in lists. It is recommended to use a string as a key that uniquely identifies the items in the list.
 
 _Below example shows a list with string keys:_
 
@@ -434,9 +435,10 @@ Assigning indexes as keys are highly discouraged because if the elements of the 
 
 - Consider a situation where you have created a separate component for list items and you are extracting list items from that component. In that case, you will have to assign keys to the component you are returning from the iterator and not to the list items. That is you should assign keys to \<Component /> and not to \<li> A good practice to avoid mistakes is to keep in mind that anything you are returning from inside of the map() function is needed to be assigned key.
 
-
 **Below code shows incorrect usage of keys:**
+
 > MenuItems.js (incorrect usage of keys)
+
 ```js
 import React from "react";
 import ReactDOM from "react-dom";
@@ -464,13 +466,12 @@ ReactDOM.render(
 **Output:**
 ![incorrect use of keys](https://media.geeksforgeeks.org/wp-content/uploads/incorrect.png)
 
-
 > You can see in the above output that the list is rendered successfully but a warning is thrown to the console that the elements inside the iterator are not assigned *keys*. This is because we had not assigned *key* to the elements we are returning to the map() iterator.
-
 
 **Below example shows correct usage of keys:**
 
 > MenuItems.js (correct usage of keys)
+
 ```js
 import React from "react";
 import ReactDOM from "react-dom";
@@ -495,10 +496,9 @@ ReactDOM.render(
 );
 ```
 
-
----
 ---
 
+---
 
 #### Dynamic Styling in React:
 
@@ -546,7 +546,8 @@ for (let pet of pets) {
 ### Styling React Components:
 
 - Using dynamic styles in styled-components:
-> FormControl.js
+  > FormControl.js
+
 ```jsx
 import React, { useState } from "react";
 import Button from "../../UI/Button/Button";
@@ -585,9 +586,10 @@ const FormControl = styled.div`
 `;
 ```
 
+---
 
 ---
----
+
 ## Debugging React Apps:
 
 ##### Common Errors:
@@ -595,10 +597,9 @@ const FormControl = styled.div`
 - **Adjacent JSX elements must be wrapped in an enclosing tag.** - This error occurs when you try to return multiple elements from a component. You can fix this by wrapping the elements in a div or a React Fragment.
 - **FunctionName is not defined** - This error occurs when you try to use a function before it is defined. You can fix this by moving the function above the line where it is used.
 
-
----
 ---
 
+---
 
 ### React Practice Project Tips:
 
@@ -607,6 +608,7 @@ const FormControl = styled.div`
 - _for input elements add the value prop to reflect the current state... use the current state from useState for the value._
 
 ---
+
 ---
 
 ## Fragments Portals & Refs:
@@ -673,6 +675,7 @@ return (
 ### React Refs:
 
 **Refs** - Refs provide a way to access DOM nodes or React elements created in the render method.
+
 > AddUser.js
 
 ```jsx
@@ -762,6 +765,7 @@ export default AddUser;
 **Uncontrolled Components** - Use refs to interact with access DOM nodes or React elements created in the render method. They are uncontrolled because their internal state is not controlled by react. They are controlled by the DOM... we just use react refs to fetch the data from the DOM.
 
 ---
+
 ---
 
 ## Effects Reducers & Context:
@@ -867,7 +871,9 @@ const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
 - initFn is a function to set the initial state programatically. It is optional and it is rarely used.
 
 #### Login Form with useState();
+
 > Login.js
+
 ```jsx
 import React, { useState, useEffect, useReducer } from "react";
 import Card from "../UI/Card/Card";
@@ -1145,7 +1151,7 @@ Because now the **effect function would re-run whenever ANY property** of `s
 #### useState vs. useReducer:
 
 | useState                                      | useReducer                                           |
-|-----------------------------------------------|------------------------------------------------------|
+| --------------------------------------------- | ---------------------------------------------------- |
 | the main state managment tool                 | need more power (complex state like objects)         |
 | great for independent pieces of state         | use if you have state that is related to other state |
 | great for if state updates are simple and few |                                                      |
@@ -1284,10 +1290,9 @@ export default Modal;
 
 - bear in mind that in this example we added a div with the id of "overlays" in the index.html file.
 
-
----
 ---
 
+---
 
 ### How React Works Under The Hood (Optimizations)
 
@@ -1385,10 +1390,9 @@ export default React.memo(DemoOutput);
 
 - when you call a state updating function i.e. `setSomething('new state value'')` react will not immediately update the state and re-evaluate the component tree... Instead it will schedule a state update with the provided data.
 
-
----
 ---
 
+---
 
 ### Talking to a Database via HTTP:
 
@@ -1408,10 +1412,9 @@ function fetchMoviesHandler() {
 
 - fetch returns a promise which allows us to respond to the response of the request or any errors that might occur if the request fails.
 
-
----
 ---
 
+---
 
 ### Custom Hooks:
 
@@ -1463,17 +1466,15 @@ const ForwardCounter = () => {
 export default ForwardCounter;
 ```
 
-
----
 ---
 
+---
 
 ### Working with Forms & User Input:
 
-
----
 ---
 
+---
 
 ## Redux
 
@@ -1503,10 +1504,9 @@ export default ForwardCounter;
 - Redux forwards actions to the reducer function and the reducer function returns a new state
 - Once state is updated sucribing components are notified of the change in state.
 
-
----
 ---
 
+---
 
 ### Advanced Redux
 
@@ -1550,7 +1550,7 @@ const Cart = ( props ) => {
 > A thunk is a function that wraps an expression to delay its evaluation.
 > Thunks are typically used to delay the evaluation of an expression until its results are needed, such as the dispatching of an action, or the calculation of derived data.
 
- _It is an action creator function that does not return the action it's self but another function which eventually returns the action_
+_It is an action creator function that does not return the action it's self but another function which eventually returns the action_
 
 ---
 
@@ -1589,10 +1589,9 @@ export default NewsletterSignup;
 
 **In the code above useFetcher is the hook you should use if you want to trigger an action or loader without navigating to a different route"**
 
-
----
 ---
 
+---
 
 ## Authentication
 
@@ -1609,10 +1608,9 @@ export default NewsletterSignup;
 
 - Query parameters are appended to the url after a question mark
 
-
----
 ---
 
+---
 
 ## Next.js
 
@@ -1683,19 +1681,17 @@ const meetups = await meetupsCollection.find();
 
 #### [Deployed Website](https://react-complete-guide-course-8n0h3sfbz-bgoonz.vercel.app/)
 
-
----
 ---
 
+---
 
 ## Animating React Apps:
 
 ###### [React Transition Group](https://github.com/reactjs/react-transition-group)
 
-
----
 ---
 
+---
 
 ## Replacing Redux with Custom Hooks:
 
@@ -1757,10 +1753,9 @@ export const useStore = () => {
 
 **In our custom useStore hook we have a dispatch function which makes sure whenever we call dispatch we update our global state**
 
-
----
 ---
 
+---
 
 ## Unit Testing React Apps:
 
@@ -1780,7 +1775,6 @@ export const useStore = () => {
 - **integration tests:** _tests the combination of multiple building blocks.. projects usually contain a couple of integration tests... in react there's not much difference between a unit and integration test because most components are made of other components_
 - **End to end Tests:** _Test complete scenarios in your app as the user would experience them (i.e. logging in)... projects usually only contain a few e2e tests_
 
-
 > App.test.js
 
 ```js
@@ -1796,35 +1790,36 @@ test("renders learn react link", () => {
 
 > **render** is a function that comes from the testing library and it allows us to render a react component and it returns a bunch of utility functions that we can use to interact with the rendered component.
 > screen.getByText is a function that allows us to get a reference to an element on the page by its text content.
+
 ```js
-  const linkElement = screen.getByText(/learn react/i);
+const linkElement = screen.getByText(/learn react/i);
 ```
+
 - the **/learn react/i** is a regular expression which means that we're looking for a text that contains the string learn react and the i at the end means that we're looking for a case insensitive match.
 
 it helps us grab the following from App.js
+
 ```jsx
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+<a
+  className="App-link"
+  href="https://reactjs.org"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Learn React
+</a>
 ```
 
-
 ###### How to write a test... 3 A's:
+
 1. **Arrange:** _set up the test environment_
 2. **Act:** _trigger the code you want to test_
 3. **Assert:** _check if the result is what you expected_
-
 
 **Screen Methods**
 `screen.get` throw an error if element is not found
 `screen.querry` return null if element is not found
 `screen.find` return a promise that resolves when element is found
-
 
 ```js
 import { render, screen } from "@testing-library/react";
@@ -1839,7 +1834,6 @@ describe("Greeting component", () => {
     expect(helloWorldElement).toBeInTheDocument();
   });
 });
-
 ```
 
 In the terminal output the describe block is a group of tests and the test block is a single test.
@@ -1855,3 +1849,31 @@ Snapshots:   0 total
 Time:        3.495 s
 Ran all test suites related to changed files.
 ```
+
+---
+
+---
+
+## React & Typescript:
+
+###### [Typescript](https://www.typescriptlang.org/)
+
+**Typescript is a superset of javascript**
+
+> Typescript adds static typing to javascript
+
+- Javascript is a dynamically typed language, this means a javascript function does not expect a certain type for arguments to it's parameters...
+- For Example:
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+const result = add(2, 5);
+
+console.log(result);
+
+
+```
+- here javascript knows that 2 and 5 are of type number but it doesn't know what type a and b are... so it's up to the developer to make sure that the function is called with the correct arguments to it's parameters.
