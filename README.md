@@ -1890,4 +1890,10 @@ console.log( result );
 console.log( result2 );
 
 ```
-- Here where we add the strings 2 and 5 we get the unexpected behavior of 25 because it concatenates the strings instead of adding them as numbers
+- Here where we add the strings 2 and 5 we get the unexpected behavior of 25 because it concatenates the strings instead of adding them as numbers.
+- Typescript can not run directly in the browser... we need to compile it to javascript first.
+- To compile a specific typescript file without a typescript config file we can use the following command:
+
+```bash
+npx tsc <filename.ts>
+```
