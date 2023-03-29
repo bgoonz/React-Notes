@@ -44,3 +44,17 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+###### Prop Types in React
+
+```tsx
+import React from "react";
+
+const Todos: React.FC = (props) => {
+  return <ul>{}</ul>;
+};
+
+export default Todos;
+```
+
+**React.FC** is a type that is a generic type that takes in a generic type argument. This generic type argument is the type of props that the component will receive. It makes it clear that Todos is a function that is a _React Function Component_ that takes in a generic type argument of type _object_.
