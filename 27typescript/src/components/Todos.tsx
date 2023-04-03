@@ -10,4 +10,6 @@ const Todos: React.FC<{ items: Todo[] }> = (props) => {
   );
 };
 
+/*this is a comment*/
+
 export default Todos;
