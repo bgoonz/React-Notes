@@ -10,9 +10,7 @@ function App() {
   ];
   return (
     <div>
-      <Todos
-        items={todos}
-      />
+      <Todos items={todos} />
     </div>
   );
 }
