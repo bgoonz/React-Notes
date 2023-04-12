@@ -10,7 +10,7 @@
 
 
 <details>
-<summary>General React Notes</summary>
+<summary>General React Notes (Click to Expand)</summary>
 
 
 
